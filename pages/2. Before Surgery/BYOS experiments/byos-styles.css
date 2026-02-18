@@ -1,0 +1,203 @@
+/* Styling for toggle switch (not functional yet) */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 63px;
+    height: 14px;
+    padding-bottom: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #9b5248;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #757b80;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider:after {
+    content: 'OFF';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 70%;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider:after {
+    content: 'ON';
+    left: 30%;
+}
+
+/* Styling for text over images */
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container img {
+    width: 50%
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 330px;
+    color: black;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 330px;
+    color: black;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 330px;
+    color: black;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 330px;
+    color: black;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+/* Two images with different text */
+
+.moveable-text {
+    display: flex;
+}
+
+.left-image {
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background: white;
+    padding: 24px;
+}
+
+/* Container holding the image and the text */
+.container2 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container2 img {
+    width: 50%
+}
+
+/* Bottom left text */
+.bottom-left2 {
+    position: absolute;
+    bottom: 8px;
+    left: 170px;
+    color: black;
+}
+
+/* Top left text */
+.top-left2 {
+    position: absolute;
+    top: 8px;
+    left: 170px;
+    color: black;
+}
+
+/* Top right text */
+.top-right2 {
+    position: absolute;
+    top: 8px;
+    right: 170px;
+    color: black;
+}
+
+/* Bottom right text */
+.bottom-right2 {
+    position: absolute;
+    bottom: 8px;
+    right: 170px;
+    color: black;
+}
+
+/* Centered text */
+.centered2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
