@@ -97,32 +97,32 @@ input:checked+.slider:after {
 /* Bottom left text */
 .bottom-left {
     position: absolute;
-    bottom: 8px;
-    left: 330px;
+    bottom: 2%;
+    left: 26%;
     color: black;
 }
 
 /* Top left text */
 .top-left {
     position: absolute;
-    top: 8px;
-    left: 330px;
+    top: 2%;
+    left: 26%;
     color: black;
 }
 
 /* Top right text */
 .top-right {
     position: absolute;
-    top: 8px;
-    right: 330px;
+    top: 2%;
+    right: 26%;
     color: black;
 }
 
 /* Bottom right text */
 .bottom-right {
     position: absolute;
-    bottom: 8px;
-    right: 330px;
+    bottom: 2%;
+    right: 26%;
     color: black;
 }
 
@@ -137,18 +137,22 @@ input:checked+.slider:after {
 
 /* Two images with different text */
 
+/* two-column layout */
 .moveable-text {
     display: flex;
 }
 
+/* formatting left column */
 .left-image {
     left: 0;
     top: 0;
     width: 50%;
-    height: 100vh;
+    height: 50vh;
     background: white;
     padding: 24px;
 }
+
+/* Image on left */
 
 /* Container holding the image and the text */
 .container2 {
@@ -158,38 +162,38 @@ input:checked+.slider:after {
 }
 
 .container2 img {
-    width: 50%
+    width: 100%
 }
 
 /* Bottom left text */
 .bottom-left2 {
     position: absolute;
-    bottom: 8px;
-    left: 170px;
+    bottom: 2%;
+    left: 2%;
     color: black;
 }
 
 /* Top left text */
 .top-left2 {
     position: absolute;
-    top: 8px;
-    left: 170px;
+    top: 2%;
+    left: 2%;
     color: black;
 }
 
 /* Top right text */
 .top-right2 {
     position: absolute;
-    top: 8px;
-    right: 170px;
+    top: 2%;
+    right: 2%;
     color: black;
 }
 
 /* Bottom right text */
 .bottom-right2 {
     position: absolute;
-    bottom: 8px;
-    right: 170px;
+    bottom: 2%;
+    right: 2%;
     color: black;
 }
 
@@ -200,4 +204,210 @@ input:checked+.slider:after {
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
+}
+
+/* Image on right */
+
+/* right column layout */
+.right-image {
+    width: 100%;
+    padding: 24px;
+}
+
+/* Container holding the image and the text */
+.container3 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container3 img {
+    width: 50%
+}
+
+/* Neophallus label */
+.phallus-text {
+    position: absolute;
+    bottom: 40%;
+    left: 30%;
+    color: black;
+}
+
+/* Urethra label */
+.urethra-text {
+    position: absolute;
+    top: 64%;
+    left: 30%;
+    color: black;
+}
+
+/* Implant label */
+.implant-text {
+    position: absolute;
+    top: 68%;
+    right: 42%;
+    color: black;
+}
+
+/* Vagina label */
+.vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 36%;
+    color: black;
+}
+
+/* Bladder label */
+.bladder-text {
+    position: absolute;
+    top: 35%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+}
+
+/* Label styling */
+.label-text {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50px;
+    border: 1% solid black;
+}
+
+/* Adding background to labels */
+.container4 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container4 img {
+    width: 100%
+}
+
+/* Test label for label background */
+.test-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Box around label */
+.label-container1 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    border: 0.1vw solid black;
+    background-color: white;
+    width: 13%;
+    height: 7%;
+    border-radius: 20%;
+}
+
+.container5 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container5 img {
+    width: 50%
+}
+
+/* Test label for label background */
+.test-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Box around label */
+.label-container1 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    border: 0.1vw solid black;
+    background-color: white;
+    width: 13%;
+    height: 7%;
+}
+
+/* Image with placed and styled labels */
+
+/* Neophallus label */
+.container5 .phallus-text {
+    position: absolute;
+    bottom: 40%;
+    left: 30%;
+    color: black;
+    width: 6.5%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+}
+
+/* Urethra label */
+.container5 .urethra-text {
+    position: absolute;
+    top: 64%;
+    left: 30%;
+    color: black;
+    width: 6.5%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+}
+
+/* Implant label */
+.container5 .implant-text {
+    position: absolute;
+    top: 68%;
+    right: 40%;
+    color: black;
+    width: 14%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+}
+
+/* Vagina label */
+.container5 .vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 34%;
+    color: black;
+    width: 13%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+}
+
+/* Bladder label */
+.container5 .bladder-text {
+    position: absolute;
+    top: 32%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+    width: 7.5%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
 }
