@@ -50,9 +50,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(27.5px);
+    -ms-transform: translateX(27.5px);
+    transform: translateX(27.5px);
 }
 
 /* Rounded sliders */
@@ -211,7 +211,7 @@ input:checked+.slider:after {
 /* right column layout */
 .right-image {
     width: 100%;
-    padding: 24px;
+    padding: 5%;
 }
 
 /* Container holding the image and the text */
@@ -327,7 +327,7 @@ input:checked+.slider:after {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Box around label */
+/* Box around label https://stackoverflow.com/questions/4154177/css-boxtext-over-image */
 .label-container1 {
     position: absolute;
     top: 40%;
@@ -410,4 +410,365 @@ input:checked+.slider:after {
     border: 0.1vw solid rgb(0, 0, 0);
     padding: .4%;
     border-radius: 6px;
+}
+
+.toggleText {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 50%;
+}
+
+.toggleLayout {
+    display: flex;
+    grid-template-columns: 2;
+    margin: 2%;
+    padding-bottom: 5%;
+}
+
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+/* Hippocampus text */
+.hippocamp-text {
+    position: absolute;
+    bottom: 150px;
+    left: 220px;
+}
+
+/* Hippocampus box */
+.img-overlay-wrap {
+    position: relative;
+    display: inline-block;
+    /* <= shrinks container to image size */
+    transition: transform 150ms ease-in-out;
+}
+
+.img-overlay-wrap svg {
+    position: absolute;
+    bottom: 40px;
+    left: 198px;
+}
+
+/* New image for toggling labels - larger */ 
+.container6 {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 5%;
+}
+
+.container6 img {
+    size: 70%;
+    border: solid 0.2vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+/* Larger image with placed and styled labels */
+
+/* Neophallus label */
+.container6 .phallus-text {
+    position: absolute;
+    bottom: 42%;
+    left: 32%;
+    color: black;
+    width: 4%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Urethra label */
+.container6 .urethra-text {
+    position: absolute;
+    top: 60%;
+    left: 31%;
+    color: black;
+    width: 4%;
+    height: 3%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Implant label */
+.container6 .implant-text {
+    position: absolute;
+    top: 68%;
+    right: 47%;
+    color: black;
+    width: 9%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Vagina label */
+.container6 .vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 40%;
+    color: black;
+    width: 8%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bladder label */
+.container6 .bladder-text {
+    position: absolute;
+    top: 32%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+    width: 5%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden-text {
+    display: none;
+}
+
+.phallus-text-test {
+    color: black;
+    width: 4%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.third-test-button {
+    margin: 5%;
+}
+
+/* New image for toggling labels - larger */ 
+.container7 {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 5%;
+}
+
+.container7 img {
+    size: 70%;
+    border: solid 0.2vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+/* Image for test button 3 */
+
+/* Neophallus label */
+.container7 .phallus-text {
+    position: absolute;
+    bottom: 42%;
+    left: 32%;
+    color: black;
+    width: 4%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Urethra label */
+.container7 .urethra-text {
+    position: absolute;
+    top: 60%;
+    left: 31%;
+    color: black;
+    width: 4%;
+    height: 3%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Implant label */
+.container7 .implant-text {
+    position: absolute;
+    top: 68%;
+    right: 47%;
+    color: black;
+    width: 9%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Vagina label */
+.container7 .vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 40%;
+    color: black;
+    width: 8%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bladder label */
+.container7 .bladder-text {
+    position: absolute;
+    top: 32%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+    width: 5%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Testing button with real labels */
+.test3-labels-class {
+    display: none;
+}
+
+/* After creating functional button, applying same functionality to toggle */ 
+.container8 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container8 img {
+    size: 70%;
+    border: solid 0.2vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+/* Neophallus label */
+.container8 .phallus-text {
+    position: absolute;
+    bottom: 42%;
+    left: 32%;
+    color: black;
+    width: 4%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Urethra label */
+.container8 .urethra-text {
+    position: absolute;
+    top: 60%;
+    left: 31%;
+    color: black;
+    width: 4%;
+    height: 3%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Implant label */
+.container8 .implant-text {
+    position: absolute;
+    top: 68%;
+    right: 47%;
+    color: black;
+    width: 9%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Vagina label */
+.container8 .vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 40%;
+    color: black;
+    width: 8%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bladder label */
+.container8 .bladder-text {
+    position: absolute;
+    top: 32%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+    width: 5%;
+    height: 3.5%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: .4%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hide labels for toggle1 */
+.toggle-test1-labels-class {
+    display: none;
+}
+
+/* box around test switch 1 */
+.switch-container {
+    padding: 10%
 }
