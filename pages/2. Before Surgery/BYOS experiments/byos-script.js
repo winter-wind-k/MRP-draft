@@ -45,3 +45,49 @@ if (test1Toggle && test1Labels) {
     test1Toggle.addEventListener("change", syncTest1Labels);
     syncTest1Labels();
 }
+
+
+// declaring variables for new buttons
+const visuals = document.querySelectorAll(".visual");
+
+function setActiveVisual(visualNumber) {
+    visuals.forEach(v => v.classList.remove("active"));
+
+
+    const target = document.getElementById("visual-" + visualNumber);
+    if (target) target.classList.add("active");
+}
+
+
+//button function with inline js (for now)
+//works but only in one direction lol
+function changeImageTest1() {
+    let img = document.getElementById("light-skin-test1");
+    img.src = "images/VT_image2_003.jpg";
+}
+
+//function for both buttons but not inline js
+const startingImage = document.getElementById("light-skin-test3");
+const lightButtonTest3 = document.getElementById("light-btn");
+const darkButtonTest3 = document.getElementById("dark-btn");
+
+lightButtonTest3.addEventListener("click", function() {
+    startingImage.src = "images/sag_skinTone1_001.jpg";
+});
+
+darkButtonTest3.addEventListener("click", function() {
+    startingImage.src = "images/VT_image2_003.jpg";
+})
+
+//adding image change to labeled image
+const startingLabeledImage = document.getElementById("starting-labeled-image");
+const lightButtonLabels = document.getElementById("light-btn-with-labels");
+const darkButtonLabels = document.getElementById("dark-btn-with-labels");
+
+lightButtonLabels.addEventListener("click", function() {
+    startingLabeledImage.src = "images/sag_skinTone1_001.jpg";
+});
+
+darkButtonLabels.addEventListener("click", function() {
+    startingLabeledImage.src = "images/VT_image2_003.jpg";
+})

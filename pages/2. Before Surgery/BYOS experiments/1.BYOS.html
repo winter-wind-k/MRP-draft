@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="byos-styles.css">
+    <script defer src=".../script.js"></script>
 </head>
 
 <body>
+    <div data-include="../components/header.html"></div>
 
     <div>
         <h1>BYOS tool functionality</h1>
@@ -184,21 +186,31 @@ incl. original image and label, which also was not functional.-->
         <p>Task 4: Toggle shows and hides labels</p>
     </div>
 
-    <div class="toggleLayout">
-        <div class="label-toggle-wrap">
-            <span class="toggleText">Labels</span>
-            <div class="switch-container">
-                <label class="switch">
-                    <input type="checkbox" id="switch-test-1" checked>
-                    <!--moving id made the switch functional-->
-                    <span class="slider round"></span>
-                </label>
+    <div class="buttons-layout">
+
+        <div class="toggleLayout">
+            <div class="label-toggle-wrap">
+                <span class="toggleText">Labels</span>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" id="switch-test-1" checked>
+                        <!--moving id made the switch functional-->
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
         </div>
+
+        <div class="button-container-with-labels">
+            <button class="light-skin-button-class" id="light-btn-with-labels">&ZeroWidthSpace;</button>
+            <button class="dark-skin-button-class" id="dark-btn-with-labels">&ZeroWidthSpace;</button>
+        </div>
+
     </div>
 
     <div class="container8">
-        <img src="images/VT_image2_003.jpg" alt="sagittal section of pelvis anatomy" width="50%">
+        <img src="images/VT_image2_003.jpg" alt="sagittal section of pelvis anatomy" width="50%"
+            id="starting-labeled-image">
         <div style="font-size:1vw">
             <div id="toggle-test1-labels" class="toggle-test1-labels-class">
                 <div class="phallus-text">Phallus</div>
@@ -210,6 +222,93 @@ incl. original image and label, which also was not functional.-->
         </div>
     </div>
 
+    <div>
+        <p>Task 5: Buttons for skin tones and image stack</p>
+    </div>
+
+    <p>Attmept 1: circles</p>
+    <!--did not work-->
+    <div class="button-container">
+        <div><span class="light-skin-button-class" id="light-btn-fail"></span></div>
+        <div><span class="dark-skin-button-class" id="dark-btn-fail"></span></div>
+    </div>
+
+    <p>Attempt 2: rounded buttons</p>
+    <!--https://www.w3schools.com/howto/howto_css_round_buttons.asp-->
+    <div class="button-container">
+        <button class="light-skin-button-class">&ZeroWidthSpace;</button>
+        <button class="dark-skin-button-class">&ZeroWidthSpace;</button>
+        <!--https://stackoverflow.com/questions/36686337/html-button-without-text-rendered-not-like-with-text-->
+    </div>
+
+    <p>Task 6: clicking button shows corresponding image</p>
+
+    <!--inline js for now to follow tutorial-->
+    <div>
+        <div class="test1-images-container">
+            <img src="images/sag_skinTone1_001.jpg" alt="sagittal cut pelvis with light skin" class="test-1-images"
+                id="light-skin-test1">
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="light-skin-button-class" id="light-btn-1">&ZeroWidthSpace;</button>
+        <button onclick="changeImageTest1()" class="dark-skin-button-class" id="dark-btn-1">&ZeroWidthSpace;</button>
+    </div>
+
+    <p>Making both buttons functional</p>
+
+    <div>
+        <div class="test1-images-container">
+            <img src="images/sag_skinTone1_001.jpg" alt="sagittal cut pelvis with light skin" class="test-1-images"
+                id="light-skin-test2">
+        </div>
+    </div>
+
+    <!--these buttons work!-->
+    <!--troubleshooting: i was a fool who thought "imageSrc" had to be replaced with the source link-->
+    <div class="button-container">
+        <button onclick="setImage('images/sag_skinTone1_001.jpg')"
+            class="light-skin-button-class">&ZeroWidthSpace;</button>
+        <button onclick="setImage('images/VT_image2_003.jpg')" class="dark-skin-button-class">&ZeroWidthSpace;</button>
+    </div>
+
+    <script>
+        function setImage(imageSrc) {
+            document.getElementById("light-skin-test2").src = imageSrc;
+        }
+    </script>
+
+    <div>
+        <div class="test1-images-container">
+            <img src="images/sag_skinTone1_001.jpg" alt="sagittal cut pelvis with light skin" class="test-1-images"
+                id="light-skin-test3">
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="light-skin-button-class" id="light-btn">&ZeroWidthSpace;</button>
+        <button class="dark-skin-button-class" id="dark-btn">&ZeroWidthSpace;</button>
+    </div>
+
+
+    <!--can't get functions to work on stacked images-->
+    <div class="visual-stack-container">
+        <div class="visual-stack-sagittal">
+
+            <div class="visual-active" id="visual-1">
+                <div class="image-stage">
+                    <img class="main-image" src="images/sag_skinTone1_001.jpg"
+                        alt="sagittal cut pelvis with light skin" />
+                </div>
+            </div>
+
+            <div class="visual" id="visual-2">
+                <img src="images/VT_image2_003.jpg" alt="sagittal cut pelvis with dark skin" />
+            </div>
+
+        </div>
+    </div>
 
     <script src="../BYOS experiments/byos-script.js"></script>
 

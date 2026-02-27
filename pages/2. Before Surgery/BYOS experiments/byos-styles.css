@@ -1,3 +1,187 @@
+/* header color 627773 */
+
+/* Header Styling */
+header {
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Styling */
+.logo h1 {
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding-bottom: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects for Navigation Links */
+.nav-links a:hover {
+    color: #d5bee0;
+}
+
+/* Active/Current Page Styling */
+.nav-links a.active {
+    color: #d5bee0;
+    font-weight: 600;
+}
+
+/* Enhanced Header Styling */
+header {
+    background-color: 627773;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve spacing and readability */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* On smaller screens, reduce gap */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgb(84, 123, 118);
+    color: #ecf0f1;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.footer-section p:hover {
+    color: #d5bee0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #d5bee0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(236, 240, 241, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 400px);
+    text-align: center;
+}
+
+/* Ensures content doesn't touch edges on small screens */
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+
+    footer {
+        padding: 2rem 1rem 1rem;
+    }
+}
+
 /* Styling for toggle switch (not functional yet) */
 
 /* The switch - the box around the slider */
@@ -42,7 +226,7 @@
 }
 
 input:checked+.slider {
-    background-color: #9b5248;
+    background-color: #627773;
 }
 
 input:focus+.slider {
@@ -211,7 +395,7 @@ input:checked+.slider:after {
 /* right column layout */
 .right-image {
     width: 100%;
-    padding: 5%;
+    padding: 2%;
 }
 
 /* Container holding the image and the text */
@@ -453,7 +637,7 @@ input:checked+.slider:after {
     left: 198px;
 }
 
-/* New image for toggling labels - larger */ 
+/* New image for toggling labels - larger */
 .container6 {
     position: relative;
     text-align: center;
@@ -573,7 +757,7 @@ input:checked+.slider:after {
     margin: 5%;
 }
 
-/* New image for toggling labels - larger */ 
+/* New image for toggling labels - larger */
 .container7 {
     position: relative;
     text-align: center;
@@ -672,7 +856,7 @@ input:checked+.slider:after {
     display: none;
 }
 
-/* After creating functional button, applying same functionality to toggle */ 
+/* After creating functional button, applying same functionality to toggle */
 .container8 {
     position: relative;
     text-align: center;
@@ -771,4 +955,100 @@ input:checked+.slider:after {
 /* box around test switch 1 */
 .switch-container {
     padding: 10%
+}
+
+
+/*buttons and styling */
+
+.light-skin-button-class {
+    height: 50px;
+    width: 50px;
+    background-color: #ebdbd7;
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+}
+
+.dark-skin-button-class {
+    height: 50px;
+    width: 50px;
+    background-color: #5b340f;
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+}
+
+/* layout of 2 buttons */
+
+.button-container {
+    display: flex;
+    padding: 2%;
+    gap: 5%;
+    border: solid 0.1vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+    width: fit-content;
+    margin: auto
+        /* this centers an element horizontally */
+}
+
+/* image stack */
+
+.visual-stack-container {
+    position: relative;
+    text-align: center;
+    margin: 3%;
+}
+
+.visual-stack-container img {
+    width: 50%;
+    border: solid 0.2vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+
+
+/* Each visual sits on top of each other */
+.visual {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* The active one shows */
+.visual.active {
+    opacity: 1;
+}
+
+.test1-images-container {
+    position: relative;
+    text-align: center;
+    margin: 3%;
+}
+
+.test-1-images {
+    width: 50%;
+    border: solid 0.2vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+.button-container-with-labels {
+    display: flex;
+    gap: 5%;
+    border: solid 0.1vw rgb(172, 172, 172);
+    padding: 1.5vw;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.buttons-layout {
+    display: flex;
+    columns: 2;
 }
