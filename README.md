@@ -1,1 +1,1 @@
-https://github.com/winter-wind-k/MRP-draft.git
+https://winter-wind-k.github.io/MRP-draft/
