@@ -71,11 +71,11 @@ const startingImage = document.getElementById("light-skin-test3");
 const lightButtonTest3 = document.getElementById("light-btn");
 const darkButtonTest3 = document.getElementById("dark-btn");
 
-lightButtonTest3.addEventListener("click", function() {
+lightButtonTest3.addEventListener("click", function () {
     startingImage.src = "images/sag_skinTone1_001.jpg";
 });
 
-darkButtonTest3.addEventListener("click", function() {
+darkButtonTest3.addEventListener("click", function () {
     startingImage.src = "images/VT_image2_003.jpg";
 })
 
@@ -84,10 +84,50 @@ const startingLabeledImage = document.getElementById("starting-labeled-image");
 const lightButtonLabels = document.getElementById("light-btn-with-labels");
 const darkButtonLabels = document.getElementById("dark-btn-with-labels");
 
-lightButtonLabels.addEventListener("click", function() {
+lightButtonLabels.addEventListener("click", function () {
     startingLabeledImage.src = "images/sag_skinTone1_001.jpg";
 });
 
-darkButtonLabels.addEventListener("click", function() {
+darkButtonLabels.addEventListener("click", function () {
     startingLabeledImage.src = "images/VT_image2_003.jpg";
 })
+
+// blur image function
+// const blurImageTest = document.querySelector('blur-image-test');
+//blurImageTest.addEventListener('click', toggleBlur);
+
+//function toggleBlur() {
+//this.classList.toggle('blur');
+//}
+
+//const img = document.querySelector('img');
+// const blurButton = document.querySelector('blur-button-test')
+
+//img.addEventListener('click', toggleBlur);
+
+// function toggleBlur() {
+//this.classList.toggle('blur');
+//}
+
+//const blurImageTest = document.querySelector("#blur-image-test")
+// const blurButton = document.querySelector("#blur-button-test")
+
+//function toggleBlur() {
+//blurImageTest.classList.toggle("blur-image-test");
+//}
+
+//blurButton.addEventListener("click", toggleBlur)
+
+//const blurButton = document.querySelector("blur-button-test")
+//blurButton.addEventListener("click", () => {
+//document.body.classList.add(".blur")
+//})
+
+const blurImage = document.querySelector("blur-image-test");
+const blurButton = document.querySelector("blur-button-test")
+
+function toggleBlur() {
+    blurImage.classList.toggle("blur");
+}
+
+blurButton.addEventListener("click", toggleBlur);
