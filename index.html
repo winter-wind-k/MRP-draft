@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages/components/styles_components.css">
+    <link rel="icon" href="images/favicon.png">
+    <script defer src="JS files/include.js"></script>
     <title>Home</title>
 </head>
 <body>
-    <header>
-    <nav>
-        <div class="logo">
-        <h1>MetaMorphosis</h1>
-        </div>
+<div data-include="../pages/components/header.html"></div>
+<div class="menu">
+    <div data-include="../pages/components/menu.html"></div>
+</div>
 
-        <ul class="nav-links">
-        <li><a href="index.html">Before Surgery</a></li>
-        <li><a href="pages/about.html">During Surgery</a></li>
-        <li><a href="pages/about.html">After Surgery</a></li>
-        <li><a href="pages/about.html">Glossary</a></li>
-        <li><a href="pages/about.html">More Resources</a></li>
-        </ul>
-    </nav>
-</header>
-
-    <main>
+<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
+<div id="main">
+  <main>
         <p>Hello, world!</p>
     </main>
-    
+</div>
+  
+
+<div data-include="../pages/components/footer.html"></div>
+    <script src="/JS files/include.js"></script>
 </body>
+
 </html>

@@ -1,10 +1,60 @@
-<header>
-    <!---Not working yet!-->
-    <!--Add svg of logo here-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles_components.css">
+    <title>header</title>
+
+</head>
+
+<body>
+       <!---Not working yet!-->
+    <header>
     <nav>
         <div class="logo">
-            <h1>MetaMorphosis</h1>
+          <a href="/index.html">
+          <img src="/images/metamorphosis_logo.svg" alt="Home button"/></a>
+        </div>
+
+        <div class="header-buttons">
+        <div class="toggle-container">
+            <button class="toggle-button" onclick="switchTheme()">
+                <span class="toggle-circle"></span>
+            </button>
+        </div>
+        <!-- this would be the labels for the buttons but idgaf about figuring out how to put that on the button rn -->
+        <!-- <div class="theme-info">Theme: <span id="theme-name">Light</span></div> -->
+
+        <div class="tutorial-container">
+            <button class="tutorial-button">?
+            </button>
+        </div>
+
         </div>
     </nav>
+    </header>
 
-</header>
+
+
+<script src="/JS files/include.js"></script>
+</body>
+
+</html>
+
+
+    <!-- <header>
+    <nav>
+        <div class="logo">
+        <h1>MetaMorphosis</h1>
+        </div>
+
+        <ul class="nav-links">
+        <li><a href="index.html">Before Surgery</a></li>
+        <li><a href="pages/about.html">During Surgery</a></li>
+        <li><a href="pages/about.html">After Surgery</a></li>
+        <li><a href="pages/about.html">Glossary</a></li>
+        <li><a href="pages/about.html">More Resources</a></li>
+        </ul>
+    </nav>
+</header> -->
