@@ -204,6 +204,14 @@ body {
   margin-left: 50px;
 }
 
+.menu-item a{
+    font-size: 18px;
+}
+
+.sidenav ul {
+    list-style: none;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
@@ -371,7 +379,6 @@ hr {
 
   #footer-right li{
     text-align: left;
-    padding:
   }
 
   #footer-right ul{
@@ -417,4 +424,76 @@ hr {
     h1 {
         font-size: 36px;
     }
+}
+
+/* styling the grid of 4 icons on the home page */
+.home-page .lab-gallery {
+  --gap: 16px;
+  --num-cols: 2;
+  --num-rows:2;
+  --row-width: 300px;
+
+  box-sizing: border-box;
+  padding: var(--gap);
+  display:grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-template-rows: repeat(var(--num-rows), 1fr);
+  gap: var(--gap);
+  max-width: 100%x;
+}
+
+.lab-gallery img {
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+  border: var(--border-style);
+}
+
+.gallery-cols-2 {
+  grid-column: span 2;
+}
+
+.gallery-rows-2 {
+  grid-row: span 2;
+}
+
+.home-page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.home-page img{
+    width: 100%;
+}
+
+/* Responsive ish content styling */
+@media (max-width: 768px) {
+    .home-page {
+        flex-direction: column;
+    }
+
+    .home-page img{
+        width: 70%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
+
+/* next/last page buttons */
+.bottom-stuff {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 0;
+    bottom: 0px;
+    position: fixed;
 }
