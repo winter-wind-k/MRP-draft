@@ -66,6 +66,8 @@ function switchTheme() {
     const body = document.body;
     const themeName = document.getElementById('theme-name');
     const toggleButton = document.querySelector('.toggle-button');
+    const elements = document.querySelectorAll('[id="text"]');
+    //(1) const header = document.getElementById('header-id'); <- add id to header in html
 
     isDarkMode = !isDarkMode;
 
@@ -73,10 +75,21 @@ function switchTheme() {
         body.classList.add('dark-mode');
         toggleButton.classList.add('active');
         themeName.textContent = 'Dark';
+
+        elements.forEach(el => {
+        el.classList.add('dark-mode-text');
+        });
+
+      // (2) header.classList.add('dark-mode');
     } else {
         body.classList.remove('dark-mode');
         toggleButton.classList.remove('active');
         themeName.textContent = 'Light';
+         elements.forEach(el => {
+        el.classList.remove('dark-mode-text');
+        });
+
+        // (3) header.classList.remove('dark-mode');
     }
 }
 

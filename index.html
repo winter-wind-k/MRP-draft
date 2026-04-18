@@ -18,7 +18,9 @@
     </style>
 </head>
 <body>
-<div data-include="../pages/components/header.html"></div>
+<div class="sticky-header">
+    <div data-include="../pages/components/header.html"></div>
+</div>
 <div class="menu">
     <div data-include="../pages/components/menu.html"></div>
 </div>
@@ -26,8 +28,8 @@
 <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
 <div id="main">
 <main>
-        <h1>MetaMorphosis</h1>
-        <p>Click through these modules to learn more about metoidioplasty.</p>
+        <h1 id="text">MetaMorphosis</h1>
+        <p id="text">Click through these modules to learn more about metoidioplasty.</p>
         <div class="home-page">
             <a href="/pages/2. Before Surgery/A. BOYS.html" alt="link to the Build Out Your Surgery tool">
                 <img src="/images/BOYS blur.png" alt="Link to the Build Out Your Surgery page">

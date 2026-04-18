@@ -52,6 +52,11 @@ header {
     margin: 0, 0, 0, 0;
 }
 
+.sticky-header {
+    position: sticky;
+    top: 0px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -84,12 +89,14 @@ body {
     font-family: var(--body-text);
     transition: background-color 0.5s;
     background-color: #ffffff;
-    color: #000000;
     margin: 0;
 }
 
 .dark-mode {
     background-color: var(--dark-grey-text);
+}
+
+.dark-mode-text {
     color: #ffffff;
 }
 
