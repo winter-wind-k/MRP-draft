@@ -65,7 +65,7 @@ nav {
     margin: 0 auto;
 }
 
-.logo img{
+.logo img {
     width: 100%;
 }
 
@@ -79,7 +79,7 @@ nav {
 /* Responsive Header */
 /* which doesn't fucking work!!!! fuck!!! */
 @media (max-width: 768px) {
-    .logo img{
+    .logo img {
         min-width: 40vw;
     }
 }
@@ -175,43 +175,50 @@ body {
 }
 
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  /* top: 0; Stay at the top */
-  left: 0;
-  background-color: var(--light-grey);
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    /* top: 0; Stay at the top */
+    left: 0;
+    background-color: var(--light-grey);
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: var(--h2-size);
-  color: var(--dark-green);
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: var(--h2-size);
+    color: var(--dark-green);
+    display: block;
+    transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: var(--dark-grey-text);
+    color: var(--dark-grey-text);
 }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
-.menu-item a{
+.menu-item a {
     font-size: 18px;
 }
 
@@ -221,47 +228,56 @@ body {
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-  transition: margin-left .5s;
-  margin-top: 0;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  margin-bottom: 15vh;
+    transition: margin-left .5s;
+    margin-top: 0;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 15vh;
 }
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 
 /* Menu button animation */
 .menu-button {
-  display: inline-block;
-  cursor: pointer;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  border-radius: 10px;
-  background-color: var(--dark-green);
-  margin: 6px 0;
-  transition: 0.4s;
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: var(--dark-green);
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
 /* Rotate first bar */
 .change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
+    transform: translate(0, 11px) rotate(-45deg);
 }
 
 /* Fade out the second bar */
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+    opacity: 0;
+}
 
 /* Rotate last bar */
 .change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+    transform: translate(0, -11px) rotate(45deg);
 }
 
 /* Download button */
@@ -276,7 +292,8 @@ body {
 .quick-esc-button {
     cursor: pointer;
     border: 0px;
-    background-color: rgba(1, 1, 1, 0);;
+    background-color: rgba(1, 1, 1, 0);
+    ;
 }
 
 .top-stuff {
@@ -331,12 +348,12 @@ footer {
     line-height: 1.6;
 }
 
-#footer-right p{
+#footer-right p {
     text-align: right;
     color: var(--dark-green);
 }
 
-#footer-right li{
+#footer-right li {
     text-align: right;
     color: var(--dark-green);
 }
@@ -356,7 +373,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color:rgb(36, 165, 239);
+    color: rgb(36, 165, 239);
 }
 
 /* Horizontal line in da footer */
@@ -368,37 +385,37 @@ hr {
 
 /* Responsive footer */
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    display:block;
-  }
-  
-  .footer-section {
-    flex-direction: column;
-    margin: 0.2rem;
-  }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        display: block;
+    }
 
-  .footer-section p{
-    text-align: left;
-    font-size: var(--body-text-mobile);
-  }
+    .footer-section {
+        flex-direction: column;
+        margin: 0.2rem;
+    }
 
-  #footer-right li{
-    text-align: left;
-  }
+    .footer-section p {
+        text-align: left;
+        font-size: var(--body-text-mobile);
+    }
 
-  #footer-right ul{
-    padding-left: 0;
-  }
+    #footer-right li {
+        text-align: left;
+    }
 
-  .logo img {
-    width: 80%;
-  }
-  
-  footer {
-    padding: 1rem 1rem 1rem;
-  }
+    #footer-right ul {
+        padding-left: 0;
+    }
+
+    .logo img {
+        width: 80%;
+    }
+
+    footer {
+        padding: 1rem 1rem 1rem;
+    }
 
 }
 
@@ -412,7 +429,7 @@ hr {
     align-items: center;
 }
 
-.content-section img{
+.content-section img {
     width: 40%;
     padding: 30px;
 }
@@ -423,7 +440,7 @@ hr {
         flex-direction: column;
     }
 
-    .content-section img{
+    .content-section img {
         width: 70%;
         padding: 15px;
     }
@@ -435,33 +452,33 @@ hr {
 
 /* styling the grid of 4 icons on the home page */
 .home-page .lab-gallery {
-  --gap: 16px;
-  --num-cols: 2;
-  --num-rows:2;
-  --row-width: 300px;
+    --gap: 16px;
+    --num-cols: 2;
+    --num-rows: 2;
+    --row-width: 300px;
 
-  box-sizing: border-box;
-  padding: var(--gap);
-  display:grid;
-  grid-template-columns: repeat(var(--num-cols), 1fr);
-  grid-template-rows: repeat(var(--num-rows), 1fr);
-  gap: var(--gap);
-  max-width: 100%x;
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: var(--gap);
+    max-width: 100%x;
 }
 
 .lab-gallery img {
-  width: 100%;
-  height:100%;
-  object-fit: cover;
-  border: var(--border-style);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: var(--border-style);
 }
 
 .gallery-cols-2 {
-  grid-column: span 2;
+    grid-column: span 2;
 }
 
 .gallery-rows-2 {
-  grid-row: span 2;
+    grid-row: span 2;
 }
 
 .home-page {
@@ -471,7 +488,7 @@ hr {
     align-items: center;
 }
 
-.home-page img{
+.home-page img {
     width: 100%;
 }
 
@@ -481,7 +498,7 @@ hr {
         flex-direction: column;
     }
 
-    .home-page img{
+    .home-page img {
         width: 70%;
         padding: 15px;
     }

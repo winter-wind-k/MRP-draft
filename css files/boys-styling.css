@@ -1,0 +1,418 @@
+/* new BOYS tool stylesheet */
+
+/*rectangle around module */
+.boys-container {
+    width: fit-content;
+    height: fit-content;
+    inline-size: fit-content;
+    block-size: fit-content;
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/fit-content */
+    border: .2vw solid rgb(202, 202, 202);
+    border-radius: 10px;
+    fill: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* title styling */
+.boys-container h1 {
+    font-weight: 100;
+}
+
+/* all options styling */
+.selection-options {
+    display: inline-flex;
+    gap: 7vw;
+    padding: 5vh;
+}
+
+/* procedure options styling */
+.procedure-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+    border: .3vh solid rgb(212, 212, 212);
+    border-radius: 1vh;
+    padding: 2vh;
+}
+
+/* titles larger, bold, green */
+.boys-titles {
+    font-weight: 600;
+    font-size: 3vh;
+    color: #364b47;
+}
+
+/* each procedure individually styling */
+.procedure-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 1vw;
+    align-self: stretch;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* reset default checkbox styling */
+.procedure-line input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* custom checkbox styling */
+.procedure-checkbox {
+    border: .5vh solid rgb(194, 194, 194);
+    height: 2.5vh;
+    width: 2.5vh;
+    border-radius: .5vh;
+    cursor: pointer;
+}
+
+.procedure-line:hover input~.procedure-checkbox {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.procedure-line input:checked~.procedure-checkbox {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.procedure-checkbox:after {
+    content: "✔";
+    display: none;
+    color: #627773;
+    vertical-align: middle;
+}
+
+/* Show the checkmark when checked */
+.procedure-line input:checked~.procedure-checkbox:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.procedure-line .procedure-checkbox:after {
+    height: 3vh;
+    width: 3vh;
+    vertical-align: middle;
+}
+
+/* skin tone buttons container */
+.skin-tone-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 3vh;
+    border: .3vh solid rgb(212, 212, 212);
+    border-radius: 1vh;
+    padding: 2vh 3vh;
+    height: 15vh;
+}
+
+/* styling for all skin tone buttons collectively */
+.skin-tone-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    border: none;
+}
+
+/* styling for individual skin tone button */
+.skin-tone-button {
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    color: white
+}
+
+/* body size buttons container */
+.body-size-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 3vh;
+    border: .3vh solid rgb(212, 212, 212);
+    border-radius: 1vh;
+    padding: 2vh 3vh;
+    height: 15vh;
+}
+
+/* styling for all body size buttons collectively */
+.body-size-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+    border: none;
+}
+
+/* styling for individual body size button */
+.body-size-button {
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    background-color: #814f34;
+    color: white;
+}
+
+/* overall container for boys tool images */
+.boys-images-container {
+    display: flex;
+    gap: 3vw;
+}
+
+/* boys tool illustration styling */
+.boys-tool-illustration img {
+    width: auto;
+    height: 50vh;
+    border: .3vh solid rgb(212, 212, 212);
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+/* all image elements alignment */
+.inner-view-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5vh;
+}
+
+.front-view-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5vh;
+}
+
+
+/* title and download button styling */
+.inner-view-text {
+    display: flex;
+    gap: 2vh;
+    align-items: center;
+}
+
+.front-view-text {
+    display: flex;
+    gap: 2vh;
+    align-items: center;
+    padding-bottom: 3vh;
+    padding-top: 2vh;
+}
+
+/* download button styling */
+.inner-view-text img {
+    width: 3vh;
+    height: auto;
+}
+
+.inner-view-text button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.front-view-text img {
+    width: 3vh;
+    height: auto;
+}
+
+.front-view-text button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* text and labels toggle inner view alignment */
+.inner-view-text-toggle {
+    display: flex;
+    gap: 10vw;
+    padding-bottom: 1vh;
+}
+
+.toggle-container {
+    display: flex;
+    gap: 1vw;
+}
+
+/* styling checkbox into labels toggle class="labels-toggle" span class="slider round" */
+
+/* The switch - the box around the slider */
+.labels-toggle {
+    position: relative;
+    display: inline-block;
+    width: 5vw;
+    height: 5vh;
+}
+
+/* Hide default HTML checkbox */
+.labels-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 3.8vh;
+    width: 2vw;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #627773;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #757b80;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(27.5px);
+    -ms-transform: translateX(27.5px);
+    transform: translateX(27.5px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider:after {
+    content: 'OFF';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 70%;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider:after {
+    content: 'ON';
+    left: 30%;
+}
+
+/* container for image and labels */
+.labeled-image-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Neophallus label */
+.labeled-image-container .phallus-text {
+    position: absolute;
+    bottom: 42%;
+    left: 32%;
+    color: black;
+    width: 12%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: 1%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Urethra label */
+.labeled-image-container .urethra-text {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    color: black;
+    width: 12%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: 1%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Implant label */
+.labeled-image-container .implant-text {
+    position: absolute;
+    top: 68%;
+    right: 43%;
+    color: black;
+    width: 16%;
+    height: 8%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: 1%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Vagina label */
+.labeled-image-container .vagina-text {
+    position: absolute;
+    bottom: 50%;
+    right: 30%;
+    color: black;
+    width: 14%;
+    height: 8%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: 1%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bladder label */
+.labeled-image-container .bladder-text {
+    position: absolute;
+    top: 32%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 1% solid black;
+    width: 11%;
+    height: 4%;
+    background: rgb(255, 255, 255);
+    border: 0.1vw solid rgb(0, 0, 0);
+    padding: 1%;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hide labels for toggle */
+.boys-labels-class {
+    display: none;
+}

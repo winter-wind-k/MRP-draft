@@ -1,36 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/components/styles_components.css">
+    <link rel="stylesheet" href="/css files/boys-styling.css">
     <link rel="icon" href="images/favicon.png">
     <script defer src="JS files/include.js"></script>
     <title>Build-Out-Your-Surgery</title>
 </head>
+
 <body>
     <div data-include="/pages/components/header.html"></div>
-<div class="menu">
-    <div data-include="/pages/components/menu.html"></div>
-</div>
+    <div class="menu">
+        <div data-include="/pages/components/menu.html"></div>
+    </div>
 
-<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
-<div id="main">
-  <main>
-        <h1>Build Out Your Surgery (BOYS)</h1>
-        <div>
-            <div class="content-section">
-                <p>This tool can show you what meta might look like on your body. You can choose from different types of meta, different skin tones, and different body types to see what your post-surgery body may look like.</p>
-                <p>Disclaimer: There are many factors that affect what your results might look like, including the size of your penis before surgery and your body’s healing process. While this tool can show you potential results, keep in mind that your actual results may vary.
-                </p>
+    <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
+    <div id="main">
+        <main>
+            <h1>Build Out Your Surgery (BOYS)</h1>
+            <div>
+                <div class="content-section">
+                    <p>This tool can show you what meta might look like on your body. You can choose from different
+                        types of meta, different skin tones, and different body types to see what your post-surgery body
+                        may look like.</p>
+                    <p>Disclaimer: There are many factors that affect what your results might look like, including the
+                        size of your penis before surgery and your body’s healing process. While this tool can show you
+                        potential results, keep in mind that your actual results may vary.
+                    </p>
+                </div>
             </div>
-        </div>
-        
-    </main>
-</div>
-  
 
-<div data-include="/pages/components/footer.html"></div>
+            <div class="boys-container">
+                <div class="selection-options">
+                    <div class="procedure-options">
+                        <div class="boys-titles">Procedure</div>
+                        <label class="procedure-line">
+                            <input type="checkbox" id="simple-meta-checkbox">
+                            <span class="procedure-checkbox"></span>
+                            <div p>Simple Meta</div>
+                        </label>
+                        <label class="procedure-line">
+                            <input type="checkbox" id="vaginectomy-checkbox">
+                            <span class="procedure-checkbox"></span>
+                            <div p>Vaginectomy</div>
+                        </label>
+                        <label class="procedure-line">
+                            <input type="checkbox" id="scrotoplasty-checkbox">
+                            <span class="procedure-checkbox"></span>
+                            <div p>Scrotoplasty</div>
+                        </label>
+                        <label class="procedure-line">
+                            <input type="checkbox" id="ul-checkbox">
+                            <span class="procedure-checkbox"></span>
+                            <div p>Urethral Lengthening</div>
+                        </label>
+                    </div>
+
+                    <div class="skin-tone-container">
+                        <div class="boys-titles">Skin Tone</div>
+                        <div class="skin-tone-buttons">
+                            <button onclick="checkLightSkinButton()" id="light-skin-button" class="skin-tone-button"
+                                style="background-color: #ebdbd7;" value="&ZeroWidthSpace;">&ZeroWidthSpace;</button>
+                            <button onclick="checkOliveSkinButton()" id="olive-skin-button" class="skin-tone-button"
+                                style="background-color: #d3af87;" value="&ZeroWidthSpace;">&ZeroWidthSpace;</button>
+                            <button onclick="checkMediumSkinButton()" id="medium-skin-button" class="skin-tone-button"
+                                style="background-color: #814f34;" value="&ZeroWidthSpace;">&ZeroWidthSpace;</button>
+                            <button onclick="checkDarkSkinButton()" id="dark-skin-button" class="skin-tone-button"
+                                style="background-color: #5b340f;" value="&ZeroWidthSpace;">&ZeroWidthSpace;</button>
+                        </div>
+                    </div>
+
+                    <!--experiment with using styled checkboxes instead of buttons (did not work)
+                    <div class="skin-tone-buttons">
+                        <label class="skin-tone-button">
+                            <input type="checkbox" id="light-skin-checkbox">
+                            <span class="skin-tone-checkbox"></span>
+                            <div p>&ZeroWidthSpace;</div>
+                        </label>
+                        <label class="skin-tone-button">
+                            <input type="checkbox" id="olive-skin-checkbox">
+                            <span class="skin-tone-checkbox"></span>
+                            <div p>&ZeroWidthSpace;</div>
+                        </label>
+                        <label class="skin-tone-button">
+                            <input type="checkbox" id="medium-skin-checkbox">
+                            <span class="skin-tone-checkbox"></span>
+                            <div p>&ZeroWidthSpace;</div>
+                        </label>
+                        <label class="skin-tone-button">
+                            <input type="checkbox" id="dark-skin-checkbox">
+                            <span class="skin-tone-checkbox"></span>
+                            <div p>&ZeroWidthSpace;</div>
+                        </label>
+                    </div>-->
+
+                    <!--experimenting with radio buttons for mutually exclusive function
+
+                    <div class="skin-tone-button">
+                        <input type="radio" name="skin-tone" id="light-skin-button" checked>
+                        <label for="light-skin-button" unselectable>&ZeroWidthSpace;</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button2">
+                        <label for="button2" unselectable>Button 2</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button3">
+                        <label for="button3" unselectable>Button 3</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button4">
+                        <label for="button4" unselectable>Button 4</label>
+                    </div>-->
+
+                    <div class="body-size-container">
+                        <div class="boys-titles">Body Size</div>
+                        <div class="body-size-buttons">
+                            <button onclick="checkSmallerSizeButton()" id="smaller-size-button" class="body-size-button"
+                                value="&ZeroWidthSpace;" style="width: 4vh; height: 4vh">&ZeroWidthSpace;</button>
+                            <button onclick="checkLargerSizeButton()" id="larger-size-button" class="body-size-button"
+                                value="&ZeroWidthSpace;">&ZeroWidthSpace;</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="boys-images-container">
+                    <div class="inner-view-container">
+
+                        <div class="inner-view-text-toggle">
+                            <div class="inner-view-text">
+                                <div class="boys-titles">Inner View</div>
+                                <button id="inner-view-download"><img
+                                        src="/images/download-button-placeholder.svg" /></button>
+                            </div>
+
+                            <div class="toggle-container">
+                                <div>Labels</div>
+                                <label class="labels-toggle">
+                                    <input type="checkbox" id="boys-labels-toggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="labeled-image-container">
+                            <div style="font-size:1vw">
+                                <div id="boys-labels" class="boys-labels-class">
+                                    <div class="phallus-text">Phallus</div>
+                                    <div class="urethra-text">Urethra</div>
+                                    <div class="implant-text">Testicular implant</div>
+                                    <div class="vagina-text">Vagina (closed)</div>
+                                    <div class="bladder-text">Bladder</div>
+                                </div>
+                            </div>
+                            <div class="boys-tool-illustration">
+                                <img src="/images/boys-tool-illustrations/inner-view-test-img.jpg"></img>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="front-view-container">
+
+                        <div class="front-view-text">
+                            <div class="boys-titles">Front View</div>
+                            <button id="front-view-download"><img
+                                    src="/images/download-button-placeholder.svg" /></button>
+                        </div>
+
+                        <div class="boys-tool-illustration">
+                            <img src="/images/boys-tool-illustrations/front-view-test-img.jpg"></img>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+
+    <div data-include="/pages/components/footer.html"></div>
     <script src="/JS files/include.js"></script>
+    <script src="/JS files/boys-tool.js"></script>
 </body>
+
 </html>
