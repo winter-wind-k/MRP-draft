@@ -115,3 +115,20 @@ if (labelsToggle && boysLabels) {
     labelsToggle.addEventListener("change", syncBoysLabels);
     syncBoysLabels();
 }
+
+
+//blur inner view images
+var blurButton = document.getElementById('blur-button');
+var boysImages = document.querySelectorAll('.boys-tool-illustration');
+
+blurButton.addEventListener('click', () => {
+    boysImages.forEach(img => {
+        img.classList.toggle('blurred-image');
+    });
+
+    const isBlurred = boysImages[0].classList.contains('blurred-image');
+    blurButton.textContent = isBlurred ? 'Unblur Images' : 'Blur Images';
+});
+
+
+
