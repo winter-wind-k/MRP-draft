@@ -1,5 +1,48 @@
 /* new BOYS tool stylesheet */
 
+/* skin tones */
+.swatch.light {
+    background: #ebdbd7;
+}
+
+.swatch.olive {
+    background: #d3af87;
+}
+
+.swatch.medium {
+    background: #814f34;
+}
+
+.swatch.dark {
+    background: #5b340f;
+}
+
+.swatches {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.swatch {
+    width: 7vh;
+    height: 7vh;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    /* Needed for checkmark */
+    transition: all 0.3s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.05);
+}
+
+/* not working 
+.swatch.selected {
+    content: "✔";
+} */
+
 /*rectangle around module */
 .boys-container {
     width: fit-content;
@@ -34,7 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1vw;
+    gap: 2vw;
     border: .3vh solid rgb(212, 212, 212);
     border-radius: 1vh;
     padding: 2vh;
@@ -70,9 +113,9 @@
 
 /* custom checkbox styling */
 .procedure-checkbox {
-    border: .5vh solid rgb(194, 194, 194);
-    height: 2.5vh;
-    width: 2.5vh;
+    border: .3vh solid rgb(194, 194, 194);
+    height: 3vh;
+    width: 3vh;
     border-radius: .5vh;
     cursor: pointer;
 }
@@ -106,7 +149,65 @@
     vertical-align: middle;
 }
 
-/* skin tone buttons container */
+/* experiment with styled checkboxes for skin tones */
+.skin-tone-checkboxes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 2vh;
+    border: .3vh solid rgb(212, 212, 212);
+    border-radius: 1vh;
+    padding: 2vh 3vh;
+    height: 15vh;
+    width: fit-content;
+}
+
+.skin-tone-checkbox input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.skin-tone-checkboxes {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    border: none;
+}
+
+.skin-tone-checkmark {
+    /* equivalent to checkmark */
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: none;
+}
+
+.skin-tone-checkmark::after {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    font-size: 1.7vw;
+    position: relative;
+    left: 32%;
+    top: -25%;
+}
+
+.skin-tone-checkbox input:checked~.skin-tone-checkmark::after {
+    display: block;
+}
+
+/* skin tone buttons container - replaced with checkboxes */
 .skin-tone-container {
     display: flex;
     flex-direction: column;
@@ -118,7 +219,7 @@
     height: 15vh;
 }
 
-/* styling for all skin tone buttons collectively */
+/* styling for all skin tone buttons collectively - old buttons, replaced with checkboxes */
 .skin-tone-buttons {
     display: flex;
     align-items: center;
@@ -133,7 +234,12 @@
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    color: white
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.skin-tone-button:hover {
+    transform: scale(1.05);
 }
 
 /* body size buttons container */
@@ -146,6 +252,7 @@
     border-radius: 1vh;
     padding: 2vh 3vh;
     height: 15vh;
+    width: fit-content;
 }
 
 /* styling for all body size buttons collectively */
@@ -166,6 +273,11 @@
     vertical-align: middle;
     background-color: #814f34;
     color: white;
+    transition: all 0.3s ease;
+}
+
+.body-size-button:hover {
+    transform: scale(1.05);
 }
 
 /* blur button */
@@ -319,9 +431,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(27.5px);
-    -ms-transform: translateX(27.5px);
-    transform: translateX(27.5px);
+    -webkit-transform: translateX(2.5vw);
+    -ms-transform: translateX(2.5vw);
+    transform: translateX(2.5vw);
 }
 
 /* Rounded sliders */
@@ -443,4 +555,3 @@ input:checked+.slider:after {
 .blurred-image {
     filter: blur(10px) opacity(70%);
 }
-

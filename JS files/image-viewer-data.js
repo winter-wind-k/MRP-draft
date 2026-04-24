@@ -1,3 +1,5 @@
+// code adapted from tono - no longer in use as of april 23
+
 // data.js  (clean + robust)
 const TONES = ["light", "medium", "olive", "dark"];
 const SIZES = ["small", "large"];

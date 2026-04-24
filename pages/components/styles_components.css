@@ -422,7 +422,6 @@ hr {
 /* Main content styling */
 .content-section {
     display: flex;
-    justify-content: space-between;
     gap: 10%;
     margin: 1rem auto;
     width: 100%;
