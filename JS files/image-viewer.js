@@ -5,7 +5,7 @@
 
 // state aspects for skin tone and body size
 let state = {
-    tone: "light",      //aspect1: "a",
+    tone: "light",      //aspect1: "a", aspect = "container term" for skin tone and body size
     tone: "olive",      //aspect1: "b",
     tone: "medium",     //aspect1: "c",
     tone: "dark",       //aspect1: "d",

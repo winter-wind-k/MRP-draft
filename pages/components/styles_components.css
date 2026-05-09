@@ -519,4 +519,7 @@ hr {
     margin-bottom: 0;
     bottom: 0px;
     position: fixed;
+    z-index: 10;
+    /* i turned opacity to 0 to do some stuff, just delete this line and the opacity property if it's still there when you see this */
+    opacity: 0;
 }

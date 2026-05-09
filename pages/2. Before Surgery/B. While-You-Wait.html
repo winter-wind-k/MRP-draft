@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/components/styles_components.css">
+    <link rel="stylesheet" href="/css files/before-surgery-styling.css">
     <link rel="icon" href="images/favicon.png">
     <script defer src="JS files/include.js"></script>
     <title>While You Wait</title>
 </head>
+
 <body>
     <div data-include="/pages/components/header.html"></div>
-<div class="menu">
-    <div data-include="/pages/components/menu.html"></div>
-</div>
+    <div class="menu">
+        <div data-include="/pages/components/menu.html"></div>
+    </div>
 
-<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
-<div id="main">
-  <main>
-        <h1>While You Wait</h1>
-        <div>
-            <h2>Timeline</h2>
-            <div class="content-section">
-                <p>Everyone’s surgical journey is different, but some things stay consistent. Here are a few of the major steps that you can expect:</p>
+    <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
+    <div id="main">
+        <main>
+            <h1>While You Wait</h1>
+            <div>
+                <h2>Timeline</h2>
+                <div class="content-section">
+                    <p>Everyone’s surgical journey is different, but some things stay consistent. Here are a few of the
+                        major steps that you can expect:</p>
+                </div>
             </div>
-        </div>
-        
-    </main>
-</div>
-  
 
-<div data-include="/pages/components/footer.html"></div>
+            <div class="recovery-space-container">
+
+                <div class="recovery-space-text">
+                    <h2>Your Recovery Space</h2>
+                    <p>Explore this interactive apartment for ideas about setting up your recovery
+                    space.</p>
+                </div>
+
+                <div class="recovery-space-module">
+
+                    <img class="recovery-space-image" src="/images/before-surgery/recovery_space.jpg" />
+
+                    <div class="hotspot laptop-hotspot">
+                        <button class="hotspot-button">&ZeroWidthSpace;</button>
+                        <div class="label-all">Devices with movies, TV shows, or activities prepared</div>
+                    </div>
+
+                    <div class="hotspot puzzle-hotspot">
+                        <button class="hotspot-button">&ZeroWidthSpace;</button>
+                        <div class="label-all">Activities like puzzles, Lego blocks, or crafts set up</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+
+    <div data-include="/pages/components/footer.html"></div>
     <script src="/JS files/include.js"></script>
 </body>
+
 </html>
