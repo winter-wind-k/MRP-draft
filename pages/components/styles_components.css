@@ -13,6 +13,9 @@
     --h2-size: 24px;
     --body-line-height: 1.2;
     --figure-cap-text: 16px;
+    --sticky-header-offset: 88px;
+    --desktop-menu-width: 300px;
+    --mobile-menu-row-height: 56px;
 
 }
 
@@ -21,6 +24,12 @@
     font-weight: bold;
     font-style: normal;
     src: url(/images/Nunito/static/Nunito-Bold.ttf);
+}
+
+/* SS Comment: Clamp horizontal overflow so two-finger side-scrolling cannot reveal blank columns. */
+html,
+body {
+    overflow-x: hidden;
 }
 
 h1 {
@@ -48,13 +57,33 @@ header {
     padding-right: 5.5rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 221;
     margin: 0, 0, 0, 0;
 }
 
 .sticky-header {
     position: sticky;
     top: 0px;
+}
+
+/* SS Comment: Keep header include host sticky on pages that do not wrap it in a sticky container. */
+.ss-sticky-header-host {
+    /* SS Comment: Keep the main top menu fixed at the top on every page. */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 220;
+    display: block;
+}
+
+/* SS Comment: Keep menu controls include host sticky directly beneath the header include host. */
+.ss-sticky-menu-host {
+    position: static;
+    top: auto;
+    z-index: auto;
+    display: block;
+    background-color: transparent;
 }
 
 nav {
@@ -71,9 +100,34 @@ nav {
 
 .header-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    gap: 40%;
+    gap: 12px;
+}
+
+/* SS Comment: Keep utility icons in the header aligned with the theme controls. */
+.header-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon-link img {
+    width: 40px;
+    height: 40px;
+}
+
+/* SS Comment: Increase download button contrast in header so it remains clearly visible. */
+.header-download-link {
+    background-color: var(--light-grey);
+    border-radius: 999px;
+    padding: 3px;
+}
+
+.header-download-link img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) saturate(100%) invert(28%) sepia(7%) saturate(552%) hue-rotate(122deg) brightness(93%) contrast(90%);
 }
 
 /* Responsive Header */
@@ -90,6 +144,8 @@ body {
     transition: background-color 0.5s;
     background-color: #ffffff;
     margin: 0;
+    /* SS Comment: Reserve space for fixed top menu so content does not hide underneath it. */
+    padding-top: var(--sticky-header-offset);
 }
 
 .dark-mode {
@@ -111,8 +167,8 @@ body {
     border: 2px solid var(--dark-grey-text);
     background-color: var(--light-grey);
     border-radius: 30px;
-    width: 60px;
-    height: 30px;
+    width: 42px;
+    height: 21px;
     position: relative;
     cursor: pointer;
     transition: background-color 0.5s, border-color 0.5s;
@@ -121,11 +177,11 @@ body {
 .toggle-button .toggle-circle {
     background-color: var(--dark-grey-text);
     border-radius: 50%;
-    width: 22px;
-    height: 22px;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 1px;
+    left: 1px;
     transition: left 0.5s;
 }
 
@@ -135,7 +191,7 @@ body {
 }
 
 .toggle-button.active .toggle-circle {
-    left: 32px;
+    left: 24px;
     background-color: #fff;
 }
 
@@ -175,28 +231,23 @@ body {
 }
 
 .sidenav {
-    height: 100%;
-    /* 100% Full-height */
-    width: 0;
-    /* 0 width - change this with JavaScript */
+    height: calc(100vh - var(--sticky-header-offset));
+    width: var(--desktop-menu-width);
     position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Stay on top */
-    /* top: 0; Stay at the top */
+    /* SS Comment: Keep side menu below the main top menu while scrolling. */
+    top: var(--sticky-header-offset);
     left: 0;
+    z-index: 90;
     background-color: var(--light-grey);
+    overflow-y: auto;
     overflow-x: hidden;
-    /* Disable horizontal scroll */
-    padding-top: 60px;
-    /* Place content 60px from the top */
-    transition: 0.5s;
-    /* 0.5 second transition effect to slide in the sidenav */
+    padding-top: 16px;
+    transition: height 0.35s ease;
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 32px 8px 32px;
     text-decoration: none;
     font-size: var(--h2-size);
     color: var(--dark-green);
@@ -211,15 +262,16 @@ body {
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
+    display: none;
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: 6px;
+    right: 16px;
     font-size: 36px;
     margin-left: 50px;
 }
 
 .menu-item a {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .sidenav ul {
@@ -228,10 +280,10 @@ body {
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-left .5s;
+    transition: none;
     margin-top: 0;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: calc(var(--desktop-menu-width) + 6vw);
+    margin-right: 6vw;
     margin-bottom: 15vh;
 }
 
@@ -297,21 +349,15 @@ body {
 }
 
 .top-stuff {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    padding-top: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    display: none;
 }
 
 .top-stuff-left {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40%;
-    transition: margin-left .5s;
+    gap: 0;
+    transition: none;
 }
 
 /* Footer Styling */
@@ -322,6 +368,59 @@ footer {
     bottom: 0px;
     position: sticky;
     max-width: 100%;
+    /* SS Comment: Animate footer shift so it moves smoothly with menu open/close. */
+    transition: transform .5s;
+}
+
+/* SS Comment: Animate shift on footer include wrapper for pages where wrapper receives margin changes. */
+[data-include*="footer.html"] {
+    transition: transform .5s;
+    margin-left: var(--desktop-menu-width);
+}
+
+/* SS Comment: Mobile mode uses top-right hamburger and dropdown menu while content returns to full width. */
+@media (max-width: 900px) {
+    .top-stuff {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: var(--mobile-menu-row-height);
+        padding: 0 1rem;
+        position: sticky;
+        top: var(--sticky-header-offset);
+        z-index: 115;
+        background-color: #ffffff;
+    }
+
+    .sidenav {
+        width: 100%;
+        height: 0;
+        top: 0;
+        padding-top: 0;
+        z-index: 114;
+    }
+
+    body.mobile-nav-open .sidenav {
+        /* SS Comment: Open mobile menu as a full-screen overlay that covers the entire viewport. */
+        height: 100vh;
+        padding-top: 56px;
+        z-index: 400;
+    }
+
+    .sidenav .closebtn {
+        display: block;
+    }
+
+    #main {
+        margin-left: 6vw;
+        margin-right: 6vw;
+    }
+
+    [data-include*="footer.html"],
+    footer {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 .footer-content {
@@ -462,7 +561,9 @@ hr {
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-template-rows: repeat(var(--num-rows), 1fr);
     gap: var(--gap);
-    max-width: 100%x;
+    /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
+    width: min(100%, 760px);
+    margin: 0 auto;
 }
 
 .lab-gallery img {
@@ -482,7 +583,8 @@ hr {
 
 .home-page {
     display: flex;
-    justify-content: space-between;
+    /* SS Comment: Center the gallery container after removing the broken side image block. */
+    justify-content: center;
     width: 100%;
     align-items: center;
 }

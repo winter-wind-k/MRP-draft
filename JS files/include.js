@@ -55,8 +55,56 @@ function setActiveNav() {
   });
 }
 
+function updateStickyHeaderOffset() {
+  // SS Comment: Measure current header height and sync CSS sticky offset for the menu control row.
+  const header = document.querySelector("header");
+
+  if (header) {
+    document.documentElement.style.setProperty("--sticky-header-offset", `${header.offsetHeight}px`);
+  }
+}
+
+function applyStickyIncludeHosts() {
+  // SS Comment: Tag header include host so it stays sticky even on pages without a sticky wrapper.
+  const headerHost = document.querySelector('[data-include*="header.html"]');
+  // SS Comment: Tag menu include host so menu controls stay sticky under the header.
+  const menuHost = document.querySelector('[data-include*="menu.html"]');
+
+  if (headerHost) {
+    headerHost.classList.add("ss-sticky-header-host");
+  }
+
+  if (menuHost) {
+    menuHost.classList.add("ss-sticky-menu-host");
+  }
+}
+
 // Run the function when the page loads
-loadIncludes().then(setActiveNav);
+loadIncludes().then(() => {
+  // SS Comment: Run nav setup after shared components are injected into the page.
+  setActiveNav();
+  // SS Comment: Apply sticky classes to include hosts so behavior is consistent across page templates.
+  applyStickyIncludeHosts();
+  // SS Comment: Normalize layout on load in case older menu code left inline shift styles behind.
+  clearLegacyInlineMenuStyles();
+  // SS Comment: Keep sticky control offset aligned with the actual header height.
+  updateStickyHeaderOffset();
+  // SS Comment: Sync menu mode and sticky offset whenever viewport size changes.
+  syncMenuMode();
+  // SS Comment: Close mobile dropdown after selecting a nav link for better small-screen UX.
+  document.querySelectorAll(".sidenav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isMobileMenuViewport()) {
+        closeNav();
+      }
+    });
+  });
+  // SS Comment: Re-sync sticky offset and menu mode on resize for responsive behavior.
+  window.addEventListener("resize", () => {
+    updateStickyHeaderOffset();
+    syncMenuMode();
+  });
+});
 
 
 //Code for dark mode toggle:
@@ -98,16 +146,66 @@ function switchTheme() {
 
 
 //for sidebar nav:
+const MOBILE_MENU_BREAKPOINT = 900;
+
+function isMobileMenuViewport() {
+  // SS Comment: Use one breakpoint test so desktop and mobile menu behavior stay consistent.
+  return window.innerWidth <= MOBILE_MENU_BREAKPOINT;
+}
+
+function clearLegacyInlineMenuStyles() {
+  // SS Comment: Remove inline styles from older menu logic so CSS media rules can control layout cleanly.
+  const sideNav = document.getElementById("mySidenav");
+  const main = document.getElementById("main");
+  const footerTargets = [
+    ...document.querySelectorAll('[data-include*="footer.html"]'),
+    ...document.querySelectorAll("footer")
+  ];
+
+  if (sideNav) {
+    sideNav.style.width = "";
+    sideNav.style.height = "";
+  }
+
+  if (main) {
+    main.style.transform = "";
+    main.style.marginLeft = "";
+  }
+
+  footerTargets.forEach((target) => {
+    target.style.transform = "";
+    target.style.marginLeft = "";
+  });
+}
+
+function syncMenuMode() {
+  clearLegacyInlineMenuStyles();
+  // SS Comment: Keep body classes in sync with viewport so CSS can switch between desktop and mobile menu modes.
+  if (isMobileMenuViewport()) {
+    document.body.classList.add("mobile-menu-mode");
+    document.body.classList.remove("desktop-menu-mode");
+  } else {
+    document.body.classList.add("desktop-menu-mode");
+    document.body.classList.remove("mobile-menu-mode");
+    // SS Comment: Ensure any open mobile dropdown is closed when returning to desktop layout.
+    document.body.classList.remove("mobile-nav-open");
+  }
+}
+
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  // SS Comment: Desktop menu is permanently visible; only mobile uses the dropdown open state.
+  if (!isMobileMenuViewport()) {
+    return;
+  }
+
+  document.body.classList.add("mobile-nav-open");
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+  // SS Comment: Collapse the mobile dropdown menu.
+  document.body.classList.remove("mobile-nav-open");
 }
 
 // animated menu button:
@@ -116,11 +214,4 @@ function myFunction(x) {
 }
 
 //download button:
-const downloadButton = document.querySelector(".download-button");
-
-if (downloadButton) {
-  downloadButton.addEventListener("click", () => {
-    print();
-  });
-}
 

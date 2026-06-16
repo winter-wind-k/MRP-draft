@@ -4,7 +4,8 @@
 .recovery-space-container {
     display: block;
     columns: 1;
-    width: 90vw;
+    /* SS Comment: Use container width so this module does not exceed #main on pages with side menu offsets. */
+    width: 100%;
     height: auto;
 }
 
@@ -25,7 +26,9 @@
 
 .recovery-space-image {
     display: block;
-    width: 90%;
+    /* SS Comment: Keep image responsive to its parent container to prevent horizontal overflow. */
+    width: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: fill;
 }
@@ -42,7 +45,10 @@
 .label-all {
     position: absolute;
     transform: translateY(-50%) translateX(5%);
-    width: 900%;
+    /* SS Comment: Replace oversized fixed percentage with responsive label sizing. */
+    width: max-content;
+    max-width: min(320px, 70vw);
+    white-space: normal;
     padding: 10px 12px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
@@ -55,6 +61,15 @@
     transition: opacity 0.25s ease;
     left: 120%;
     top: 50%;
+}
+
+@media (max-width: 900px) {
+    .label-all {
+        /* SS Comment: Move labels below hotspot on smaller screens so they stay on-screen. */
+        left: 50%;
+        top: 125%;
+        transform: translateX(-50%);
+    }
 }
 
 /* button positioning and behavior determined by container so styling can be universal */
