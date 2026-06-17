@@ -106,6 +106,7 @@ loadIncludes().then(() => {
   });
 });
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Code for dark mode toggle:
 let isDarkMode = false;
@@ -141,9 +142,11 @@ function switchTheme() {
   }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //for tutorial overlay:
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //for sidebar nav:
 const MOBILE_MENU_BREAKPOINT = 900;
@@ -202,18 +205,23 @@ function openNav() {
   document.body.classList.add("mobile-nav-open");
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+// Set the width of the side navigation to 0 and the left margin of the page content to 0 
 function closeNav() {
   // SS Comment: Collapse the mobile dropdown menu.
   document.body.classList.remove("mobile-nav-open");
 }
 
-// animated menu button:
+// animated menu button
 function myFunction(x) {
   x.classList.toggle("change");
 }
 
-//download button:
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//download button
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //overview goals menu 
 var acc = document.getElementsByClassName("goals-button");
@@ -249,3 +257,64 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// before surgery faq menu
+var acc = document.getElementsByClassName("question-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+var acc = document.getElementsByClassName("question-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+
+//scroll to top button
+
+// Get the button:
+let scrollTopBtn = document.getElementById("scroll-top");
+
+// show button after scrolling (hidden when at top of page)
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+}
+
+// scroll to top function
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+

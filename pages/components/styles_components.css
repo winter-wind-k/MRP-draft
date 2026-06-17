@@ -54,7 +54,7 @@ header {
     padding-top: 1rem;
     padding-bottom: 1rem;
     Padding-left: 2rem;
-    padding-right: 5.5rem;
+    padding-right: 2rem;
     position: sticky;
     top: 0;
     z-index: 221;
@@ -62,7 +62,6 @@ header {
 }
 
 .page-titles-container {
-    margin-bottom: 10px;
     margin-top: 20px;
 }
 
@@ -105,7 +104,8 @@ nav {
 }
 
 .logo img {
-    width: 100%;
+    width: 20vw;
+    height: auto;
 }
 
 .header-buttons {
@@ -150,14 +150,14 @@ nav {
 
 /* styling text and popups for glossary terms */
 /* text of term */
-span {
+i {
     font-style: normal;
     cursor: pointer;
     position: relative;
 }
 
 /* styling for popup box */
-span::after {
+i::after {
     content: attr(title);
     position: absolute;
     background-color: white;
@@ -173,9 +173,12 @@ span::after {
     filter: drop-shadow(3px 3px 2px rgb(201, 201, 201));
 }
 
-span:hover::after {
+i:hover::after {
     opacity: 1;
 }
+
+
+
 
 /* styling for dark mode toggle */
 body {
@@ -273,16 +276,15 @@ body {
     height: calc(100vh - var(--sticky-header-offset));
     width: var(--desktop-menu-width);
     position: fixed;
-<<<<<<< HEAD
+    <<<<<<< HEAD
     /* SS Comment: Keep side menu below the main top menu while scrolling. */
     top: var(--sticky-header-offset);
-=======
+    =======
     /* Stay in place */
     z-index: 10;
     /* Stay on top */
     /* top: 0; Stay at the top */
->>>>>>> 60def21c6b3fc282e0135606328c196263857cff
-    left: 0;
+    >>>>>>>60def21c6b3fc282e0135606328c196263857cff left: 0;
     z-index: 90;
     background-color: var(--light-grey);
     overflow-y: auto;
@@ -330,13 +332,10 @@ body {
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-<<<<<<< HEAD
-    transition: none;
-=======
-    transition: margin-left .5s;
+    <<<<<<< HEAD transition: none;
+    =======transition: margin-left .5s;
     padding: 10px;
->>>>>>> 60def21c6b3fc282e0135606328c196263857cff
-    margin-top: 0;
+    >>>>>>>60def21c6b3fc282e0135606328c196263857cff margin-top: 0;
     margin-left: calc(var(--desktop-menu-width) + 6vw);
     margin-right: 6vw;
     margin-bottom: 15vh;
@@ -586,6 +585,14 @@ hr {
     width: 100%;
 }
 
+.content-section .disclaimer-box {
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+}
+
 .content-section .indent {
     padding-left: 15px;
 }
@@ -615,10 +622,12 @@ hr {
 }
 
 
-.indent .br {
+br.indent {
     display: block;
     content: "";
     margin: 0px;
+    padding: 0px;
+    height: 0px;
 }
 
 .paragraph-section {
@@ -784,21 +793,33 @@ ul.breadcrumb li+li:before {
 /* overall collapsible menus styling */
 .goals-menu {
     margin-top: 10px;
-    margin-bottom: 65Foptpx;
+    margin-bottom: 65px;
+    background-color: var(--light-grey);
+    border-radius: 15px;
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-/* lines in closeed menu */
+/* lines in closed menu */
 .goals-button {
-    background-color: #eee;
+    background-color: var(--light-grey);
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 99%;
+    align-content: center;
+    align-self: center;
+    align-items: center;
     text-align: left;
     border: none;
+    border-radius: 15px;
     outline: none;
     transition: 0.4s;
     font-size: 16px;
+    font: var(--body-text);
+    margin: 2px;
+    margin-left: 4px;
 }
 
 /* change color on hover */
@@ -815,12 +836,13 @@ ul.breadcrumb li+li:before {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    border-left: solid 2px var(--light-grey);
+    border-right: solid 2px var(--light-grey);
 }
 
 /* changing +/- - does not change signs yet! :/ */
 .goals-button:after {
     content: '\02795';
-    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: var(--dark-green);
     float: right;
@@ -832,18 +854,72 @@ ul.breadcrumb li+li:before {
     /* Unicode character for "minus" sign (-) */
 }
 
+/* styling table for meta and phallo comparison
 /* tables https://www.w3schools.com/html/html_tables.asp search "HTML table tags" in dev view for a table code example */
 .meta-phallo-table {
+    display: table;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    border: solid 2px var(--light-grey);
+    padding: 10px;
+    border-collapse: collapse;
 }
+
 
 .meta-phallo-table td {
     padding: 5px;
+    border: solid 2px var(--light-grey);
+    text-align: center;
+}
+
+.meta-phallo-table th {
+    padding: 5px;
+    text-align: center;
+    font-style: normal;
+}
+
+td.title-column {
+    text-align: left;
+}
+
+th.title-column {
+    text-align: left;
 }
 
 .meta-phallo-table tr {
     padding: 5px;
+    border: solid 2px var(--light-grey);
+}
+
+.meta-phallo-table br {
+    display: block;
+    content: "";
+    margin-top: 2px;
+}
+
+tr.category-row {
+    text-align: left;
+    text-style: normal;
+}
+
+/* scroll to top button */
+.scroll-top-btn {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 5vh;
+    right: 3vw;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: var(--dark-green);
+    color: white;
+    border: none;
+    filter: drop-shadow(1px 1px 2px grey);
+    font-size: 22px;
+    font-style: bold;
+    padding-bottom: 5px;
 }
 
 /* NOTE change the active and visited link text colors */
