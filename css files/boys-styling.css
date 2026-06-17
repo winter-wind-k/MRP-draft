@@ -50,7 +50,7 @@
     inline-size: fit-content;
     block-size: fit-content;
     /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/fit-content */
-    border: .2vw solid rgb(202, 202, 202);
+    border: none;
     border-radius: 10px;
     fill: white;
     -webkit-user-select: none;
@@ -67,26 +67,59 @@
 /* all options styling */
 .selection-options {
     display: inline-flex;
-    gap: 5vw;
+    gap: 2vw;
     padding-left: 5vh;
     padding-top: 5vh;
+    align-self: center;
+    align-items: center;
 }
 
 /* procedure options styling */
 .procedure-options {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     align-items: flex-start;
-    gap: 2vw;
-    border: .3vh solid rgb(212, 212, 212);
-    border-radius: 1vh;
-    padding: 2vh;
+    gap: 10px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    padding: 10px;
+    height: fit-content;
+    width: fit-content;
 }
+
+/* container around all procedure lines 
+.all-procedures-container {
+    columns: 2;
+    text-align: left;
+    gap: 0px;
+}*/
+
+.procedures-form {
+    width: 275px;
+    columns: 2;
+    text-align: left;
+    gap: 0px;
+    flex-shrink: 0;
+}
+
+/* add this in - procedures into two rows for smaller screens; something along these lines
+@media
+.procedure-options {
+    display: grid;  
+} */
 
 /* titles larger, bold, green */
 .boys-titles {
     font-weight: 600;
-    font-size: 3vh;
+    font-size: 16px;
+    color: #364b47;
+}
+
+/* images titles slightly larger */
+.boys-image-titles {
+    font-weight: 600;
+    font-size: 18px;
     color: #364b47;
 }
 
@@ -94,12 +127,16 @@
 .procedure-line {
     display: flex;
     align-items: flex-start;
-    gap: 1vw;
+    flex-shrink: 0;
+    gap: 10px;
     align-self: stretch;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    width: fit-content;
 }
 
 /* reset default checkbox styling */
@@ -113,12 +150,20 @@
 
 /* custom checkbox styling */
 .procedure-checkbox {
-    border: .3vh solid rgb(194, 194, 194);
-    height: 3vh;
-    width: 3vh;
-    border-radius: .5vh;
+    border: 2px solid rgb(194, 194, 194);
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
     cursor: pointer;
+    flex-shrink: 0;
 }
+
+.procedure-names {
+    font-size: 14px;
+    align-items: center;
+    padding-top: 1.5px;
+}
+
 
 .procedure-line:hover input~.procedure-checkbox {
     background-color: #ccc;
@@ -135,6 +180,7 @@
     display: none;
     color: #627773;
     vertical-align: middle;
+    flex-shrink: 0;
 }
 
 /* Show the checkmark when checked */
@@ -144,21 +190,23 @@
 
 /* Style the checkmark/indicator */
 .procedure-line .procedure-checkbox:after {
-    height: 3vh;
-    width: 3vh;
+    height: 5px;
+    width: 5px;
     vertical-align: middle;
+    transform: translateX(2px) translateY(-2.7px);
 }
 
-/* experiment with styled checkboxes for skin tones */
+/* styled checkboxes no longer in use!! 
+/* experiment with styled checkboxes for skin tones 
 .skin-tone-checkboxes-container {
     display: flex;
     flex-direction: column;
     align-items: left;
-    gap: 2vh;
-    border: .3vh solid rgb(212, 212, 212);
-    border-radius: 1vh;
-    padding: 2vh 3vh;
-    height: 15vh;
+    gap: 5px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    padding: 10px;
+    height: 50px;
     width: fit-content;
 }
 
@@ -176,14 +224,14 @@
 .skin-tone-checkboxes {
     display: flex;
     align-items: center;
-    gap: 1vh;
+    gap: 5px;
     border: none;
 }
 
 .skin-tone-checkmark {
-    /* equivalent to checkmark */
-    height: 7vh;
-    width: 7vh;
+    /* equivalent to checkmark 
+    height: 15px;
+    width: 15px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
@@ -206,32 +254,36 @@
 .skin-tone-checkbox input:checked~.skin-tone-checkmark::after {
     display: block;
 }
+*/
 
 /* skin tone buttons container - replaced with checkboxes */
 .skin-tone-container {
     display: flex;
     flex-direction: column;
     align-items: left;
-    gap: 3vh;
-    border: .3vh solid rgb(212, 212, 212);
-    border-radius: 1vh;
-    padding: 2vh 3vh;
-    height: 15vh;
+    gap: 10px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 75px;
 }
 
 /* styling for all skin tone buttons collectively - old buttons, replaced with checkboxes */
 .skin-tone-buttons {
     display: flex;
     align-items: center;
-    gap: 1vh;
+    gap: 5px;
     border: none;
 }
 
 /* styling for individual skin tone button */
 .skin-tone-button {
-    height: 7vh;
-    width: 7vh;
-    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
     border: none;
     cursor: pointer;
     color: white;
@@ -247,27 +299,28 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    gap: 3vh;
-    border: .3vh solid rgb(212, 212, 212);
-    border-radius: 1vh;
-    padding: 2vh 3vh;
-    height: 15vh;
+    gap: 10px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    padding: 10px 15px;
+    height: fit-content;
     width: fit-content;
+    position: relative;
 }
 
 /* styling for all body size buttons collectively */
 .body-size-buttons {
     display: flex;
     align-items: center;
-    gap: 2vh;
+    gap: 5px;
     border: none;
 }
 
 /* styling for individual body size button */
 .body-size-button {
-    height: 7vh;
-    width: 7vh;
-    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
     border: none;
     cursor: pointer;
     vertical-align: middle;
@@ -282,16 +335,19 @@
 
 /* blur button */
 .blur-button-container {
-    padding-right: 2vw;
-    padding-top: 2vw;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    gap: 15px;
+    width: 100px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    font: var(--body-text);
 }
 
 
 .blur-button-container img {
-    width: 5vh;
+    width: 20px;
     height: auto;
 }
 
@@ -299,20 +355,25 @@
     background-color: white;
     border: none;
     cursor: pointer;
+    font: var(--body-text);
+    font-size: 14px;
 }
 
 /* overall container for boys tool images */
 .boys-images-container {
     display: flex;
-    gap: 3vw;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 /* boys tool illustration styling */
 .boys-tool-illustration img {
     width: auto;
-    height: 50vh;
-    border: .3vh solid rgb(212, 212, 212);
-    padding: 2vh;
+    height: 300px;
+    border: 2px solid rgb(212, 212, 212);
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -320,34 +381,34 @@
 .inner-view-container {
     display: flex;
     flex-direction: column;
-    padding: 5vh;
+    padding: 15px;
 }
 
 .front-view-container {
     display: flex;
     flex-direction: column;
-    padding: 5vh;
+    padding: 15px;
 }
 
 
 /* title and download button styling */
 .inner-view-text {
     display: flex;
-    gap: 2vh;
+    gap: 5px;
     align-items: center;
 }
 
 .front-view-text {
     display: flex;
-    gap: 2vh;
+    gap: 5px;
     align-items: center;
-    padding-bottom: 3vh;
-    padding-top: 2vh;
+    padding-bottom: 15px;
+    padding-top: 10px;
 }
 
 /* download button styling */
 .inner-view-text img {
-    width: 3vh;
+    width: 25px;
     height: auto;
 }
 
@@ -358,7 +419,7 @@
 }
 
 .front-view-text img {
-    width: 3vh;
+    width: 5px;
     height: auto;
 }
 
@@ -371,13 +432,14 @@
 /* text and labels toggle inner view alignment */
 .inner-view-text-toggle {
     display: flex;
-    gap: 10vw;
-    padding-bottom: 1vh;
+    width: fit-content;
+    gap: 85px;
+    padding-bottom: 3px;
 }
 
 .toggle-container {
     display: flex;
-    gap: 1vw;
+    gap: 8px;
 }
 
 /* styling checkbox into labels toggle class="labels-toggle" span class="slider round" */
@@ -386,8 +448,8 @@
 .labels-toggle {
     position: relative;
     display: inline-block;
-    width: 5vw;
-    height: 5vh;
+    width: 48px;
+    height: 23px;
 }
 
 /* Hide default HTML checkbox */
@@ -413,8 +475,8 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 3.8vh;
-    width: 2vw;
+    height: 15px;
+    width: 15px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -431,9 +493,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(2.5vw);
-    -ms-transform: translateX(2.5vw);
-    transform: translateX(2.5vw);
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
 }
 
 /* Rounded sliders */
@@ -452,8 +514,8 @@ input:checked+.slider:before {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 70%;
-    font-size: 12px;
+    left: 68%;
+    font-size: 10px;
     font-family: Verdana, sans-serif;
 }
 
@@ -467,6 +529,7 @@ input:checked+.slider:after {
     position: relative;
     text-align: center;
     color: white;
+    width: fit-content;
 }
 
 /* Neophallus label */
@@ -475,13 +538,12 @@ input:checked+.slider:after {
     bottom: 42%;
     left: 32%;
     color: black;
-    width: 12%;
-    height: 4%;
     background: rgb(255, 255, 255);
-    border: 0.1vw solid rgb(0, 0, 0);
-    padding: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font: var(--body-text);
+    font-size: 12px;
 }
 
 /* Urethra label */
@@ -490,43 +552,41 @@ input:checked+.slider:after {
     top: 60%;
     left: 25%;
     color: black;
-    width: 12%;
-    height: 4%;
     background: rgb(255, 255, 255);
-    border: 0.1vw solid rgb(0, 0, 0);
-    padding: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 6px;
     font-family: Arial, Helvetica, sans-serif;
+    font: var(--body-text);
+    font-size: 12px;
 }
 
 /* Implant label */
 .labeled-image-container .implant-text {
     position: absolute;
-    top: 68%;
-    right: 43%;
+    top: 71%;
+    right: 30%;
     color: black;
-    width: 16%;
-    height: 8%;
     background: rgb(255, 255, 255);
-    border: 0.1vw solid rgb(0, 0, 0);
-    padding: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font: var(--body-text);
+    font-size: 12px;
 }
 
 /* Vagina label */
 .labeled-image-container .vagina-text {
     position: absolute;
     bottom: 50%;
-    right: 30%;
+    right: 22%;
     color: black;
-    width: 14%;
-    height: 8%;
     background: rgb(255, 255, 255);
-    border: 0.1vw solid rgb(0, 0, 0);
-    padding: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font: var(--body-text);
+    font-size: 12px;
 }
 
 /* Bladder label */
@@ -536,14 +596,13 @@ input:checked+.slider:after {
     left: 46%;
     transform: translate(-50%, -50%);
     color: black;
-    border: 1% solid black;
-    width: 11%;
-    height: 4%;
+    border: 1px solid black;
     background: rgb(255, 255, 255);
-    border: 0.1vw solid rgb(0, 0, 0);
-    padding: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font: var(--body-text);
+    font-size: 12px;
 }
 
 /* Hide labels for toggle */

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/components/styles_components.css">
     <link rel="stylesheet" href="/css files/boys-styling.css">
+    <link rel="stylesheet" href="/css files/before-surgery-styling.css">
     <link rel="icon" href="images/favicon.png">
     <title>Build-Out-Your-Surgery</title>
 </head>
@@ -19,51 +20,93 @@
     <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
     <div id="main">
         <main>
-            <h1>Build Out Your Surgery (BOYS)</h1>
+            <div class="page-titles-container">
+                <ul class="breadcrumb">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/2. Before Surgery/1. FAQ-before.html">Before Surgery</a></li>
+                    <li><a>Build Out Your Surgery (BOYS)</a></li>
+                    <h1>Build Out Your Surgery (BOYS)</h1>
+            </div>
+
             <div>
-                <div class="content-section">
-                    <p>This tool can show you what meta might look like on your body. You can choose from different
-                        types of meta, different skin tones, and different body types to see what your post-surgery body
-                        may look like.</p>
-                    <p><b>Disclaimer:</b> There are many factors that affect what your results might look like,
-                        including the
-                        size of your penis before surgery and your body’s healing process. While this tool can show you
-                        potential results, keep in mind that your actual results may vary.
-                    </p>
+                <div class="paragraph-section">
+
+                    <div class="content-section">
+                        <p>This tool can show you what meta might look like on your body. You can choose from different
+                            types of meta, different skin tones, and different body types to see what your post-surgery
+                            body
+                            may look like.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <p>While anyone can explore this tool, we recommend that you know a little bit about meta before
+                            using
+                            it. If you don’t already have some background knowledge, you might find it helpful to read
+                            the
+                            Overview first.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="disclaimer-box">
+                            <p><b>Disclaimer:</b> There are many factors that affect what your results might look like,
+                                including the
+                                size of your penis before surgery and your body’s healing process. While this tool can
+                                show
+                                you
+                                potential results, keep in mind that your actual results may vary.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!--note to self make a lightbox that can fullscreen and hold the boys tool-->
 
             <div class="boys-container">
                 <div class="selection-options">
                     <div class="procedure-options">
                         <div class="boys-titles">Procedure</div>
 
-                        <form autocomplete="off">
-                            <label class="procedure-line">
-                                <input type="checkbox" class="procedure-checkbox-input" value="1">
-                                <span class="procedure-checkbox"></span>
-                                <div p>Simple Meta</div>
-                            </label>
+                        <div class="all-procedures-container">
+                            <form autocomplete="off">
+                                <div class="procedures-form">
 
-                            <label class="procedure-line">
-                                <input type="checkbox" class="procedure-checkbox-input" value="2"
-                                    onchange="console.log('inline change triggered')">
-                                <span class="procedure-checkbox"></span>
-                                <div p>Vaginectomy</div>
-                            </label>
+                                    <div>
+                                        <label class="procedure-line">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="1">
+                                            <span class="procedure-checkbox"></span>
+                                            <div class="procedure-names" p>Simple Meta</div>
+                                        </label>
+                                    </div>
 
-                            <label class="procedure-line">
-                                <input type="checkbox" class="procedure-checkbox-input" value="3">
-                                <span class="procedure-checkbox"></span>
-                                <div p>Scrotoplasty</div>
-                            </label>
+                                    <div>
+                                        <label class="procedure-line">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="2"
+                                                onchange="console.log('inline change triggered')">
+                                            <span class="procedure-checkbox"></span>
+                                            <div class="procedure-names" p>Vaginectomy</div>
+                                        </label>
+                                    </div>
 
-                            <label class="procedure-line">
-                                <input type="checkbox" class="procedure-checkbox-input" value="4">
-                                <span class="procedure-checkbox"></span>
-                                <div p>Urethral Lengthening</div>
-                            </label>
-                        </form>
+                                    <div>
+                                        <label class="procedure-line">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="3">
+                                            <span class="procedure-checkbox"></span>
+                                            <div class="procedure-names" p>Scrotoplasty</div>
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <label class="procedure-line">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="4">
+                                            <span class="procedure-checkbox"></span>
+                                            <div class="procedure-names" p>Urethral Lengthening</div>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
 
                     </div>
 
@@ -91,7 +134,7 @@
                         <div class="boys-titles">Body Size</div>
                         <div class="body-size-buttons">
                             <button onclick="setSize('smaller')" id="smaller-size-button" class="body-size-button"
-                                style="width: 4vh; height: 4vh">&ZeroWidthSpace;</button>
+                                style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
                             <button onclick="setSize('larger')" id="larger-size-button"
                                 class="body-size-button">&ZeroWidthSpace;</button>
                         </div>
@@ -112,7 +155,7 @@
 
                         <div class="inner-view-text-toggle">
                             <div class="inner-view-text">
-                                <div class="boys-titles">Inner View</div>
+                                <div class="boys-image-titles">Inner View</div>
                                 <!--figure out how to switch download function to any displayed image, not just one set image-->
                                 <a href="/images/boys-tool-illustrations/inner/inner-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
                                     download="inner_view">
@@ -153,7 +196,7 @@
                     <div class="front-view-container">
 
                         <div class="front-view-text">
-                            <div class="boys-titles">Front View</div>
+                            <div class="boys-image-titles">Front View</div>
                             <a href="/images/boys-tool-illustrations/front/front-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
                                 download="front_view">
                                 <button id="front-view-download">

@@ -1,4 +1,116 @@
+/* faq page breadcrumb styling */
+
+/* breadcrumb design - https://www.w3schools.com/css/css3_pagination_styles.asp */
+ul.breadcrumb {
+    padding: 8px;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+}
+
+ul.breadcrumb li a {
+    color: green;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "->\00a0";
+}
+
+.breadcrumb-container .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+/* FAQ title and text */
+
+.faq-page-title {
+    margin-top: 35px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.faq-page-title h1 {
+    margin: 0px;
+}
+
+.faq-page-title p {
+    font-size: 20px;
+}
+
+/* collapsible accordion menus https://www.w3schools.com/howto/howto_js_accordion.asp */
+/* overall collapsible menus styling for FAQs */
+.faq-menu {
+    margin-top: 10px;
+    margin-bottom: 65px;
+    background-color: var(--light-grey);
+    border-radius: 15px;
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* lines in closed menu */
+.question-button {
+    background-color: var(--light-grey);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 99%;
+    text-align: left;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    transition: 0.4s;
+    font-size: 20px;
+    font: var(--body-text);
+    margin: 2px;
+    margin-left: 4px;
+}
+
+/* change color on hover */
+.active,
+.question-button:hover {
+    background-color: #ccc;
+}
+
+/* hidden text in dropdowns */
+.answer-text {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: solid 2px var(--light-grey);
+    border-right: solid 2px var(--light-grey);
+    border-radius: 15px;
+}
+
+/* changing +/- - does not change signs yet! :/ */
+.question-button:after {
+    content: '\02795';
+    font-size: 13px;
+    color: var(--dark-green);
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+
 /* link to Shay's lab with hotspot code https://docs.google.com/document/d/1YqXcLLANNgtpewwMkg1QBNEQBHtlp9iDc2UQDQQAJyI/edit?usp=sharing */
+
+
 
 /* recovery rooms text and image container */
 .recovery-space-container {
