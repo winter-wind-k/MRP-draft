@@ -273,8 +273,15 @@ body {
     height: calc(100vh - var(--sticky-header-offset));
     width: var(--desktop-menu-width);
     position: fixed;
+<<<<<<< HEAD
     /* SS Comment: Keep side menu below the main top menu while scrolling. */
     top: var(--sticky-header-offset);
+=======
+    /* Stay in place */
+    z-index: 10;
+    /* Stay on top */
+    /* top: 0; Stay at the top */
+>>>>>>> 60def21c6b3fc282e0135606328c196263857cff
     left: 0;
     z-index: 90;
     background-color: var(--light-grey);
@@ -323,7 +330,12 @@ body {
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
+<<<<<<< HEAD
     transition: none;
+=======
+    transition: margin-left .5s;
+    padding: 10px;
+>>>>>>> 60def21c6b3fc282e0135606328c196263857cff
     margin-top: 0;
     margin-left: calc(var(--desktop-menu-width) + 6vw);
     margin-right: 6vw;
