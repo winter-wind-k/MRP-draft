@@ -14,7 +14,7 @@
     --body-line-height: 1.2;
     --figure-cap-text: 16px;
     --sticky-header-offset: 88px;
-    --desktop-menu-width: 300px;
+    --desktop-menu-width: 200px;
     --mobile-menu-row-height: 56px;
 
 }
@@ -61,6 +61,16 @@ header {
     margin: 0, 0, 0, 0;
 }
 
+.page-titles-container {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.page-titles-container h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .sticky-header {
     position: sticky;
     top: 0px;
@@ -102,7 +112,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
 }
 
 /* SS Comment: Keep utility icons in the header aligned with the theme controls. */
@@ -136,6 +146,35 @@ nav {
     .logo img {
         min-width: 40vw;
     }
+}
+
+/* styling text and popups for glossary terms */
+/* text of term */
+span {
+    font-style: normal;
+    cursor: pointer;
+    position: relative;
+}
+
+/* styling for popup box */
+span::after {
+    content: attr(title);
+    position: absolute;
+    background-color: white;
+    transform: translateY(10%) translateX(5%);
+    padding: 10px;
+    border: solid 1px var(--light-grey);
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    color: black;
+    width: 15vw;
+    height: auto;
+    filter: drop-shadow(3px 3px 2px rgb(201, 201, 201));
+}
+
+span:hover::after {
+    opacity: 1;
 }
 
 /* styling for dark mode toggle */
@@ -213,7 +252,7 @@ body {
 
 
 .tutorial-button {
-    border: 2px solid var(--dark-grey-text);
+    /*border: 2px solid var(--dark-grey-text); */
     background-color: var(--light-grey);
     border-radius: 30px;
     width: 40px;
@@ -241,15 +280,16 @@ body {
     background-color: var(--light-grey);
     overflow-y: auto;
     overflow-x: hidden;
-    padding-top: 16px;
+    padding-top: 15px;
+    padding-left: 15px;
     transition: height 0.35s ease;
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 32px 8px 32px;
+    padding: 8px 16px 8px 16px;
     text-decoration: none;
-    font-size: var(--h2-size);
+    font-size: 16px;
     color: var(--dark-green);
     display: block;
     transition: 0.3s;
@@ -272,10 +312,13 @@ body {
 
 .menu-item a {
     font-size: 16px;
+    padding-left: 8px;
 }
 
 .sidenav ul {
     list-style: none;
+    margin-top: 0;
+    font-size: 16px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -295,7 +338,7 @@ body {
     }
 
     .sidenav a {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -343,9 +386,15 @@ body {
 /* Quick escape button */
 .quick-esc-button {
     cursor: pointer;
-    border: 0px;
-    background-color: rgba(1, 1, 1, 0);
-    ;
+    border: 2px solid var(--dark-grey-text);
+    background-color: white;
+}
+
+.quick-escape-button {
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 1000px;
 }
 
 .top-stuff {
@@ -521,15 +570,83 @@ hr {
 /* Main content styling */
 .content-section {
     display: flex;
-    gap: 10%;
-    margin: 1rem auto;
+    gap: 5%;
     width: 100%;
-    align-items: center;
 }
 
-.content-section img {
-    width: 40%;
+.content-section .indent {
+    padding-left: 15px;
+}
+
+.content-image {
+    display: flex;
+    width: 100%;
+    padding: 0;
+}
+
+.captioned-image {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+/* images in four meta options */
+.option-item {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+
+.indent .br {
+    display: block;
+    content: "";
+    margin: 0px;
+}
+
+.paragraph-section {
+    margin-bottom: 40px;
+}
+
+.paragraph-section h1 {
+    margin-bottom: 10px;
+}
+
+.paragraph-section h2 {
+    margin-bottom: 5px;
+}
+
+.summary-box {
+    background-color: var(--light-grey);
+    border-radius: 15px;
     padding: 30px;
+    margin-bottom: 50px;
+}
+
+.summary-box h2 {
+    margin-top: 0px;
+}
+
+.summary-box p {
+    margin-bottom: 0px;
+}
+
+.summary-box br {
+    display: block;
+    content: "";
+    margin-top: 4px;
+}
+
+.general-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 /* Responsive ish content styling */
@@ -625,3 +742,96 @@ hr {
     /* i turned opacity to 0 to do some stuff, just delete this line and the opacity property if it's still there when you see this */
     opacity: 0;
 }
+
+/* breadcrumb design - https://www.w3schools.com/css/css3_pagination_styles.asp */
+ul.breadcrumb {
+    padding: 8px;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+}
+
+ul.breadcrumb li a {
+    color: green;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "->\00a0";
+}
+
+.page-titles-container .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+/* collapsible accordion menus https://www.w3schools.com/howto/howto_js_accordion.asp */
+/* overall collapsible menus styling */
+.goals-menu {
+    margin-top: 10px;
+    margin-bottom: 65Foptpx;
+}
+
+/* lines in closeed menu */
+.goals-button {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 16px;
+}
+
+/* change color on hover */
+.active,
+.goals-button:hover {
+    background-color: #ccc;
+}
+
+/* hidden text in dropdowns */
+.goals-text {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* changing +/- - does not change signs yet! :/ */
+.goals-button:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: var(--dark-green);
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+/* tables https://www.w3schools.com/html/html_tables.asp search "HTML table tags" in dev view for a table code example */
+.meta-phallo-table {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.meta-phallo-table td {
+    padding: 5px;
+}
+
+.meta-phallo-table tr {
+    padding: 5px;
+}
+
+/* NOTE change the active and visited link text colors */
