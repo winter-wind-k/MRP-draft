@@ -49,7 +49,7 @@ ul.breadcrumb li+li:before {
 .faq-menu {
     margin-top: 10px;
     margin-bottom: 65px;
-    background-color: var(--light-grey);
+    background-color: white;
     border-radius: 15px;
     width: 100%;
     padding-top: 2px;
@@ -88,9 +88,9 @@ ul.breadcrumb li+li:before {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    border-left: solid 2px var(--light-grey);
-    border-right: solid 2px var(--light-grey);
-    border-radius: 15px;
+    /*border-left: solid 2px var(--light-grey);
+    border-right: solid 2px var(--light-grey);*/
+    border-radius: 0px;
 }
 
 /* changing +/- - does not change signs yet! :/ */
@@ -202,6 +202,36 @@ p.disclaimer-box.prepare-your-mind {
     }
 }
 
+.comforting-friend-image {
+    padding-top: 30px;
+    width: 30vw;
+}
+
+@media (max-width:768px) {
+    .affective-image {
+        width: 100vw;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+.surgery-questions {
+    margin-top: 10px;
+    padding: 20px 40px;
+    background-color: var(--light-grey);
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.surgery-questions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.surgery-questions.after-questions {
+    padding-right: 17px;
+}
+
 .surgery-questions li {
     margin: 20px 0;
 }
@@ -209,6 +239,24 @@ p.disclaimer-box.prepare-your-mind {
 .surgery-questions ul {
     list-style-type: none;
     padding: 0;
+}
+
+/* .before-questions {
+    width: 180px;
+}
+
+.after-questions {
+    width: 220px;
+} */
+
+@media (max-width: 900px) {
+    .surgery-questions {
+        width: 93%;
+        height: fit-content;
+        gap: 100px;
+        margin-bottom: 25px;
+    }
+
 }
 
 .prosthetics {
@@ -219,9 +267,177 @@ p.disclaimer-box.prepare-your-mind {
     margin: 0px;
 }
 
+/* div.general-image-container.prosthetic-images {
+    width:
+} */
+
 ul.dysphoria-aid-list {
     color: black;
     margin: 0px;
+}
+
+@media (max-width: 900px) {
+    div.captioned-image.third-view-image {
+        width: 100%;
+        margin: 0px;
+    }
+
+    div.content-section.prosthetics {
+        display: flex;
+        flex-direction: row;
+        width: 93%;
+        padding-left: 0px;
+        margin: 0px;
+    }
+
+    img.prosthetic-image {
+        margin: 0px;
+        height: 150px;
+    }
+}
+
+.working-out-image {
+    width: 30vw;
+    float: right;
+    transform: translateY(-60px);
+}
+
+@media (max-width: 900px) {
+    .working-out-image {
+        transform: translateY(0px);
+    }
+}
+
+div.content-section.lab-gallery.body-icons {
+    --gap: 16px;
+    --num-cols: 4;
+    --num-rows: 2;
+    --row-width: 100%;
+
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: var(--gap);
+    /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
+    width: min(100%, 760px) max(100%);
+    margin: 0px;
+    text-align: center;
+}
+
+img.body-icon {
+    margin: 0px;
+    text-align: center;
+    height: 200px;
+}
+
+
+@media (max-width: 1035px) {
+    img.body-icon.bed {
+        margin: 0px;
+    }
+}
+
+@media (max-width: 900px) {
+    div.content-section.lab-gallery.body-icons {
+        --gap: 16px;
+        --num-cols: 2;
+        --num-rows: 4;
+        --row-width: 100%;
+
+        box-sizing: border-box;
+        padding: var(--gap);
+        display: grid;
+        grid-template-columns: repeat(var(--num-cols), 1fr);
+        grid-template-rows: repeat(var(--num-rows), 1fr);
+        gap: var(--gap);
+        /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
+        width: min(100%, 760px);
+        margin: 0;
+        text-align: center;
+    }
+
+    img.body-icon {
+        margin: 0px;
+        text-align: center;
+        height: 300px;
+    }
+
+    img.body-icon.bed {
+        height: 300px;
+        margin: 50px 0;
+    }
+
+}
+
+img.body-icon-small {
+    width: 20%;
+    margin-left: 0px;
+    float: left;
+}
+
+img.body-icon-small.body-icon-bed {
+    margin-right: 25px;
+}
+
+@media (max-width:900px) {
+    img.body-icon-small {
+        width: 20%;
+        float: left;
+        margin-left: 0px;
+        padding: 0 15px;
+    }
+}
+
+div.content-item.body-icon-container {
+    width: 120%;
+}
+
+.prepare-space-image {
+    width: 30vw;
+    float: right;
+    margin-left: 20px;
+}
+
+.icon-tables {
+    --gap: 16px;
+    --num-cols: 2;
+    --num-rows: 5;
+    --row-width: 100%;
+
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.icon-table-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    border: solid 5px var(--light-grey);
+    border-radius: 15px;
+}
+
+.prepare-space-icon {
+    width: 100%;
+}
+
+.prepare-space-icon img {
+    width: 80%;
+    text-align: center;
+}
+
+.prepare-space-text {
+    width: 100%;
+    align-self: center;
+    margin-right: 20px;
 }
 
 

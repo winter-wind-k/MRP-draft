@@ -632,6 +632,8 @@ br.indent {
 
 .paragraph-section {
     margin-bottom: 40px;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 .paragraph-section h1 {
@@ -680,6 +682,14 @@ br.indent {
         width: 80%;
         padding: 15px;
         text-align: center;
+        margin-left: 7vw;
+    }
+
+    .content-item img {
+        width: 80%;
+        padding: 15px;
+        text-align: center;
+        margin-left: 7vw;
     }
 
     h1 {
