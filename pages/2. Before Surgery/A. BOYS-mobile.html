@@ -63,7 +63,7 @@
             <!--note to self make a lightbox that can fullscreen and hold the boys tool-->
 
             <div class="boys-container">
-                <div class="selection-options">
+                <div class="selection-options boys-options-menu">
                     <div class="procedure-options">
                         <div class="boys-titles">Procedure</div>
 
@@ -206,11 +206,11 @@
                         <div class="labeled-image-container">
                             <div style="font-size:1vw">
                                 <div id="boys-labels" class="boys-labels-class">
-                                    <div class="boys-labels-all phallus-text">Phallus</div>
-                                    <div class="boys-labels-all urethra-text">Urethra</div>
-                                    <div class="boys-labels-all implant-text">Testicular implant</div>
-                                    <div class="boys-labels-all vagina-text">Vagina (closed)</div>
-                                    <div class="boys-labels-all bladder-text">Bladder</div>
+                                    <div class="phallus-text">Phallus</div>
+                                    <div class="urethra-text">Urethra</div>
+                                    <div class="implant-text">Testicular implant</div>
+                                    <div class="vagina-text">Vagina (closed)</div>
+                                    <div class="bladder-text">Bladder</div>
                                 </div>
                             </div>
                             <div class="boys-tool-illustration blurred-image">
@@ -224,7 +224,75 @@
                 </div>
 
             </div>
-            
+
+            <!--experiment with using styled checkboxes instead of buttons; now works but switched back to buttons
+            <div class="skin-tone-checkboxes-container">
+                <div>Skin Tone</div>
+                <div class="skin-tone-checkboxes">
+
+                    <div class="swatches" id="skinTones" role="radiogroup" aria-label="Skin tone">
+                        <div class="swatch light" data-tone="light" role="radio" aria-checked="false">
+                            <div class="skin-tone-checkbox">
+                                <label for="tone-light"></label>
+                                <input type="checkbox" id="light-skin-checkbox" aria-label="light skin tone">
+                                <div p>&ZeroWidthSpace;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swatches" id="skinTones" role="radiogroup" aria-label="Skin tone">
+                        <div class="swatch olive" data-tone="olive" role="radio" aria-checked="false">
+                            <div class="skin-tone-checkbox">
+                                <label for="tone-olive"></label>
+                                <input type="checkbox" id="olive-skin-checkbox" aria-label="olive skin tone">
+                                <div p>&ZeroWidthSpace;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swatches" id="skinTones" role="radiogroup" aria-label="Skin tone">
+                        <div class="swatch medium" data-tone="medium" role="radio" aria-checked="false">
+                            <div class="skin-tone-checkbox">
+                                <label for="tone-medium"></label>
+                                <input type="checkbox" id="medium-skin-checkbox" aria-label="medium skin tone">
+                                <div p>&ZeroWidthSpace;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swatches" id="skinTones" role="radiogroup" aria-label="Skin tone">
+                        <div class="swatch dark" data-tone="dark" role="radio" aria-checked="false">
+                            <div class="skin-tone-checkbox">
+                                <label for="tone-dark"></label>
+                                <input type="checkbox" id="dark-skin-checkbox" aria-label="dark skin tone">
+                                <div p>&ZeroWidthSpace;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+
+            <!--experimenting with radio buttons for mutually exclusive function
+
+                    <div class="skin-tone-button">
+                        <input type="radio" name="skin-tone" id="light-skin-button" checked>
+                        <label for="light-skin-button" unselectable>&ZeroWidthSpace;</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button2">
+                        <label for="button2" unselectable>Button 2</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button3">
+                        <label for="button3" unselectable>Button 3</label>
+                    </div>
+                    <div class="mx-button">
+                        <input type="radio" name="mx" id="button4">
+                        <label for="button4" unselectable>Button 4</label>
+                    </div>-->
+
         </main>
     </div>
 

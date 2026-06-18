@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +9,37 @@
     <script defer src="JS files/include.js"></script>
     <title>Complications</title>
 </head>
+
 <body>
     <div data-include="/pages/components/header.html"></div>
-<div class="menu">
-    <div data-include="/pages/components/menu.html"></div>
-</div>
+    <div class="menu">
+        <div data-include="/pages/components/menu.html"></div>
+    </div>
 
-<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
-<div id="main">
-  <main>
-        <h1>Complications</h1>
-        <div>
-            <div class="content-section">
-                <p>As with any surgery, your recovery from meta may include complications. Complications can be scary, but your surgical team is there to support you and help you through any issues.</p>
+    <div id="main">
+        <main>
+
+            <div class="page-titles-container">
+                <ul class="breadcrumb">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/4. After Surgery/1. FAQ-after.html">After Surgery</a></li>
+                    <li><a>Complications</a></li>
+                    <h1>Complications</h1>
             </div>
-        </div>
-        
-    </main>
-</div>
-  
 
-<div data-include="/pages/components/footer.html"></div>
+            <div>
+                <div class="content-section">
+                    <p>As with any surgery, your recovery from meta may include complications. Complications can be
+                        scary, but your surgical team is there to support you and help you through any issues.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <div data-include="/pages/components/footer.html"></div>
     <script src="/JS files/include.js"></script>
 </body>
+
 </html>

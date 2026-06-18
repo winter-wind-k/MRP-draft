@@ -108,9 +108,124 @@ ul.breadcrumb li+li:before {
 }
 
 
+
+/* Surgery timeline https://codepen.io/iqbaltaher/pen/abbXRxb */
+
+.surgery-timeline {
+    counter-reset: none;
+    position: relative;
+    color: black;
+}
+
+.surgery-timeline li {
+    list-style: none;
+    float: left;
+    width: 13%;
+    position: relative;
+    text-align: center;
+    color: black;
+}
+
+ul:nth-child(1) {
+    color: black;
+}
+
+.surgery-timeline li:before {
+    counter-increment: test;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--dark-green);
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    margin: 0 auto 20px auto;
+    background: var(--dark-green);
+    color: #000;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.surgery-timeline li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-green);
+    top: 10px;
+    left: -50%;
+    z-index: -999;
+    transition: all ease-in-out .3s;
+}
+
+.surgery-timeline li:first-child:after {
+    content: none;
+}
+
+.surgery-timeline li.active-tl {
+    color: black;
+}
+
+.surgery-timeline li.active-tl:before {
+    background: var(--dark-green);
+    color: #F1F1F1;
+}
+
+.surgery-timeline li.active-tl+li:after {
+    background: var(--dark-green);
+}
+
+@media (max-width:900px) {
+    .surgery-timeline {
+        display: none;
+        min-width: 620px;
+    }
+}
+
+/* create vertical timeline for mobile */
+
+
+p.disclaimer-box.prepare-your-mind {
+    padding: 15px 20px;
+}
+
+.emotional-support-image {
+    width: 25vw;
+}
+
+@media (max-width:768px) {
+    .emotional-support-image {
+        width: 100vw;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+.surgery-questions li {
+    margin: 20px 0;
+}
+
+.surgery-questions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.prosthetics {
+    padding-left: 40px;
+}
+
+.prosthetics .general-image-container {
+    margin: 0px;
+}
+
+ul.dysphoria-aid-list {
+    color: black;
+    margin: 0px;
+}
+
+
 /* link to Shay's lab with hotspot code https://docs.google.com/document/d/1YqXcLLANNgtpewwMkg1QBNEQBHtlp9iDc2UQDQQAJyI/edit?usp=sharing */
-
-
 
 /* recovery rooms text and image container */
 .recovery-space-container {

@@ -46,7 +46,7 @@ h2 {
 
 p {
     font-family: var(--body-text);
-    color: var(--dark-green);
+    color: var(black);
 }
 
 header {
@@ -677,8 +677,9 @@ br.indent {
     }
 
     .content-section img {
-        width: 70%;
+        width: 80%;
         padding: 15px;
+        text-align: center;
     }
 
     h1 {
@@ -788,6 +789,12 @@ ul.breadcrumb li+li:before {
     margin-top: 20px;
     margin-bottom: 0px;
 }
+
+/* @media (max-width: 900px) {
+    .page-titles-container .breadcrumb {
+        margin-bottom: 20px;
+    }
+} */
 
 /* collapsible accordion menus https://www.w3schools.com/howto/howto_js_accordion.asp */
 /* overall collapsible menus styling */

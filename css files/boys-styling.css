@@ -268,7 +268,7 @@
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 75px;
+    height: 78px;
 }
 
 /* styling for all skin tone buttons collectively - old buttons, replaced with checkboxes */
@@ -303,7 +303,7 @@
     border: 2px solid rgb(212, 212, 212);
     border-radius: 10px;
     padding: 10px 15px;
-    height: fit-content;
+    height: 78px;
     width: fit-content;
     position: relative;
 }
@@ -333,16 +333,25 @@
     transform: scale(1.05);
 }
 
+/* blur button and labels toggle */
+.button-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+}
+
 /* blur button */
 .blur-button-container {
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100px;
+    width: 110px;
     border: 2px solid rgb(212, 212, 212);
     border-radius: 10px;
     font: var(--body-text);
+    flex-shrink: 0;
 }
 
 
@@ -357,12 +366,13 @@
     cursor: pointer;
     font: var(--body-text);
     font-size: 14px;
+    flex-shrink: 0;
 }
 
 /* overall container for boys tool images */
 .boys-images-container {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
@@ -419,7 +429,7 @@
 }
 
 .front-view-text img {
-    width: 5px;
+    width: 25px;
     height: auto;
 }
 
@@ -434,10 +444,35 @@
     display: flex;
     width: fit-content;
     gap: 85px;
-    padding-bottom: 3px;
+    padding-bottom: 15px;
+    padding-top: 10px;
 }
 
-.toggle-container {
+
+.boys-toggle-container {
+    display: flex;
+    gap: 0px;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    flex-shrink: 0;
+    align-items: center;
+    width: 110px;
+    text-align: center;
+    padding-right: 7.5px;
+    padding-left: 12.5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boys-toggle-container p {
+    font-size: 14px;
+    color: black;
+}
+
+.boys-toggle-items {
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
     display: flex;
     gap: 8px;
 }
@@ -532,11 +567,9 @@ input:checked+.slider:after {
     width: fit-content;
 }
 
-/* Neophallus label */
-.labeled-image-container .phallus-text {
+/* edit for universal changes to labels */
+.boys-labels-all {
     position: absolute;
-    bottom: 42%;
-    left: 32%;
     color: black;
     background: rgb(255, 255, 255);
     border: 1px solid rgb(0, 0, 0);
@@ -544,65 +577,36 @@ input:checked+.slider:after {
     border-radius: 6px;
     font: var(--body-text);
     font-size: 12px;
+}
+
+/* Neophallus label */
+.phallus-text {
+    bottom: 42%;
+    left: 32%;
 }
 
 /* Urethra label */
-.labeled-image-container .urethra-text {
-    position: absolute;
+.urethra-text {
     top: 60%;
     left: 25%;
-    color: black;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    border-radius: 6px;
-    font-family: Arial, Helvetica, sans-serif;
-    font: var(--body-text);
-    font-size: 12px;
 }
 
 /* Implant label */
-.labeled-image-container .implant-text {
-    position: absolute;
+.implant-text {
     top: 71%;
     right: 30%;
-    color: black;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    border-radius: 6px;
-    font: var(--body-text);
-    font-size: 12px;
 }
 
 /* Vagina label */
-.labeled-image-container .vagina-text {
-    position: absolute;
+.vagina-text {
     bottom: 50%;
     right: 22%;
-    color: black;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    border-radius: 6px;
-    font: var(--body-text);
-    font-size: 12px;
 }
 
 /* Bladder label */
-.labeled-image-container .bladder-text {
-    position: absolute;
+.bladder-text {
     top: 32%;
     left: 46%;
-    transform: translate(-50%, -50%);
-    color: black;
-    border: 1px solid black;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    border-radius: 6px;
-    font: var(--body-text);
-    font-size: 12px;
 }
 
 /* Hide labels for toggle */
@@ -613,4 +617,10 @@ input:checked+.slider:after {
 /* blur added to images */
 .blurred-image {
     filter: blur(10px) opacity(70%);
+}
+
+@media (max-width: 900px) {
+    .boys-options-menu {
+        /* placeholder to remind myself what i was doing here with mobile menu design */
+    }
 }

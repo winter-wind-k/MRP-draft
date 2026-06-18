@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,43 @@
     <script defer src="JS files/include.js"></script>
     <title>How Consults Work</title>
 </head>
+
 <body>
     <div data-include="/pages/components/header.html"></div>
-<div class="menu">
-    <div data-include="/pages/components/menu.html"></div>
-</div>
+    <div class="menu">
+        <div data-include="/pages/components/menu.html"></div>
+    </div>
 
-<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
-<div id="main">
-  <main>
-        <h1>How Consults Work</h1>
-        <div>
-            <h2>Consults</h2>
-            <div class="content-section">
-                <p>Consultations help your surgical team understand your current health and your surgery goals. These appointments are a chance to ask questions, express doubts and concerns, and figure out which specific surgery is right for you.</p>
+    <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
+    <div id="main">
+        <main>
+
+            <div class="page-titles-container">
+                <ul class="breadcrumb">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/2. Before Surgery/1. FAQ-before.html">Before Surgery</a></li>
+                    <li><a>How Consults Work</a></li>
+                    <h1>How Consults Work</h1>
             </div>
-        </div>
-        
-    </main>
-</div>
-  
 
-<div data-include="/pages/components/footer.html"></div>
+            <div class="paragraph-section">
+                <h2>Consults</h2>
+                <div class="content-section">
+                    <p>Consultations help your surgical team understand your current health and your surgery goals.
+                        These
+                        appointments are a chance to ask questions, express doubts and concerns, and figure out which
+                        specific surgery is right for you.</p>
+                </div>
+            </div>
+
+    </div>
+
+    </main>
+    </div>
+
+
+    <div data-include="/pages/components/footer.html"></div>
     <script src="/JS files/include.js"></script>
 </body>
+
 </html>
