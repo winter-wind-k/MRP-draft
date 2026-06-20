@@ -296,15 +296,47 @@ ul.dysphoria-aid-list {
     }
 }
 
-.working-out-image {
+img.working-out-image.affective-image {
     width: 30vw;
     float: right;
     transform: translateY(-60px);
 }
 
+/* img.working-out-image.affective-image.working-out-mobile {
+    visibility: hidden;
+}
+
 @media (max-width: 900px) {
-    .working-out-image {
+    img.working-out-image.affective-image.working-out-mobile {
+        visibility: visible;
+    }
+}
+
+img.working-out-image.affective-image.working-out-desktop {
+    visibility: visible;
+}
+
+@media (max-width: 900px) {
+    img.working-out-image.affective-image.working-out-desktop {
+        visibility: hidden;
+    }
+} 
+*/
+
+@media (max-width: 900px) {
+    img.working-out-image.affective-image {
         transform: translateY(0px);
+        width: 100%;
+    }
+}
+
+div.content-section.prepare-your-body-intro {
+    margin-bottom: -70px;
+}
+
+@media (max-width: 900px) {
+    div.content-section.prepare-your-body-intro {
+        margin-bottom: 0px;
     }
 }
 
@@ -329,7 +361,7 @@ div.content-section.lab-gallery.body-icons {
 img.body-icon {
     margin: 0px;
     text-align: center;
-    height: 200px;
+    height: 155px;
 }
 
 
@@ -341,17 +373,17 @@ img.body-icon {
 
 @media (max-width: 900px) {
     div.content-section.lab-gallery.body-icons {
-        --gap: 16px;
+        --gap: 5px;
         --num-cols: 2;
         --num-rows: 4;
         --row-width: 100%;
 
         box-sizing: border-box;
-        padding: var(--gap);
+        padding: 5px;
         display: grid;
         grid-template-columns: repeat(var(--num-cols), 1fr);
         grid-template-rows: repeat(var(--num-rows), 1fr);
-        gap: var(--gap);
+        gap: 5px;
         /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
         width: min(100%, 760px);
         margin: 0;
@@ -361,13 +393,9 @@ img.body-icon {
     img.body-icon {
         margin: 0px;
         text-align: center;
-        height: 300px;
+        height: 200px;
     }
 
-    img.body-icon.bed {
-        height: 300px;
-        margin: 50px 0;
-    }
 
 }
 
@@ -403,7 +431,7 @@ div.content-item.body-icon-container {
 .icon-tables {
     --gap: 16px;
     --num-cols: 2;
-    --num-rows: 5;
+    --num-rows: 3;
     --row-width: 100%;
 
     box-sizing: border-box;
@@ -426,24 +454,39 @@ div.content-item.body-icon-container {
 }
 
 .prepare-space-icon {
-    width: 100%;
+    width: 50%;
+    float: right;
 }
 
-.prepare-space-icon img {
+/* .prepare-space-icon img {
     width: 80%;
-    text-align: center;
-}
+    text-align: left;
+} */
 
 .prepare-space-text {
     width: 100%;
-    align-self: center;
+    text-align: left;
     margin-right: 20px;
+    padding: 0 5px 0 20px;
+}
+
+.prepare-space-text li {
+    padding-bottom: 10px;
 }
 
 
 /* link to Shay's lab with hotspot code https://docs.google.com/document/d/1YqXcLLANNgtpewwMkg1QBNEQBHtlp9iDc2UQDQQAJyI/edit?usp=sharing */
 
 /* recovery rooms text and image container */
+div.paragraph-section.recovery-room {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.recovery-room .recovery-space-text {
+    margin-left: 100px;
+}
+
 .recovery-space-container {
     display: block;
     columns: 1;
@@ -452,11 +495,17 @@ div.content-item.body-icon-container {
     height: auto;
 }
 
+
 .recovery-space-text {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
+    z-index: 10;
+    position: absolute;
+}
+
+.recovery-space-body {
+    margin-right: 80%;
 }
 
 /* image and hotspots module */
@@ -465,6 +514,10 @@ div.content-item.body-icon-container {
     display: block;
     width: 100%;
     height: auto;
+    text-align: center;
+    z-index: 1;
+    margin-top: 50px;
+    margin-left: 20px;
 }
 
 .recovery-space-image {
@@ -504,6 +557,7 @@ div.content-item.body-icon-container {
     transition: opacity 0.25s ease;
     left: 120%;
     top: 50%;
+    z-index: 1000;
 }
 
 @media (max-width: 900px) {
@@ -518,12 +572,15 @@ div.content-item.body-icon-container {
 /* button positioning and behavior determined by container so styling can be universal */
 /* edit here for universal button (circle) change */
 .hotspot-button {
+    position: relative;
     width: 4vh;
     height: 4vh;
-    background-color: #627773;
     display: block;
+    background-color: rgba(0, 0, 0, 0);
     border-radius: 100px;
-    border: none;
+    border: 3px solid rgb(216, 99, 119);
+    filter: drop-shadow(0px 0px 2px white);
+    z-index: 1;
 }
 
 /* edit here for universal button feedback change */
@@ -539,10 +596,46 @@ div.content-item.body-icon-container {
 /* hotspots - only have to change position; all other styling inherited */
 .laptop-hotspot {
     left: 25%;
-    top: 56%;
+    top: 55%;
 }
 
 .puzzle-hotspot {
+    right: 43%;
+    bottom: 26%;
+}
+
+.charger-hotspot {
+    left: 27%;
+    top: 46%;
+}
+
+.sink-hotspot {
+    right: 31%;
+    top: 39%;
+}
+
+.meds-hotspot {
+    left: 14%;
+    bottom: 41%;
+}
+
+.tv-hotspot {
+    right: 39%;
+    bottom: 22%;
+}
+
+.shower-hotspot {
     right: 47%;
-    bottom: 27%;
+    top: 30%;
+}
+
+.drag-queen-image {
+    width: 20vw;
+    float: right;
+    margin-left: 40px;
+    transform: translateY(-40px);
+}
+
+div.paragraph-section.funding-ideas {
+    margin-bottom: 0px;
 }
