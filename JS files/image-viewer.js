@@ -47,20 +47,24 @@ procedureCheckboxes.forEach(cb => {
 
 
 // update image based on skin tone and body size buttons
+
 function updateImage() {
     console.log("update image function is working :)")
 
     const checkboxPart = getCheckboxPart();
     console.log("checkboxPart", checkboxPart);
 
-    const fileName = `${state.tone}_${state.size}_${getCheckboxPart()}.jpg`
+    const fileName = `${state.tone}_${state.size}_${checkboxPart}.jpg`;
     console.log("fileName:", fileName);
 
-    const img = document.getElementById("boys-tool-image");
-    console.log("image element:", img)
+    const innerImg = document.getElementById("inner-view-image");
+    const frontImg = document.getElementById("front-view-image");
 
-    img.src = `/images/boys-tool-illustrations/${fileName}`;
-    console.log("new src:", img.src);
+    innerImg.src = `/images/boys-tool-illustrations/inner/${fileName}`;
+    frontImg.src = `/images/boys-tool-illustrations/front/${fileName}`;
+
+    console.log("new inner src:", innerImg.src);
+    console.log("new front src:", frontImg.src);
 }
 
 //-------------------------------------------------
