@@ -304,6 +304,22 @@ div.paragraph-section.boys-intro {
     width: fit-content;
 }
 
+/* active button styling */
+button.skin-tone-button.active::after {
+    content: "✔";
+    color: white;
+}
+
+button.body-size-button.active::after {
+    content: "✔";
+    color: white;
+}
+
+.body-size-button.active {
+    background-color: #814f34;
+}
+
+
 /* blur button */
 .blur-button-container {
     padding: 10px;
