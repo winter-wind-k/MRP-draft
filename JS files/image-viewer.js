@@ -189,6 +189,17 @@ document.addEventListener('DOMContentLoaded', function () {
 // showing active state of checkboxes
 //--------------------------------------------------------------------------------------------------
 
+// Automatically check vaginectomy when UL is checked off -- NOT WORKING
+function autoVaginectomy() {
+    if (document.getElementbyId('#4').checked) {
+        console.log('checked');
+        document.getElementById("#2").checked = true
+
+    } else {
+        console.log('unchecked');
+    }
+}
+
 // Add event listeners to checkboxes
 function setupCheckboxListeners() {
     const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
@@ -239,12 +250,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //--------------------------------------------------------------------------------------------------
-// random permutation of images appears on page load
+// random permutation of images appears on page load -- ADD IN PART WITH CHECKBOXES TO MAKE FULLY FUNCTIONAL
 //--------------------------------------------------------------------------------------------------
 
 function getRandomPermutation() {
     const tones = ["light", "olive", "medium", "dark"];
     const sizes = ["larger", "smaller"];
+
 
     // Shuffle arrays
     const shuffledTones = [...tones].sort(() => Math.random() - 0.5);

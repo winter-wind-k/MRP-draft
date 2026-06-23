@@ -212,6 +212,7 @@ p.disclaimer-box.prepare-your-mind {
         width: 100vw;
         text-align: center;
         align-items: center;
+        float: none;
     }
 }
 
@@ -638,4 +639,24 @@ div.paragraph-section.recovery-room {
 
 div.paragraph-section.funding-ideas {
     margin-bottom: 0px;
+}
+
+div.paragraph-section.consults-intro {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.consult-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.exam-image {
+    width: 30vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }

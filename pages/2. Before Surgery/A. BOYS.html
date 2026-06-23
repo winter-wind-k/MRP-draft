@@ -71,7 +71,7 @@
 
                                     <div>
                                         <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="1">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="1" id="1">
                                             <span class="procedure-checkbox"></span>
                                             <div class="procedure-names" p>Simple Meta</div>
                                         </label>
@@ -79,7 +79,7 @@
 
                                     <div>
                                         <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="2"
+                                            <input type="checkbox" class="procedure-checkbox-input" value="2" id="2"
                                                 onchange="console.log('inline change triggered')">
                                             <span class="procedure-checkbox"></span>
                                             <div class="procedure-names" p>Vaginectomy</div>
@@ -88,7 +88,7 @@
 
                                     <div>
                                         <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="3">
+                                            <input type="checkbox" class="procedure-checkbox-input" value="3" id="3">
                                             <span class="procedure-checkbox"></span>
                                             <div class="procedure-names" p>Scrotoplasty</div>
                                         </label>
@@ -96,7 +96,8 @@
 
                                     <div>
                                         <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="4">
+                                            <input onclick="autoVaginectomy()" type="checkbox"
+                                                class="procedure-checkbox-input" value="4" id="4">
                                             <span class="procedure-checkbox"></span>
                                             <div class="procedure-names" p>Urethral Lengthening</div>
                                         </label>
@@ -202,7 +203,7 @@
                         <div class="labeled-image-container">
                             <div>
                                 <!--Labels for simple meta + scrotoplasty-->
-                                <div id="boys-labels" class="boys-labels-class simple-scroto-labels">
+                                <div id="boys-labels" class="boys-labels-class simple-scroto-labels" data-numbers="13">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>
@@ -231,8 +232,8 @@
                             </div>
 
                             <!--labels for simple meta-->
-                            <div style="display:none">
-                                <div class="boys-labels-class simple-labels">
+                            <div>
+                                <div class="boys-labels-class simple-labels" data-numbers="1">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>
@@ -256,8 +257,8 @@
                             </div>
 
                             <!--labels for simple meta + vnectomy-->
-                            <div style="display:none">
-                                <div class="boys-labels-class simple-vnect-labels">
+                            <div>
+                                <div class="boys-labels-class simple-vnect-labels" data-numbers="12">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>
@@ -281,8 +282,8 @@
                             </div>
 
                             <!--labels for simple meta + vnectomy + scrotoplasty-->
-                            <div style="display:none">
-                                <div class="boys-labels-class simple-vnect-scroto-labels">
+                            <div>
+                                <div class="boys-labels-class simple-vnect-scroto-labels" data-numbers="123">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>
@@ -311,8 +312,8 @@
                             </div>
 
                             <!--labels for simple meta + vnectomy + ul-->
-                            <div style="display:none">
-                                <div class="boys-labels-class simple-vnect-ul-labels">
+                            <div>
+                                <div class="boys-labels-class simple-vnect-ul-labels" data-numbers="124">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>
@@ -336,8 +337,8 @@
                             </div>
 
                             <!--labels for full meta-->
-                            <div style="display:none">
-                                <div class="boys-labels-class full-meta-labels">
+                            <div>
+                                <div class="boys-labels-class full-meta-labels" data-numbers="1234">
                                     <div class="labels-container phallus-text">
                                         <div class="boys-labels-all">Phallus</div>
                                         <div class="right-triangle"></div>

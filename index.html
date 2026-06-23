@@ -1,50 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/components/styles_components.css">
     <link rel="icon" href="images/favicon.png">
     <script defer src="JS files/include.js"></script>
-    <title>Home</title>
+    <title>MetaMorphosis Home</title>
 
     <style>
-        h1 {font-size: 80px; text-align: center;}
-        p {text-align: center;}
+        h1 {
+            font-size: 80px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
 
         .lab-gallery {
             top: 0;
         }
     </style>
 </head>
+
 <body>
-<div class="sticky-header">
-    <div data-include="../pages/components/header.html"></div>
-</div>
-<div class="menu">
-    <div data-include="../pages/components/menu.html"></div>
-</div>
+    <div class="sticky-header">
+        <div data-include="../pages/components/header.html"></div>
+    </div>
+    <div class="menu">
+        <div data-include="../pages/components/menu.html"></div>
+    </div>
 
-<!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
-<div id="main">
-<main>
-        <h1 id="text">MetaMorphosis</h1>
-        <p id="text">Click through these modules to learn more about metoidioplasty.</p>
-        <div class="home-page">
-            <div class="lab-gallery">
-                <a href="/pages/1. Metoidioplasty Overview.html"><img src="/images/overview.png" alt="link to the Metoidioplasty overview page"></a>
-                <a href="/pages/2. Before Surgery/A. BOYS.html"><img src="/images/Before Surgery.png" alt="link to the Before Surgery section"></a>
-                <a href="/pages/3. During Surgery/"><img src="/images/During Surgery.png" alt="link to the During Surgery section"></a>
-                <a href="/pages/4. After Surgery/A. Recovery.html"><img src="/images/After Surgery.png" alt="link to the After Surgery section"></a>
+    <div id="main">
+        <main>
+            <h1 id="text">MetaMorphosis</h1>
+            <p id="text">Click through these modules to learn more about metoidioplasty.</p>
+            <div class="home-page">
+                <div class="lab-gallery">
+
+                    <div class="home-gallery-button">
+                        <a href="/pages/1. Metoidioplasty Overview.html">
+                            <img class="home-gallery-icon" src="/images/homepage/overview-icon.png"
+                                alt="link to the Metoidioplasty overview page"></a>
+                        <p>Overview</p>
+                    </div>
+
+                    <div class="home-gallery-button">
+                        <a href="/pages/2. Before Surgery/A. BOYS.html"><img class="home-gallery-icon"
+                                src="/images/homepage/before-surgery-icon.png"
+                                alt="link to the Before Surgery section"></a>
+                        <p>Before Surgery</p>
+                    </div>
+
+                    <div class="home-gallery-button">
+                        <a class="home-gallery-icon" href="/pages/3. During Surgery/"><img
+                                src="/images/homepage/during-surgery-icon.png"
+                                alt="link to the During Surgery section"></a>
+                        <p>During Surgery</p>
+                    </div>
+
+                    <div class="home-gallery-button">
+                        <a class="home-gallery-icon" href="/pages/4. After Surgery/A. Recovery.html"><img
+                                src="/images/homepage/after-surgery-icon.png"
+                                alt="link to the After Surgery section"></a>
+                        <p>After Surgery</p>
+                    </div>
+
+                </div>
             </div>
-        </div>
 
-        </div>
-</main>
-</div>
-  
+    </div>
+    </main>
+    </div>
 
-<div data-include="../pages/components/footer.html"></div>
+
+    <div data-include="../pages/components/footer.html"></div>
     <script src="/JS files/include.js"></script>
 </body>
 

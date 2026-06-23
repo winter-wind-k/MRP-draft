@@ -314,7 +314,10 @@ div.paragraph-section.fistula-section {
 
 @media (max-width: 900px) {
     div.paragraph-section.fistula-section {
-    margin-bottom: 30px;
-}
+        margin-bottom: 30px;
+    }
 }
 
+ol {
+    margin-left: 5px;
+}
