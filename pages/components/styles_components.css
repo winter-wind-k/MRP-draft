@@ -678,6 +678,10 @@ hr {
     margin-top: 15px;
 }
 
+.dark-mode .disclaimer-box {
+    background-color: var(--dark-green);
+}
+
 .content-section .indent {
     padding-left: 15px;
 }
@@ -755,6 +759,14 @@ br.indent {
     margin: 30px 100px 50px 100px;
 }
 
+.summary-box.glossary-box {
+    margin: 30px 100px 30px 100px;
+}
+
+.glossary-box p {
+    margin-top: 0px;
+}
+
 .dark-mode .summary-box {
     background-color: var(--dark-green);
 }
@@ -771,10 +783,19 @@ br.indent {
     color: var(--light-green);
 }
 
+.dark-mode ul {
+    color: white;
+}
 
 @media (max-width: 900px) {
     .summary-box {
         margin: 30px 15px 50px 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .summary-box.glossary-box {
+        margin: 30px 10px 50px 10px;
     }
 }
 
@@ -940,9 +961,19 @@ ul.breadcrumb li a {
     color: green;
 }
 
+.dark-mode ul.breadcrumb li a {
+    color: var(--light-green);
+}
+
 ul.breadcrumb li+li:before {
     padding: 8px;
     color: black;
+    content: "->\00a0";
+}
+
+.dark-mode ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: rgb(255, 255, 255);
     content: "->\00a0";
 }
 
@@ -1035,13 +1066,13 @@ ul.breadcrumb li+li:before {
 
 
 .meta-phallo-table td {
-    padding: 5px;
+    padding: 10px;
     border: solid 2px var(--light-grey);
     text-align: center;
 }
 
 .meta-phallo-table th {
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     font-style: normal;
 }
@@ -1055,7 +1086,7 @@ th.title-column {
 }
 
 .meta-phallo-table tr {
-    padding: 5px;
+    padding: 10px;
     border: solid 2px var(--light-grey);
 }
 

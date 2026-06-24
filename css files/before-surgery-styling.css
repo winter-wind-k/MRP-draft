@@ -36,6 +36,13 @@ ul.breadcrumb li+li:before {
     text-align: center;
 }
 
+@media (max-width: 900px) {
+    .faq-menu {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+}
+
 .faq-page-title h1 {
     margin: 0px;
 }
@@ -56,6 +63,18 @@ ul.breadcrumb li+li:before {
     padding-bottom: 2px;
 }
 
+.dark-mode .faq-menu {
+    background-color: var(--dark-grey-text);
+}
+
+div.faq-menu.faq-submenu {
+    margin-bottom: 0px;
+}
+
+div.paragraph-section.faq-submenu {
+    margin-bottom: 10px;
+}
+
 /* lines in closed menu */
 .question-button {
     background-color: var(--light-grey);
@@ -74,11 +93,16 @@ ul.breadcrumb li+li:before {
     margin-left: 4px;
 }
 
-/* change color on hover */
+.dark-mode .question-button {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+/* change color on hover 
 .active,
 .question-button:hover {
     background-color: #ccc;
-}
+} */
 
 /* hidden text in dropdowns */
 .answer-text {
@@ -91,6 +115,11 @@ ul.breadcrumb li+li:before {
     /*border-left: solid 2px var(--light-grey);
     border-right: solid 2px var(--light-grey);*/
     border-radius: 0px;
+}
+
+.dark-mode .answer-text {
+    background-color: var(--dark-grey-text);
+    color: white;
 }
 
 /* changing +/- - does not change signs yet! :/ */
@@ -659,4 +688,50 @@ div.paragraph-section.consults-intro {
     float: right;
     margin-left: 40px;
     margin-bottom: 20px;
+}
+
+div.paragraph-section.before-after {
+    display: flex;
+}
+
+div.captioned-image.non-ideal-anatomy {
+    padding: 20px;
+}
+
+div.captioned-image.related-surgeries {
+    padding: 20px;
+}
+
+div.captioned-image.non-ideal-anatomy img {
+    width: 100%;
+    margin: 10px;
+}
+
+div.captioned-image.related-surgeries img {
+    width: 100%;
+    margin: 10px;
+}
+
+div.captioned-image.non-ideal-anatomy p {
+    font-size: 22px;
+    text-align: center;
+}
+
+div.captioned-image.related-surgeries p {
+    font-size: 18px;
+    text-align: center;
+}
+
+div.paragraph-section.before-after {
+    margin-bottom: 0px;
+    display: flex;
+}
+
+div.paragraph-section.before-after-intro {
+    margin-bottom: 0px;
+    display: block;
+}
+
+div.paragraph-section.hysto-intro {
+    margin-bottom: 0px;
 }
