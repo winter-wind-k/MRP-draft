@@ -151,7 +151,7 @@
                         <div class="boys-toggle-container">
                             <div class="boys-toggle-items">
                                 <label class="labels-toggle">
-                                    <input type="checkbox" id="boys-labels-toggle">
+                                    <input onclick="toggleLabelsFromImage()" type="checkbox" id="boys-labels-toggle">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -205,7 +205,7 @@
                                 <!--Labels for simple meta + scrotoplasty-->
                                 <div id="boys-labels" class="boys-labels-class simple-scroto-labels" data-numbers="13">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
@@ -235,7 +235,7 @@
                             <div>
                                 <div class="boys-labels-class simple-labels" data-numbers="1">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
@@ -260,7 +260,7 @@
                             <div>
                                 <div class="boys-labels-class simple-vnect-labels" data-numbers="12">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
@@ -285,7 +285,7 @@
                             <div>
                                 <div class="boys-labels-class simple-vnect-scroto-labels" data-numbers="123">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
@@ -315,7 +315,7 @@
                             <div>
                                 <div class="boys-labels-class simple-vnect-ul-labels" data-numbers="124">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
@@ -340,13 +340,18 @@
                             <div>
                                 <div class="boys-labels-class full-meta-labels" data-numbers="1234">
                                     <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Phallus</div>
+                                        <div class="boys-labels-all">Penis</div>
                                         <div class="right-triangle"></div>
                                     </div>
 
                                     <div class="labels-container urethra-text">
                                         <div class="left-triangle"></div>
                                         <div class="boys-labels-all">Urethra</div>
+                                    </div>
+
+                                    <div class="labels-container scrotum-text">
+                                        <div class="left-triangle"></div>
+                                        <div class="boys-labels-all">Scrotum</div>
                                     </div>
 
                                     <div class="labels-container vagina-text">
@@ -372,6 +377,8 @@
                 </div>
 
             </div>
+
+            <button onclick="topFunction()" id="scroll-top" title="Go to top" class="scroll-top-btn">↑</button>
 
         </main>
     </div>

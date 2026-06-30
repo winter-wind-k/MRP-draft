@@ -80,7 +80,7 @@ div.paragraph-section.faq-submenu {
     background-color: var(--light-grey);
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 18px 18px 10px 18px;
     width: 99%;
     text-align: left;
     border: none;
@@ -98,11 +98,15 @@ div.paragraph-section.faq-submenu {
     color: white;
 }
 
-/* change color on hover 
+/* change color on hover */
 .active,
 .question-button:hover {
     background-color: #ccc;
-} */
+} 
+
+.dark-mode .question-button:hover {
+    background-color: #7d9591;
+}
 
 /* hidden text in dropdowns */
 .answer-text {
@@ -122,20 +126,22 @@ div.paragraph-section.faq-submenu {
     color: white;
 }
 
-/* changing +/- - does not change signs yet! :/ */
+/* changing +/- */
 .question-button:after {
-    content: '\02795';
-    font-size: 13px;
+    content: '+';
+    font-size: 26px;
     color: var(--dark-green);
     float: right;
-    margin-left: 5px;
+    transform: translateY(-5px);
+}
+
+.dark-mode .question-button:after {
+    color: white;
 }
 
 .active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+    content: "-";
 }
-
 
 
 /* Surgery timeline https://codepen.io/iqbaltaher/pen/abbXRxb */

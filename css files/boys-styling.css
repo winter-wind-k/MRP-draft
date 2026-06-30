@@ -600,13 +600,13 @@ input:checked+.slider:after {
     position: absolute;
     padding-left: 7px;
     margin-top: 3px;
-    right: 41%;
+    right: 46%;
 }
 
 /* Neophallus label */
 div.labels-container.phallus-text {
     bottom: 40%;
-    left: -4%;
+    left: -1%;
 }
 
 /* Urethra label */
@@ -615,14 +615,14 @@ div.labels-container.urethra-text {
     left: 39%;
 }
 
-.simple-vnect-ul-labels .urethra-text {
+div.boys-labels-class.simple-vnect-ul-labels .labels-container.urethra-text {
     top: 49%;
-    left: 24%;
+    left: 26%;
 }
 
-.full-meta-labels .urethra-text {
+div.boys-labels-class.full-meta-labels .labels-container.urethra-text {
     top: 49%;
-    left: 24%;
+    left: 26%;
 }
 
 /* Scrotum label */

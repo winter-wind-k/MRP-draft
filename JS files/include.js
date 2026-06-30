@@ -220,8 +220,17 @@ function myFunction(x) {
 
 //download button
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//dropdown menus
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //overview goals menu 
 var acc = document.getElementsByClassName("goals-button");
@@ -229,11 +238,8 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
       panel.style.display = "none";
@@ -248,7 +254,8 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
+    var current = document.getElementsByClassName("active");
+
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -260,17 +267,15 @@ for (i = 0; i < acc.length; i++) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// before surgery faq menu
+
+// faq menus
 var acc = document.getElementsByClassName("question-button");
 var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
       panel.style.display = "none";
@@ -285,7 +290,46 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+    // https://www.w3schools.com/howto/howto_js_active_element.asp
+
+    console.log("active class applied")
+
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//sidebar menu
+var acc = document.getElementsByClassName("collapsible-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
+
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+var acc = document.getElementsByClassName("collapsible-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -296,9 +340,13 @@ for (i = 0; i < acc.length; i++) {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //scroll to top button
 
-// Get the button:
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 let scrollTopBtn = document.getElementById("scroll-top");
 
 // show button after scrolling (hidden when at top of page)
@@ -312,7 +360,6 @@ function scrollFunction() {
   }
 }
 
-// scroll to top function
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

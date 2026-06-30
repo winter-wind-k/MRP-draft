@@ -181,8 +181,6 @@ i:hover::after {
 }
 
 
-
-
 /* styling for dark mode toggle */
 body {
     font-family: var(--body-text);
@@ -295,24 +293,24 @@ body {
 }
 
 .sidenav {
-    height: calc(100vh - var(--sticky-header-offset));
+    height: calc(90vh - var(--sticky-header-offset));
     width: var(--desktop-menu-width);
     position: fixed;
-    <<<<<<< HEAD
+    /* HEAD
     /* SS Comment: Keep side menu below the main top menu while scrolling. */
     top: var(--sticky-header-offset);
-    =======
     /* Stay in place */
     z-index: 10;
     /* Stay on top */
     /* top: 0; Stay at the top */
-    >>>>>>>60def21c6b3fc282e0135606328c196263857cff left: 0;
+    left: 0;
     z-index: 90;
     background-color: var(--light-grey);
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: 15px;
     padding-left: 15px;
+    padding-bottom: 40px;
     transition: height 0.35s ease;
 }
 
@@ -339,6 +337,10 @@ body {
     color: var(--dark-grey-text);
 }
 
+.dark-mode .sidenav a:hover {
+    color: var(--light-green);
+}
+
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     display: none;
@@ -358,6 +360,7 @@ body {
     list-style: none;
     margin-top: 0;
     font-size: 16px;
+    margin-left: -12px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -1005,7 +1008,7 @@ ul.breadcrumb li+li:before {
     background-color: var(--light-grey);
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 18px 18px 10px 18px;
     width: 99%;
     align-content: center;
     align-self: center;
@@ -1021,10 +1024,19 @@ ul.breadcrumb li+li:before {
     margin-left: 4px;
 }
 
+.dark-mode .goals-button {
+    background-color: var(--dark-green);
+    color: white;
+}
+
 /* change color on hover */
 .active,
 .goals-button:hover {
     background-color: #ccc;
+}
+
+.dark-mode .goals-button:hover {
+    background-color: #7d9591;
 }
 
 /* hidden text in dropdowns */
@@ -1039,18 +1051,25 @@ ul.breadcrumb li+li:before {
     border-right: solid 2px var(--light-grey);
 }
 
-/* changing +/- - does not change signs yet! :/ */
+/* changing +/- */
 .goals-button:after {
-    content: '\02795';
-    font-size: 13px;
+    content: '+';
+    font-size: 26px;
     color: var(--dark-green);
     float: right;
-    margin-left: 5px;
+    transform: translateY(-5px);
+}
+
+.dark-mode .goals-button:after {
+    color: white;
 }
 
 .active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+    content: "-";
+}
+
+.dark-mode .active:after {
+    color: white;
 }
 
 /* styling table for meta and phallo comparison
