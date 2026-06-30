@@ -257,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // random permutation of images appears on page load -- ADD IN PART WITH CHECKBOXES TO MAKE FULLY FUNCTIONAL
 //--------------------------------------------------------------------------------------------------
 
-
 // skin tone and body size random selection
 function getRandomPermutation() {
     const tones = ["light", "olive", "medium", "dark"];
