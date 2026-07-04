@@ -294,7 +294,7 @@ body {
 }
 
 .sidenav {
-    height: calc(90vh - var(--sticky-header-offset));
+    height: calc(100vh - var(--sticky-header-offset));
     width: var(--desktop-menu-width);
     position: fixed;
     /* HEAD
