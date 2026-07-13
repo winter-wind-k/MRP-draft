@@ -4,6 +4,10 @@ div.paragraph-section.recovery-intro {
     margin-right: 10px;
 }
 
+div.paragraph-section.lower-btm-margin {
+    margin-bottom: 15px;
+}
+
 @media (max-width:768px) {
     .affective-image {
         width: 100vw;
@@ -237,6 +241,17 @@ img.catheter-images.affective-images {
     float: right;
     margin-left: 40px;
     margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+div.paragraph-section.serious-complications {
+    background: var(--light-grey);
+    border-radius: 15px;
+    padding: 25px 40px;
+}
+
+.dark-mode div.paragraph-section.serious-complications {
+    background: var(--dark-green);
 }
 
 @media (max-width: 900px) {
@@ -314,7 +329,7 @@ div.content-item.fistula-image-container .fistula-text {
 }
 
 div.paragraph-section.fistula-section {
-    margin-bottom: 0px;
+    margin-bottom: 40px;
 }
 
 @media (max-width: 900px) {

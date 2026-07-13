@@ -350,6 +350,12 @@ button.body-size-button.active::after {
     flex-shrink: 0;
 }
 
+/* ------------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------------- */
+
 /* overall container for boys tool images */
 .boys-images-container {
     display: flex;
@@ -359,14 +365,71 @@ button.body-size-button.active::after {
     width: fit-content;
 }
 
+/* container for image and labels */
+.labeled-image-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    text-align: center;
+    color: white;
+    width: fit-content;
+}
+
 @media (max-width: 900px) {
     .boys-images-container {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    div.boys-tool-illustration.blurred-image {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .boys-images-container img {
+        width: 100%;
+    }
+
+    .inner-view-container img {
+        width: 100%;
+    }
+
+    .labeled-image-container {
         width: fit-content;
+        margin-left: 0px;
+        align-items: left;
+        align-content: left;
+        text-align: left;
+    }
+
+    .labeled-image-container img {
+        width: fit-content;
+        margin-left: 0px;
+        align-items: left;
+        align-self: left;
+        align-content: left;
+    }
+
+    img#front-view-image {
+        width: 80%;
+        height: auto;
+    }
+
+    img#inner-view-image {
+        width: 80%;
+        height: auto;
+        margin-left: auto;
+        margin-right: 0px;
+        margin-bottom: 50px;
+        text-align: left;
+        float: none;
+        align-self: left;
+        align-content: left;
+        align-items: left;
     }
 }
 
@@ -551,14 +614,6 @@ span.slider.round::after {
 input:checked+.slider:after {
     content: 'LABELS';
     left: 30%;
-}
-
-/* container for image and labels */
-.labeled-image-container {
-    position: relative;
-    text-align: center;
-    color: white;
-    width: fit-content;
 }
 
 /* edit for universal changes to labels */
