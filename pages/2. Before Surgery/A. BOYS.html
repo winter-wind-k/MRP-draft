@@ -19,15 +19,24 @@
 
     <div id="main">
         <main>
-            <div class="page-titles-container">
+
+            <div class="page-titles-container breadcrumb-container">
                 <ul class="breadcrumb">
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/pages/2. Before Surgery/1. FAQ-before.html">Before Surgery</a></li>
                     <li><a>Build Out Your Surgery (BOYS)</a></li>
-                    <h1>Build Out Your Surgery (BOYS)</h1>
+                </ul>
             </div>
 
-            <div class="paragraph-section boys-intro">
+            <div class="page-top-container">
+                <div class="title-column boys-page-title">
+                    <div class="page-titles-container boys-page">
+                        <h1>Build Out Your Surgery (BOYS) Tool</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paragraph-section">
 
                 <div class="content-section">
                     <p>This tool can show you what meta might look like on your body. You can choose from different
@@ -45,98 +54,92 @@
                     </p>
                 </div>
 
-                <div class="content-section">
-                    <div class="disclaimer-box">
-                        <p><b>Disclaimer:</b> There are many factors that affect what your results might look like,
-                            including the
-                            size of your penis before surgery and your body’s healing process. While this tool can
-                            show
-                            you
-                            potential results, keep in mind that your actual results may vary.
-                        </p>
-                    </div>
-                </div>
             </div>
 
             <!--note to self make a lightbox that can fullscreen and hold the boys tool-->
 
             <div class="boys-container">
-                <div class="selection-options">
-                    <div class="procedure-options">
-                        <div class="boys-titles">Procedure</div>
 
-                        <div class="all-procedures-container">
-                            <form autocomplete="off">
-                                <div class="procedures-form">
+                <div class="desktop-menu-only">
+                    <div class="selection-options">
 
-                                    <div>
-                                        <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="1" id="1">
-                                            <span class="procedure-checkbox"></span>
-                                            <div class="procedure-names" p>Simple Meta</div>
-                                        </label>
+                        <div class="procedure-options">
+                            <div class="boys-titles">Procedure</div>
+
+                            <div class="all-procedures-container">
+                                <form autocomplete="off">
+                                    <div class="procedures-form">
+
+                                        <div>
+                                            <label class="procedure-line">
+                                                <input type="checkbox" class="procedure-checkbox-input" value="1"
+                                                    id="1">
+                                                <span class="procedure-checkbox"></span>
+                                                <div class="procedure-names" p>Simple Meta</div>
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <label class="procedure-line">
+                                                <input type="checkbox" class="procedure-checkbox-input" value="2" id="2"
+                                                    onchange="console.log('inline change triggered')">
+                                                <span class="procedure-checkbox"></span>
+                                                <div class="procedure-names" p>Vaginectomy</div>
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <label class="procedure-line">
+                                                <input type="checkbox" class="procedure-checkbox-input" value="3"
+                                                    id="3">
+                                                <span class="procedure-checkbox"></span>
+                                                <div class="procedure-names" p>Scrotoplasty</div>
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <label class="procedure-line">
+                                                <input onclick="autoVaginectomy()" type="checkbox"
+                                                    class="procedure-checkbox-input" value="4" id="4">
+                                                <span class="procedure-checkbox"></span>
+                                                <div class="procedure-names" p>Urethral Lengthening</div>
+                                            </label>
+                                        </div>
+
                                     </div>
-
-                                    <div>
-                                        <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="2" id="2"
-                                                onchange="console.log('inline change triggered')">
-                                            <span class="procedure-checkbox"></span>
-                                            <div class="procedure-names" p>Vaginectomy</div>
-                                        </label>
-                                    </div>
-
-                                    <div>
-                                        <label class="procedure-line">
-                                            <input type="checkbox" class="procedure-checkbox-input" value="3" id="3">
-                                            <span class="procedure-checkbox"></span>
-                                            <div class="procedure-names" p>Scrotoplasty</div>
-                                        </label>
-                                    </div>
-
-                                    <div>
-                                        <label class="procedure-line">
-                                            <input onclick="autoVaginectomy()" type="checkbox"
-                                                class="procedure-checkbox-input" value="4" id="4">
-                                            <span class="procedure-checkbox"></span>
-                                            <div class="procedure-names" p>Urethral Lengthening</div>
-                                        </label>
-                                    </div>
-
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                            <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
                         </div>
-                        <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
 
-                    </div>
+                        <!--original skin tone buttons-->
+                        <div class="skin-tone-container">
+                            <div class="boys-titles">Skin Tone</div>
+                            <div class="skin-tone-buttons" id="skinTones" role="radiogroup" aria-label="Skin tone">
 
-                    <!--original skin tone buttons-->
-                    <div class="skin-tone-container">
-                        <div class="boys-titles">Skin Tone</div>
-                        <div class="skin-tone-buttons" id="skinTones" role="radiogroup" aria-label="Skin tone">
+                                <button onclick="setTone('light')" id="light-skin-button" class="skin-tone-button"
+                                    style="background-color: #ebdbd7;">&ZeroWidthSpace;</button>
 
-                            <button onclick="setTone('light')" id="light-skin-button" class="skin-tone-button"
-                                style="background-color: #ebdbd7;">&ZeroWidthSpace;</button>
+                                <button onclick="setTone('olive')" id="olive-skin-button" class="skin-tone-button"
+                                    style="background-color: #d3af87;">&ZeroWidthSpace;</button>
 
-                            <button onclick="setTone('olive')" id="olive-skin-button" class="skin-tone-button"
-                                style="background-color: #d3af87;">&ZeroWidthSpace;</button>
+                                <button onclick="setTone('medium')" id="medium-skin-button" class="skin-tone-button"
+                                    style="background-color: #814f34;">&ZeroWidthSpace;</button>
 
-                            <button onclick="setTone('medium')" id="medium-skin-button" class="skin-tone-button"
-                                style="background-color: #814f34;">&ZeroWidthSpace;</button>
+                                <button onclick="setTone('dark')" id="dark-skin-button" class="skin-tone-button"
+                                    style="background-color: #5b340f;">&ZeroWidthSpace;</button>
 
-                            <button onclick="setTone('dark')" id="dark-skin-button" class="skin-tone-button"
-                                style="background-color: #5b340f;">&ZeroWidthSpace;</button>
-
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="body-size-container">
-                        <div class="boys-titles">Body Size</div>
-                        <div class="body-size-buttons">
-                            <button onclick="setSize('smaller')" id="smaller-size-button" class="body-size-button"
-                                style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
-                            <button onclick="setSize('larger')" id="larger-size-button"
-                                class="body-size-button">&ZeroWidthSpace;</button>
+                        <div class="body-size-container">
+                            <div class="boys-titles">Body Size</div>
+                            <div class="body-size-buttons">
+                                <button onclick="setSize('smaller')" id="smaller-size-button" class="body-size-button"
+                                    style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
+                                <button onclick="setSize('larger')" id="larger-size-button"
+                                    class="body-size-button">&ZeroWidthSpace;</button>
+                            </div>
                         </div>
                     </div>
 
@@ -159,8 +162,129 @@
                         </div>
 
                     </div>
+                </div>
+
+                <div class="mobile-menu-only">
+                    <div class="selection-options">
+                        <div class="collapsible-menu">
+
+                            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                                <h3>Selection Options</h3>
+                                <span class="arrow">▼</span>
+                            </div>
+
+                            <div class="collapsible-content">
+                                <div class="procedure-options">
+                                    <div class="boys-titles">Procedure</div>
+
+                                    <div class="all-procedures-container">
+                                        <form autocomplete="off">
+                                            <div class="procedures-form">
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="1" id="1">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Simple Meta</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="2" id="2"
+                                                            onchange="console.log('inline change triggered')">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Vaginectomy</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="3" id="3">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Scrotoplasty</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input onclick="autoVaginectomy()" type="checkbox"
+                                                            class="procedure-checkbox-input" value="4" id="4">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Urethral Lengthening</div>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
 
                 </div>
+
+                <!--original skin tone buttons-->
+                <div class="skin-tone-container">
+                                    <div class="boys-titles">Skin Tone</div>
+                                    <div class="skin-tone-buttons" id="skinTones" role="radiogroup"
+                                        aria-label="Skin tone">
+
+                                        <button onclick="setTone('light')" id="light-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #ebdbd7;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('olive')" id="olive-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #d3af87;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('medium')" id="medium-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #814f34;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('dark')" id="dark-skin-button" class="skin-tone-button"
+                                            style="background-color: #5b340f;">&ZeroWidthSpace;</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="body-size-container">
+                                    <div class="boys-titles">Body Size</div>
+                                    <div class="body-size-buttons">
+                                        <button onclick="setSize('smaller')" id="smaller-size-button"
+                                            class="body-size-button"
+                                            style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
+                                        <button onclick="setSize('larger')" id="larger-size-button"
+                                            class="body-size-button">&ZeroWidthSpace;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-controls">
+                            <div class="blur-button-container">
+                                <button class="blur-button-class" id="blur-button">
+                <!--fix this so that icon switches with button press
+                            <img id="blur-button-icon" src="/images/image-unblurred-placeholder.svg" />--> 
+                <div>Unblur Images</div>
+                                </button>
+                            </div>
+
+                            <div class="boys-toggle-container">
+                                <div class="boys-toggle-items">
+                                    <label class="labels-toggle">
+                                        <input onclick="toggleLabelsFromImage()" type="checkbox"
+                                            id="boys-labels-toggle">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="boys-images-container">
 
@@ -170,10 +294,10 @@
                             <div class="boys-image-titles">Front View</div>
                             <a href="/images/boys-tool-illustrations/front/front-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
                                 download="front_view">
-                                <button id="front-view-download">
+                                <!--<button id="front-view-download">
                                     <img src="/images/download-button-placeholder.svg" />
-                                    <!--https://www.w3schools.com/howto/howto_html_download_link.asp-->
-                                </button>
+                                    https://www.w3schools.com/howto/howto_html_download_link.asp
+                                </button>-->
                             </a>
                         </div>
 
@@ -192,9 +316,9 @@
                                 <!--figure out how to switch download function to any displayed image, not just one set image-->
                                 <a href="/images/boys-tool-illustrations/inner/inner-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
                                     download="inner_view">
-                                    <button id="inner-view-download">
+                                    <!--<button id="inner-view-download">
                                         <img src="/images/download-button-placeholder.svg" />
-                                    </button>
+                                    </button>-->
                                 </a>
                             </div>
 
@@ -377,6 +501,20 @@
 
                 </div>
 
+            </div>
+
+            <div class="paragraph-section boys-disclaimer">
+                <div class="content-section">
+                    <div class="disclaimer-box">
+                        <p><b>Disclaimer:</b> There are many factors that affect what your results might look like,
+                            including the
+                            size of your penis before surgery and your body’s healing process. While this tool can
+                            show
+                            you
+                            potential results, keep in mind that your actual results may vary.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <button onclick="topFunction()" id="scroll-top" title="Go to top" class="scroll-top-btn">↑</button>

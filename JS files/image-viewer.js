@@ -5,12 +5,12 @@
 
 // state aspects for skin tone and body size
 let state = {
-    tone: "light",      //aspect1: "a", aspect = "container term" for skin tone and body size
-    tone: "olive",      //aspect1: "b",
-    tone: "medium",     //aspect1: "c",
-    tone: "dark",       //aspect1: "d",
-    size: "larger",     //aspect2: "a",
-    size: "smaller",    //aspect2: "b",
+    tone: "light",
+    tone: "olive",
+    tone: "medium",
+    tone: "dark",
+    size: "larger",
+    size: "smaller",
 }
 
 console.log("js file linked")
@@ -47,7 +47,7 @@ procedureCheckboxes.forEach(cb => {
 
 
 // update image based on skin tone and body size buttons
-function updateImage() {
+/* function updateImage() {
     console.log("update image function is working :)")
 
     const checkboxPart = getCheckboxPart();
@@ -60,8 +60,8 @@ function updateImage() {
     console.log("image element:", img)
 
     img.src = `/images/boys-tool-illustrations/front/${fileName}`;
-    console.log("new src:", img.src);
-}
+    console.log("new src:", img.src); 
+} */
 
 function updateImage() {
     console.log("update image function is working :)")
@@ -155,32 +155,32 @@ function setSize(smaller) {
 // showing active state of buttons
 //--------------------------------------------------------------------------------------------------
 
-// Function to update active button states
+// update active button states
 function updateActiveButtons() {
-    // Remove active class from all skin tone buttons
+    // remove active class from all skin tone buttons
     document.querySelectorAll('.skin-tone-button').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // Add active class to current skin tone button
+    // add active class to current skin tone button
     const activeToneButton = document.querySelector(`[onclick="setTone('${state.tone}')"]`);
     if (activeToneButton) {
         activeToneButton.classList.add('active');
     }
 
-    // Remove active class from all body size buttons
+    // remove active class from all body size buttons
     document.querySelectorAll('.body-size-button').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // Add active class to current body size button
+    // add active class to current body size button
     const activeSizeButton = document.querySelector(`[onclick="setSize('${state.size}')"]`);
     if (activeSizeButton) {
         activeSizeButton.classList.add('active');
     }
 }
 
-// Initialize active button states on page load
+// show active button states on page load
 document.addEventListener('DOMContentLoaded', function () {
     updateActiveButtons();
 });
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // showing active state of checkboxes
 //--------------------------------------------------------------------------------------------------
 
-// Automatically check vaginectomy when UL is checked off -- NOT WORKING
+// automatically check vaginectomy when UL is checked off -- NOT WORKING
 function autoVaginectomy() {
     if (document.getElementbyId('#4').checked) {
         console.log('checked');
@@ -200,24 +200,37 @@ function autoVaginectomy() {
     }
 }
 
-// Add event listeners to checkboxes
-function setupCheckboxListeners() {
+// add event listeners to checkboxes
+/* function setupCheckboxListeners() {
     const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
 
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             console.log("Checkbox changed:", this.value, this.checked);
 
-            // Update state with current checkbox values
+            // update state with current checkbox values
             updateCheckboxState();
 
-            // Update image display
+            // update image display
             updateImage();
         });
     });
+} */
+
+// event listeners for checkboxes v2 
+function setupCheckboxListeners() {
+    const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
+
+    checkboxes.forEach(checkbox => {
+        // Remove any existing listeners to prevent duplicates
+        checkbox.removeEventListener('change', handleCheckboxChange);
+
+        // Add the new listener
+        checkbox.addEventListener('change', handleCheckboxChange);
+    });
 }
 
-// Update checkbox state from DOM
+// update checkbox state from DOM
 function updateCheckboxState() {
     const selectedCheckboxes = Array.from(document.querySelectorAll('.procedure-checkbox-input'))
         .filter(cb => cb.checked)
@@ -227,7 +240,7 @@ function updateCheckboxState() {
     console.log("Updated checkbox state:", state.checkboxes);
 }
 
-// Update active states of checkboxes
+// update active states of checkboxes
 function updateCheckboxActiveStates() {
     const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
 
@@ -247,6 +260,20 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCheckboxActiveStates();
 });
 
+// ensure simple meta is checked off
+document.addEventListener('DOMContentLoaded', function () {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        console.log("First checkbox element:", firstCheckbox);
+        console.log("First checkbox checked state:", firstCheckbox.checked);
+
+        // Add a special debug listener to see all changes
+        firstCheckbox.addEventListener('change', function (e) {
+            console.log("First checkbox change event - checked:", this.checked, "event:", e);
+        });
+    }
+});
+
 //--------------------------------------------------------------------------------------------------
 // toggle different label sets based on images shown
 //--------------------------------------------------------------------------------------------------
@@ -254,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //--------------------------------------------------------------------------------------------------
-// random permutation of images appears on page load -- ADD IN PART WITH CHECKBOXES TO MAKE FULLY FUNCTIONAL
+// random permutation of images appears on page load
 //--------------------------------------------------------------------------------------------------
 
 // skin tone and body size random selection
@@ -349,11 +376,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // always check off simple meta
+/* function checkFirstCheckbox() {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.checked = true;
+        console.log('First checkbox (Simple Meta) automatically checked');
+    }
+} */
+
+// always check simple meta v2
 function checkFirstCheckbox() {
     const firstCheckbox = document.getElementById('1');
     if (firstCheckbox) {
         firstCheckbox.checked = true;
         console.log('First checkbox (Simple Meta) automatically checked');
+
+        // prevent unchecking
+        firstCheckbox.addEventListener('change', function () {
+            if (!this.checked) {
+                this.checked = true;
+                console.log("Simple Meta checkbox was prevented from being unchecked.");
+            }
+        });
     }
 }
 
@@ -362,6 +406,22 @@ function checkFirstCheckbox() {
 function handleCheckboxChange(event) {
     const checkbox = event.target;
     console.log(`Checkbox changed: ID=${checkbox.id}, Value=${checkbox.value}, Checked=${checkbox.checked}`);
+
+    // no change to images if simple meta is clicked
+    if (checkbox.id === '1') {
+        console.log("First checkbox changed - skipping image update");
+
+        // Only update active states, not image
+        updateActiveButtons();
+        updateCheckboxActiveStates();
+
+        // prevent simple meta from being unchecked
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+            console.log("Prevented unchecking of first checkbox");
+        }
+        return;
+    }
 
     // automatically check vaginectomy if ul is selected
     if (checkbox.id === '4' && checkbox.checked) {
@@ -380,6 +440,7 @@ function handleCheckboxChange(event) {
 
     updateImage();
     updateActiveButtons();
+    updateCheckboxActiveStates();
 }
 
 // load random permutation on page load
@@ -404,5 +465,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log("Page loaded with random permutation");
 });
+
+
+//--------------------------------------------------------------------------------------------------
+// user selection restrictions
+//--------------------------------------------------------------------------------------------------
+
+
+// users can't uncheck simple meta (delete if pre-op images are added)
+document.addEventListener('DOMContentLoaded', function () {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.addEventListener('change', function () {
+            if (!this.checked) {
+                this.checked = true;
+                console.log("Simple Meta checkbox was prevented from being unchecked.");
+            }
+        });
+    }
+});
+
+// make sure simple meta is checked off on page load (redundant just to be safe)
+function checkFirstCheckbox() {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.checked = true;
+        console.log('First checkbox (Simple Meta) automatically checked');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    checkFirstCheckbox();
+});
+
+
+
 
 

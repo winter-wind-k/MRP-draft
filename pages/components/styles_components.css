@@ -36,6 +36,8 @@ h1 {
     font-family: Nunito;
     font-size: var(--h1-size);
     color: var(--dark-green);
+    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 h2 {
@@ -63,7 +65,7 @@ div.content-item .ul .li p {
 
 .content-item p {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .content-item ul p {
@@ -146,20 +148,44 @@ div.page-titles-container.breadcrumb-container {
     display: flex;
     width: 100%;
     gap: 20px;
-    padding: 20px 90px;
+    padding: 0px 0px 20px 0px;
     box-sizing: border-box;
+    max-width: 1200px;
+    padding-left: 0;
+    padding-right: 12vw;
 }
 
 .page-titles-container {
     margin-top: 10px;
-    margin-left: 0px;
     margin-right: 0px;
+    margin-left: 0px;
     width: 70%;
+    max-width: 1200px;
+}
+
+@media (min-width: 1200px) {
+    .page-titles-container {
+        margin-left: 0px;
+        max-width: 1200px;
+    }
+
+    .page-top-container {
+        margin-left: 90px;
+        max-width: 1200px;
+    }
+}
+
+div.page-titles-container.boys-page {
+    width: 100%;
 }
 
 .title-column {
     width: 70%;
     flex-shrink: 1;
+}
+
+div.title-column.boys-page-title {
+    width: 100%;
 }
 
 .summary-column {
@@ -194,13 +220,23 @@ div.page-titles-container.breadcrumb-container {
     padding-right: 30px;
     padding-left: 25px;
     padding-bottom: 5px;
-    margin-right: 100px;
+    margin-right: 15px;
     margin-left: 0px;
     margin-top: 11px;
     margin-bottom: 0px;
     filter: drop-shadow(1px 1px 2px grey);
     height: fit-content;
     float: right;
+}
+
+.dark-mode .summary-box-test {
+    background-color: var(--dark-green);
+    filter: drop-shadow(1px 1px 2px rgb(31, 31, 31));
+}
+
+
+.dark-mode .summary-box-test p {
+    color: white;
 }
 
 .summary-box-test h2 {
@@ -239,6 +275,7 @@ div.page-titles-container.breadcrumb-container {
     .page-top-container {
         flex-direction: column;
         padding: 20px;
+        padding-top: 0px;
     }
 
     .page-titles-container {
@@ -621,18 +658,39 @@ body {
 .menu-button {
     display: inline-block;
     cursor: pointer;
+    padding: 12px;
+    border-radius: 100px;
+    background-color: var(--dark-green);
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 16vh;
+    right: 23px;
+    z-index: 99;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    background-color: var(--dark-green);
+    border: none;
+    filter: drop-shadow(1px 1px 2px grey);
+}
+
+.dark-mode .menu-button {
+    filter: drop-shadow(1px 1px 2px rgb(40, 40, 40));
 }
 
 .bar1,
 .bar2,
 .bar3 {
-    width: 35px;
-    height: 5px;
+    width: 25px;
+    height: 3px;
     border-radius: 10px;
-    background-color: var(--dark-green);
-    margin: 6px 0;
+    background-color: white;
+    margin: 4px 0;
     transition: 0.4s;
+    position: sticky;
 }
+
 
 /* Rotate first bar */
 .change .bar1 {
@@ -669,6 +727,15 @@ body {
     width: 120px;
 }
 
+.dark-mode .quick-esc-button {
+    background-color: var(--dark-grey-text);
+    color: white;
+    padding: 10px;
+    border-radius: 100px;
+    height: 15px;
+    width: 120px;
+}
+
 .quick-esc-button li {
     font-style: normal;
     color: var(--dark-grey-text);
@@ -699,6 +766,11 @@ a:active {
     align-items: center;
     gap: 0;
     transition: none;
+}
+
+.dark-mode .top-stuff {
+    background-color: var(--dark-grey-text);
+    color: var(--dark-grey-text);
 }
 
 /* Footer Styling */
@@ -899,7 +971,8 @@ hr {
     }
 
     #footer-right li {
-        text-align: center;;
+        text-align: center;
+        ;
     }
 
     #footer-right ul {
@@ -951,7 +1024,7 @@ hr {
 
 .captioned-image {
     display: block;
-    width: 100%;
+    width: fit-content;
     padding: 0;
     margin-bottom: 20px;
 }
@@ -980,18 +1053,11 @@ div.content-section.meta-options {
     margin-bottom: 30px;
 }
 
-div.content-section.overview-complications {
-    gap: 10%;
-}
 
 .content-image img {
     width: 100%;
     height: auto;
     margin-top: 20px;
-}
-
-.home-page img {
-    width: 100%;
 }
 
 
@@ -1005,10 +1071,10 @@ br.indent {
 
 .paragraph-section {
     margin-bottom: 40px;
-    margin-right: 100px;
-    margin-left: 90px;
-    max-width: 1000px;
+    max-width: 1200px;
     align-self: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 @media (max-width: 900px) {
@@ -1160,20 +1226,37 @@ hr.summary-line {
     margin-top: 20px;
     text-align: center;
     float: right;
-    margin-left: 20px;
+    margin-left: 40px;
     padding: 0px;
+    width: 100%;
 }
 
 .general-image-container img {
     border-radius: 15px;
     padding: 0px;
-    width: 50%;
+    width: 100%;
 }
 
 .content-item .captioned-image img {
     border-radius: 15px;
     padding: 0px;
-    width: 50%;
+    width: 100%;
+}
+
+.complications-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.affective-image {
+    float: right;
+}
+
+div.content-item.complications-overview {
+    width: 40%;
 }
 
 /* Responsive ish content styling */
@@ -1182,7 +1265,7 @@ hr.summary-line {
         margin-left: 20px;
         margin-right: 20px;
     }
-    
+
     .content-section {
         flex-direction: column;
         margin-left: 0px;
@@ -1193,13 +1276,12 @@ hr.summary-line {
         width: 80%;
         padding: 15px;
         text-align: center;
-        margin-left: 7vw;
+        margin-left: 0;
     }
 
     .content-item img {
-        width: 80%;
+        width: 100%;
         text-align: center;
-        margin-left: 7vw;
     }
 
     h1 {
@@ -1213,6 +1295,10 @@ hr.summary-line {
     .captioned-image {
         margin-bottom: 40px;
     }
+
+    div.content-item.complications-overview {
+        width: 100%;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1223,30 +1309,41 @@ hr.summary-line {
     }
 }
 
+.home-page {
+    display: flex;
+    gap: 50px;
+    height: fit-content;
+    margin: 20px;
+    margin-top: 40px;
+    z-index: 1;
+}
+
 /* styling the grid of 4 icons on the home page */
 .home-page .lab-gallery {
     --gap: 16px;
     --num-cols: 2;
     --num-rows: 2;
     --row-width: 300px;
+    --row-height: 150px;
 
     box-sizing: border-box;
-    padding: var(--gap);
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-template-rows: repeat(var(--num-rows), 1fr);
     gap: var(--gap);
-    width: min(100%, 760px);
-    margin: 0 auto;
+    width: 77%;
     z-index: 1;
+    height: 400px;
+    align-self: flex-start;
 }
+
 
 .lab-gallery img {
     width: 60%;
     object-fit: cover;
     padding: 15px;
     border: var(--border-style);
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .home-gallery-button {
@@ -1256,9 +1353,40 @@ hr.summary-line {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 10px;
     filter: drop-shadow(0px 6px 4px grey);
     z-index: 1;
+    height: 95%;
+    padding-bottom: 8px;
+}
+
+
+.boys-button {
+    background-color: var(--light-green);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    filter: drop-shadow(0px 6px 4px grey);
+    z-index: 1;
+    padding-bottom: 60px;
+    height: 400px;
+    width: 700px;
+}
+
+.boys-button h2 {
+    margin-top: 30px;
+}
+
+.boys-sketch-icon {
+    padding: 15px;
+    object-fit: cover;
+    width: 80%;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.boys-sketch-icon img {
+    width: 80%;
+    margin-top: 20px;
 }
 
 .dark-mode .home-gallery-button {
@@ -1267,8 +1395,8 @@ hr.summary-line {
 }
 
 .home-gallery-button p {
-    font-size: 1.5vw;
     margin-bottom: 25px;
+    margin-top: 0px;
 }
 
 .gallery-cols-2 {
@@ -1292,6 +1420,8 @@ hr.summary-line {
 @media (max-width: 900px) {
     .home-page {
         flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .home-page img {
@@ -1304,8 +1434,23 @@ hr.summary-line {
     }
 
     .home-gallery-button p {
-        font-size: 12px;
+        font-size: 16px;
     }
+
+    .lab-gallery {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .home-page .lab-gallery {
+        width: 100%;
+    }
+
+    .boys-button {
+        width: 100%;
+    }
+
 }
 
 /* next/last page buttons */
@@ -1465,6 +1610,7 @@ div.page-titles-container.breadcrumb-container ul.breadcrumb {
     overflow: scroll;
     height: 30vw;
     margin-bottom: 50px;
+    padding-right: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -1484,7 +1630,7 @@ div.page-titles-container.breadcrumb-container ul.breadcrumb {
     overflow: unset;
 }
 
-/* attempting sticky table header but does not work */
+/* attempting sticky table header  */
 table.floatThead-table {
     border-top: none;
     border-bottom: none;
@@ -1560,9 +1706,19 @@ tr.category-row {
 }
 
 .dark-mode .scroll-top-btn {
-    background-color: var(--light-green);
-    color: var(--dark-grey-text);
     filter: drop-shadow(1px 1px 2px rgb(20, 20, 20));
+}
+
+.video-embed {
+    width: 704px;
+    height: 396px;
+}
+
+@media (max-width: 900px) {
+    .video-embed {
+        width: 352px;
+        height: 198px;
+    }
 }
 
 /* NOTE change the active and visited link text colors */

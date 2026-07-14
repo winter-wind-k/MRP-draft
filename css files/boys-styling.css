@@ -43,10 +43,6 @@ div.paragraph-section.boys-intro {
     transform: scale(1.05);
 }
 
-/* not working 
-.swatch.selected {
-    content: "✔";
-} */
 
 /*rectangle around module */
 .boys-container {
@@ -64,6 +60,7 @@ div.paragraph-section.boys-intro {
     user-select: none;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 /* title styling */
@@ -259,6 +256,21 @@ div.paragraph-section.boys-intro {
     transform: scale(1.05);
 }
 
+@media (max-width: 900px) {
+    .skin-tone-container {
+        border: none;
+        border-radius: 0px;
+        border-bottom: solid 1.5px var(--light-grey);
+        text-align: left;
+    }
+
+    .skin-tone-buttons {
+        position: relative;
+        align-self: left;
+        text-align: left;
+    }
+}
+
 /* body size buttons container */
 .body-size-container {
     display: flex;
@@ -304,6 +316,10 @@ div.paragraph-section.boys-intro {
     flex-direction: column;
     gap: 10px;
     width: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: fit-content;
+    margin-left: 10px;
 }
 
 /* active button styling */
@@ -321,6 +337,18 @@ button.body-size-button.active::after {
     background-color: #814f34;
 }
 
+@media (max-width: 900px) {
+    .body-size-container {
+        border: none;
+        border-radius: 0px;
+        text-align: left;
+    }
+
+    .body-size-buttons {
+        position: relative;
+        align-self: left;
+    }
+}
 
 /* blur button */
 .blur-button-container {
@@ -352,9 +380,185 @@ button.body-size-button.active::after {
 
 /* ------------------------------------------------------------------------------- */
 
+/* Mobile menu design */
+@media (max-width: 900px) {
+    .selection-options {
+        --gap: 16px;
+        --num-cols: 2;
+        --num-rows: 2;
+        --row-width: 300px;
+        box-sizing: border-box;
+        padding: var(--gap);
+        display: grid;
+        grid-template-columns: repeat(var(--num-cols), 1fr);
+        grid-template-rows: repeat(var(--num-rows), 1fr);
+        gap: var(--gap);
+        width: min(100%, 760px);
+        height: 20vh;
+        margin-right: 40px;
+        align-items: flex-start;
+        text-align: left;
+        align-content: right;
+        align-self: flex-start;
+        position: relative;
+        border: none;
+        border-radius: 0px;
+        border-bottom: 1.5 px solid var(--light-grey);
+    }
+
+    .collapsible-menu {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        border: 2px solid rgb(212, 212, 212);
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 10;
+        margin-bottom: 0px;
+    }
+
+    /* button to open menu */
+    .collapsible-header {
+        display: flex;
+        align-items: right;
+        padding: 10px 15px;
+        background-color: #f8f9fa;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .collapsible-header h3 {
+        margin: 0;
+        font-size: 16px;
+        color: #364b47;
+        font-weight: 600;
+        justify-content: space-between;
+        padding-right: 10%;
+    }
+
+        .collapsible-header.active::after h3 {
+        justify-content: space-between;
+        padding-right: 10%;
+    }
+
+    .arrow {
+        transition: transform 0.3s ease;
+        font-size: 12px;
+        text-align: right;
+        padding-top: 2px;
+    }
+
+    .collapsible-content {
+        display: none;
+        padding: 10px 0;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 20;
+        position: relative;
+        margin-top: 0;
+    }
+
+    .collapsible-content.active {
+        display: block;
+        position: relative;
+        transform: translateY(0);
+        z-index: 20;
+        margin-top: -1px;
+        overflow: visible;
+        margin-bottom: 0px;
+        background-color: white;
+        right: 0;
+        align-items: right;
+        gap: 40%;
+    }
+
+        .collapsible-content.active::after {
+        content: "";
+        width: 0;
+        align-items: right;
+    }
+
+    /* Ensure arrow rotates when active */
+    .collapsible-header.active .arrow {
+        transform: rotate(180deg);
+        content: '';
+        right: 0;
+        align-items: right;
+    }
+
+    div.collapsible-header.active::after {
+        width: 0;
+        content: '';
+        align-items: right;
+    }
+
+    /* Adjust procedure form for mobile */
+    .procedures-form {
+        width: 100%;
+        columns: 1;
+        text-align: left;
+        gap: 5px;
+        flex-shrink: 0;
+        padding: 0 10px;
+    }
+
+    /* Adjust procedure lines for mobile */
+    .procedure-line {
+        width: 100%;
+        padding: 8px 0;
+        margin-bottom: 5px;
+    }
+
+    .procedure-names {
+        font-size: 14px;
+        padding-top: 0;
+    }
+
+    /* Adjust other containers for mobile */
+    .procedure-options {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        border: none;
+        border-bottom: 1.5px solid var(--light-grey);
+        border-radius: 0px;
+    }
+
+    .skin-tone-container,
+    .body-size-container {
+        width: 80%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+}
+
+/* only show correct menu for screen width */
+@media (max-width: 900px) {
+    .mobile-menu-only {
+        display: block;
+    }
+
+    .desktop-menu-only {
+        display: none;
+    }
+}
+
+@media (min-width: 901px) {
+    .mobile-menu-only {
+        display: none;
+    }
+
+    .desktop-menu-only {
+        display: flex;
+        gap: 15px;
+    }
+}
 
 
-/* ------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
 
 /* overall container for boys tool images */
 .boys-images-container {
@@ -363,6 +567,8 @@ button.body-size-button.active::after {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    position: relative;
+    z-index: 1;
 }
 
 /* container for image and labels */
@@ -715,8 +921,6 @@ div.labels-container.bladder-text {
     filter: blur(10px) opacity(70%);
 }
 
-@media (max-width: 900px) {
-    .boys-options-menu {
-        /* placeholder to remind myself what i was doing here with mobile menu design */
-    }
+div.paragraph-section.boys-disclaimer {
+    margin-bottom: 0px;
 }

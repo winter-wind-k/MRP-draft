@@ -28,8 +28,8 @@ ul.breadcrumb li+li:before {
 /* FAQ title and text */
 
 .faq-page-title {
-    margin-top: 35px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,6 +49,7 @@ ul.breadcrumb li+li:before {
 
 .faq-page-title p {
     font-size: 20px;
+    margin-top: 5px;
 }
 
 /* collapsible accordion menus https://www.w3schools.com/howto/howto_js_accordion.asp */
@@ -239,8 +240,8 @@ p.disclaimer-box.prepare-your-mind {
 }
 
 .comforting-friend-image {
-    padding-top: 30px;
-    width: 30vw;
+    width: 25vw;
+    margin-left: 30px;
 }
 
 @media (max-width:768px) {
@@ -679,8 +680,20 @@ div.paragraph-section.funding-ideas {
 
 div.paragraph-section.consults-intro {
     margin-bottom: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 20px;
+
+}
+
+
+.content-section .consults-disclaimer {
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.content-section .consults-disclaimer p {
+    margin-bottom: 0px;
 }
 
 .consult-image {
@@ -702,21 +715,27 @@ div.paragraph-section.before-after {
 }
 
 div.captioned-image.non-ideal-anatomy {
-    padding: 20px;
+    margin: 20px;
+    padding: 0px;
+    border-radius: 15px;
 }
 
 div.captioned-image.related-surgeries {
-    padding: 20px;
+    margin: 20px;
+    padding: 0px;
+    border-radius: 15px;
 }
 
 div.captioned-image.non-ideal-anatomy img {
     width: 100%;
     margin: 10px;
+    border-radius: 15px;
 }
 
 div.captioned-image.related-surgeries img {
     width: 100%;
     margin: 10px;
+    border-radius: 15px;
 }
 
 div.captioned-image.non-ideal-anatomy p {

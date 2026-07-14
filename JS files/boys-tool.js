@@ -48,3 +48,19 @@ blurButton.addEventListener('click', () => {
     blurButton.textContent = isBlurred ? 'Unblur Images' : 'Blur Images';
 
 });
+
+
+//--------------------------------------------------------------------------------------------------
+// mobile vs. desktop menus
+//--------------------------------------------------------------------------------------------------
+
+function toggleCollapsible(header) {
+    const content = header.nextElementSibling;
+    const arrow = header.querySelector('.arrow');
+
+    // Toggle the active class on content
+    content.classList.toggle('active');
+
+    // Toggle the active class on header for arrow rotation
+    header.classList.toggle('active');
+}
