@@ -437,7 +437,7 @@ button.body-size-button.active::after {
         padding-right: 10%;
     }
 
-        .collapsible-header.active::after h3 {
+    .collapsible-header.active::after h3 {
         justify-content: space-between;
         padding-right: 10%;
     }
@@ -474,7 +474,7 @@ button.body-size-button.active::after {
         gap: 40%;
     }
 
-        .collapsible-content.active::after {
+    .collapsible-content.active::after {
         content: "";
         width: 0;
         align-items: right;
@@ -832,6 +832,7 @@ input:checked+.slider:after {
     font: var(--body-text);
     font-size: 12px;
     margin-left: 20px;
+    filter: drop-shadow(1px 1px 1px grey);
 }
 
 .labels-container {
@@ -850,33 +851,320 @@ input:checked+.slider:after {
     border-bottom: 10px solid transparent;
     border-right: 10px solid white;
     float: left;
-    position: absolute;
     padding-right: 7px;
     margin-top: 3px;
+    filter: drop-shadow(1px 1px 1px grey);
 }
 
 .right-triangle {
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 10px solid white;
-    float: left;
     position: absolute;
-    padding-left: 7px;
     margin-top: 3px;
-    right: 46%;
+    padding-left: 7px;
+    margin-left: 65px;
+    filter: drop-shadow(1px 1px 1px grey);
 }
 
-/* Neophallus label */
-div.labels-container.phallus-text {
-    bottom: 40%;
-    left: -1%;
+
+/* Hide labels for toggle */
+.boys-labels-class {
+    display: none;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* simple labels
+/* penis label */
+.simple-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
 }
 
 /* Urethra label */
-div.labels-container.urethra-text {
-    top: 49%;
-    left: 39%;
+.simple-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
 }
+
+/* Vagina label */
+.simple-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+.simple-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* simple + scrotoplasty labels
+/* penis label */
+.simple-scroto-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
+}
+
+/* Urethra label */
+.simple-scroto-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+/* Scrotum label */
+.simple-scroto-labels div.scrotum-text.boys-label-container {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 58%;
+    left: 29%;
+}
+
+/* Vagina label */
+.simple-scroto-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+/* bladder label */
+.simple-scroto-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* simple meta + vnectomy labels
+/* penis label */
+.simple-vnect-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
+}
+
+/* Urethra label */
+.simple-vnect-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+/* Scrotum label */
+.simple-vnect-labels div.scrotum-text.boys-label-container {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 58%;
+    left: 29%;
+}
+
+/* Vagina label */
+.simple-vnect-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+.simple-vnect-labels div.boys-label-container.vagina-text .boys-labels-all  {
+    width: 90px;
+}
+
+/* bladder label */
+.simple-vnect-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* simple meta + vnectomy + scrotoplasty labels
+/* penis label */
+.simple-vnect-scroto-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
+}
+
+/* Urethra label */
+.simple-vnect-scroto-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+/* Scrotum label */
+.simple-vnect-scroto-labels div.scrotum-text.boys-label-container {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 58%;
+    left: 29%;
+}
+
+/* Vagina label */
+.simple-vnect-scroto-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+.simple-vnect-scroto-labels div.boys-label-container.vagina-text .boys-labels-all  {
+    width: 90px;
+}
+
+/* Bladder label */
+.simple-vnect-scroto-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* simple + vnect + ul labels */
+/* penis label */
+.simple-vnect-ul-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
+}
+
+/* Urethra label */
+.simple-vnect-ul-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+/* Vagina label */
+.simple-vnect-ul-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+.simple-vnect-ul-labels div.boys-label-container.vagina-text .boys-labels-all  {
+    width: 90px;
+}
+
+/* Bladder label */
+.simple-vnect-ul-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/* full meta labels */
+/* penis label */
+.full-meta-labels div.boys-label-container.phallus-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    position: absolute;
+    bottom: 48%;
+    left: -2%;
+}
+
+/* Urethra label */
+.full-meta-labels div.boys-label-container.urethra-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+/* Scrotum label */
+.full-meta-labels div.scrotum-text.boys-label-container {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 58%;
+    left: 29%;
+}
+
+/* Vagina label */
+.full-meta-labels div.boys-label-container.vagina-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+}
+
+.full-meta-labels div.boys-label-container.vagina-text .boys-labels-all  {
+    width: 90px;
+}
+
+/* Bladder label */
+.full-meta-labels div.boys-label-container.bladder-text {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 32%;
+    left: 45%;
+}
+
+/*-------------------------------------------------------------------------------*/
 
 div.boys-labels-class.simple-vnect-ul-labels .labels-container.urethra-text {
     top: 49%;
@@ -886,34 +1174,6 @@ div.boys-labels-class.simple-vnect-ul-labels .labels-container.urethra-text {
 div.boys-labels-class.full-meta-labels .labels-container.urethra-text {
     top: 49%;
     left: 26%;
-}
-
-/* Scrotum label */
-div.labels-container.scrotum-text {
-    top: 58%;
-    left: 29%;
-}
-
-/* Vagina label */
-div.labels-container.vagina-text {
-    bottom: 47%;
-    right: -1%;
-}
-
-.vagina-text-container {
-    bottom: 50%;
-    right: 22%;
-}
-
-/* Bladder label */
-div.labels-container.bladder-text {
-    top: 30%;
-    left: 48%;
-}
-
-/* Hide labels for toggle */
-.boys-labels-class {
-    display: none;
 }
 
 /* blur added to images */

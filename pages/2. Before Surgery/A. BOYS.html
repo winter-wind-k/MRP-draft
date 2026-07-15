@@ -155,7 +155,7 @@
                         <div class="boys-toggle-container">
                             <div class="boys-toggle-items">
                                 <label class="labels-toggle">
-                                    <input onclick="toggleLabelsFromImage()" type="checkbox" id="boys-labels-toggle">
+                                    <input type="checkbox" id="boys-labels-toggle">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -221,12 +221,12 @@
                                             </div>
                                         </form>
                                     </div>
-                <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
+                                    <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
 
-                </div>
+                                </div>
 
-                <!--original skin tone buttons-->
-                <div class="skin-tone-container">
+                                <!--original skin tone buttons-->
+                                <div class="skin-tone-container">
                                     <div class="boys-titles">Skin Tone</div>
                                     <div class="skin-tone-buttons" id="skinTones" role="radiogroup"
                                         aria-label="Skin tone">
@@ -265,17 +265,16 @@
                         <div class="button-controls">
                             <div class="blur-button-container">
                                 <button class="blur-button-class" id="blur-button">
-                <!--fix this so that icon switches with button press
-                            <img id="blur-button-icon" src="/images/image-unblurred-placeholder.svg" />--> 
-                <div>Unblur Images</div>
+                                    <!--fix this so that icon switches with button press
+                            <img id="blur-button-icon" src="/images/image-unblurred-placeholder.svg" />-->
+                                    <div>Unblur Images</div>
                                 </button>
                             </div>
 
                             <div class="boys-toggle-container">
                                 <div class="boys-toggle-items">
                                     <label class="labels-toggle">
-                                        <input onclick="toggleLabelsFromImage()" type="checkbox"
-                                            id="boys-labels-toggle">
+                                        <input type="checkbox" id="boys-labels-toggle">
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
@@ -326,167 +325,170 @@
                         </div>
 
                         <div class="labeled-image-container">
-                            <div>
-                                <!--Labels for simple meta + scrotoplasty-->
-                                <div id="boys-labels" class="boys-labels-class simple-scroto-labels" data-numbers="13">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
-                                    </div>
 
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
-                                    </div>
+                            <div id="boys-labels">
+                                <div>
+                                    <!--Labels for simple meta + scrotoplasty-->
+                                    <div class="boys-labels-class simple-scroto-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="right-triangle"></div>
+                                            <div class="boys-labels-all">Penis</div>
+                                        </div>
 
-                                    <div class="labels-container scrotum-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Scrotum</div>
-                                    </div>
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
 
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina</div>
-                                    </div>
+                                        <div class="scrotum-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Scrotum</div>
+                                        </div>
 
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
-                                    </div>
-                                </div>
-                            </div>
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina</div>
+                                        </div>
 
-                            <!--labels for simple meta-->
-                            <div>
-                                <div class="boys-labels-class simple-labels" data-numbers="1">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
-                                    </div>
-
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
-                                    </div>
-
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina</div>
-                                    </div>
-
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all bladder-text">Bladder</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!--labels for simple meta + vnectomy-->
-                            <div>
-                                <div class="boys-labels-class simple-vnect-labels" data-numbers="12">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
-                                    </div>
+                                <!--labels for simple meta-->
+                                <div>
+                                    <div class="boys-labels-class simple-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="boys-labels-all">Penis</div>
+                                            <div class="right-triangle"></div>
+                                        </div>
 
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
-                                    </div>
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
 
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina (closed)</div>
-                                    </div>
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina</div>
+                                        </div>
 
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--labels for simple meta + vnectomy + scrotoplasty-->
-                            <div>
-                                <div class="boys-labels-class simple-vnect-scroto-labels" data-numbers="123">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
-                                    </div>
-
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
-                                    </div>
-
-                                    <div class="labels-container scrotum-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Scrotum</div>
-                                    </div>
-
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina (closed)</div>
-                                    </div>
-
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Bladder</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!--labels for simple meta + vnectomy + ul-->
-                            <div>
-                                <div class="boys-labels-class simple-vnect-ul-labels" data-numbers="124">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
-                                    </div>
+                                <!--labels for simple meta + vnectomy-->
+                                <div>
+                                    <div class="boys-labels-class simple-vnect-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="boys-labels-all">Penis</div>
+                                            <div class="right-triangle"></div>
+                                        </div>
 
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
-                                    </div>
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
 
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina (closed)</div>
-                                    </div>
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina (closed)</div>
+                                        </div>
 
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Bladder</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!--labels for full meta-->
-                            <div>
-                                <div class="boys-labels-class full-meta-labels" data-numbers="1234">
-                                    <div class="labels-container phallus-text">
-                                        <div class="boys-labels-all">Penis</div>
-                                        <div class="right-triangle"></div>
+                                <!--labels for simple meta + vnectomy + scrotoplasty-->
+                                <div>
+                                    <div class="boys-labels-class simple-vnect-scroto-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="boys-labels-all">Penis</div>
+                                            <div class="right-triangle"></div>
+                                        </div>
+
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
+
+                                        <div class="scrotum-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Scrotum</div>
+                                        </div>
+
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina (closed)</div>
+                                        </div>
+
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Bladder</div>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="labels-container urethra-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Urethra</div>
+                                <!--labels for simple meta + vnectomy + ul-->
+                                <div>
+                                    <div class="boys-labels-class simple-vnect-ul-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="boys-labels-all">Penis</div>
+                                            <div class="right-triangle"></div>
+                                        </div>
+
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
+
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina (closed)</div>
+                                        </div>
+
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Bladder</div>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="labels-container scrotum-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Scrotum</div>
-                                    </div>
+                                <!--labels for full meta-->
+                                <div>
+                                    <div class="boys-labels-class full-meta-labels">
+                                        <div class="phallus-text boys-label-container">
+                                            <div class="boys-labels-all">Penis</div>
+                                            <div class="right-triangle"></div>
+                                        </div>
 
-                                    <div class="labels-container vagina-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Vagina (closed)</div>
-                                    </div>
+                                        <div class="urethra-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Urethra</div>
+                                        </div>
 
-                                    <div class="labels-container bladder-text">
-                                        <div class="left-triangle"></div>
-                                        <div class="boys-labels-all">Bladder</div>
+                                        <div class="scrotum-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Scrotum</div>
+                                        </div>
+
+                                        <div class="vagina-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Vagina (closed)</div>
+                                        </div>
+
+                                        <div class="bladder-text boys-label-container">
+                                            <div class="left-triangle"></div>
+                                            <div class="boys-labels-all">Bladder</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -15,86 +15,6 @@ let state = {
 
 console.log("js file linked")
 
-//--------------------------------------------------------------------------------------------------
-// update labels 
-//--------------------------------------------------------------------------------------------------
-
-function updateLabels() {
-    console.log("updateLabels called");
-
-    // Get the current image element - adjust selector as needed
-    const currentImage = document.querySelector('.boys-tool-illustration img') ||
-        document.querySelector('.boys-tool-illustration');
-
-    if (!currentImage) {
-        console.log("No image found for label updating");
-        return;
-    }
-
-    // Get filename from image src
-    let fileName = currentImage.src.split('/').pop();
-    if (!fileName) return;
-
-    const baseName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
-
-    console.log("Current filename:", fileName);
-    console.log("Base name:", baseName);
-
-    // Hide all label containers first
-    document.querySelectorAll('.labels-container > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    // Show appropriate labels based on filename ending
-    if (baseName.endsWith('13')) {
-        console.log("Showing simple-scroto-labels");
-        const element = document.querySelector('.simple-scroto-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible'; // Ensure visibility
-        }
-    } else if (baseName.endsWith('1')) {
-        console.log("Showing simple-labels");
-        const element = document.querySelector('.simple-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('12')) {
-        console.log("Showing simple-vnect-labels");
-        const element = document.querySelector('.simple-vnect-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('123')) {
-        console.log("Showing simple-vnect-scroto-labels");
-        const element = document.querySelector('.simple-vnect-scroto-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('124')) {
-        console.log("Showing simple-vnect-ul-labels");
-        const element = document.querySelector('.simple-vnect-ul-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('1234')) {
-        console.log("Showing full-meta-labels");
-        const element = document.querySelector('.full-meta-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    }
-}
-
-//--------------------------------------------------------------------------------------------------
-// procedure checkboxes function
-//--------------------------------------------------------------------------------------------------
-
 // make procedure checkboxes into an array and select by number combination at end of file name
 function getCheckboxPart() {
     console.log("procedure checkbox array is working :)")
@@ -118,16 +38,30 @@ procedureCheckboxes.forEach(cb => {
     cb.addEventListener('change', () => {
         console.log("checkbox changed", cb.value, cb.checked)
         updateImage();
-        updateLabels();
     });
 
     cb.addEventListener('click', () => {
         console.log("checkbox changed", cb.value, cb.checked);
     });
-
-    updateLabels();
 });
 
+
+// update image based on skin tone and body size buttons
+/* function updateImage() {
+    console.log("update image function is working :)")
+
+    const checkboxPart = getCheckboxPart();
+    console.log("checkboxPart", checkboxPart);
+
+    const fileName = `${state.tone}_${state.size}_${getCheckboxPart()}.jpg`
+    console.log("fileName:", fileName);
+
+    const img = document.getElementById("boys-tool-image");
+    console.log("image element:", img)
+
+    img.src = `/images/boys-tool-illustrations/front/${fileName}`;
+    console.log("new src:", img.src); 
+} */
 
 function updateImage() {
     console.log("update image function is working :)")
@@ -154,12 +88,11 @@ function updateImage() {
         console.log("New inner src:", innerImg.src);
         console.log("New front src:", frontImg.src);
 
+        // Update active button states
         updateActiveButtons();
     } else {
         console.error("Image elements not found!");
     }
-
-    updateLabels();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -267,17 +200,34 @@ function autoVaginectomy() {
     }
 }
 
+// add event listeners to checkboxes
+/* function setupCheckboxListeners() {
+    const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            console.log("Checkbox changed:", this.value, this.checked);
+
+            // update state with current checkbox values
+            updateCheckboxState();
+
+            // update image display
+            updateImage();
+        });
+    });
+} */
+
 // event listeners for checkboxes v2 
 function setupCheckboxListeners() {
     const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
 
     checkboxes.forEach(checkbox => {
+        // Remove any existing listeners to prevent duplicates
         checkbox.removeEventListener('change', handleCheckboxChange);
 
+        // Add the new listener
         checkbox.addEventListener('change', handleCheckboxChange);
     });
-
-    updateLabels();
 }
 
 // update checkbox state from DOM
@@ -288,8 +238,6 @@ function updateCheckboxState() {
 
     state.checkboxes = selectedCheckboxes;
     console.log("Updated checkbox state:", state.checkboxes);
-
-    updateLabels();
 }
 
 // update active states of checkboxes
@@ -306,8 +254,6 @@ function updateCheckboxActiveStates() {
             }
         }
     });
-
-    updateLabels();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -327,6 +273,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+//--------------------------------------------------------------------------------------------------
+// toggle different label sets based on images shown
+//--------------------------------------------------------------------------------------------------
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -411,7 +362,9 @@ function checkRandomCheckboxes() {
 // random image loads on page load
 function initializePage() {
     loadRandomImage();
+
     checkRandomCheckboxes();
+
     updateImage();
     updateActiveButtons();
 
@@ -421,6 +374,15 @@ function initializePage() {
 document.addEventListener('DOMContentLoaded', function () {
     initializePage();
 });
+
+// always check off simple meta
+/* function checkFirstCheckbox() {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.checked = true;
+        console.log('First checkbox (Simple Meta) automatically checked');
+    }
+} */
 
 // always check simple meta v2
 function checkFirstCheckbox() {
@@ -452,7 +414,6 @@ function handleCheckboxChange(event) {
         // Only update active states, not image
         updateActiveButtons();
         updateCheckboxActiveStates();
-        updateLabels();
 
         // prevent simple meta from being unchecked
         if (!checkbox.checked) {
@@ -480,7 +441,6 @@ function handleCheckboxChange(event) {
     updateImage();
     updateActiveButtons();
     updateCheckboxActiveStates();
-    updateLabels();
 }
 
 // load random permutation on page load
@@ -496,7 +456,6 @@ function loadRandomImage() {
 
     updateActiveButtons();
     updateImage();
-    updateLabels();
 }
 
 
