@@ -294,6 +294,20 @@ div.paragraph-section.pain-management-intro {
 
 
 /* formatting catheter image grid */
+div.paragraph-section.catheter-section {
+    margin-bottom: 10px;
+}
+
+div.content-item.catheter-list ul li {
+    line-height: 1.5;
+}
+
+p.catheter-text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 .catheter-images {
     width: 100%;
     text-align: center;
@@ -347,6 +361,7 @@ div.content-item.catheter-image-container p {
 
 .catheter-bag-image {
     width: 100%;
+    border-radius: 15px;
 }
 
 .catheter-bag-container {
@@ -356,24 +371,33 @@ div.content-item.catheter-image-container p {
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-template-rows: repeat(var(--num-rows), 1fr);
     gap: 25px;
-    width: 100%;
-    margin-left: 10px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 @media (max-width: 900px) {
 .catheter-bag-container {
     display: grid;
-    --num-cols: 1;
-    --num-rows: 2;
-    gap: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+    --num-cols: 2;
+    --num-rows: 1;
+    gap: 0px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
     margin-top: 20px;
+    width: 100%;
 }
+
+img.catheter-bag-image {
+    border-radius: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
 }
 
 .driving-image {

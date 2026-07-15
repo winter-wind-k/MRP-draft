@@ -194,11 +194,6 @@ div.page-titles-container.breadcrumb-container {
         margin-left: 0px;
         max-width: 1200px;
     }
-
-    .page-top-container {
-        margin-left: 90px;
-        max-width: 1200px;
-    }
 }
 
 div.page-titles-container.boys-page {
@@ -329,6 +324,16 @@ div.page-titles-container.breadcrumb-container {
 
     div.page-titles-container.breadcrumb-container {
         margin-left: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page-top-container {
+        margin-left: 5vw;
+    }
+
+    div.page-titles-container.breadcrumb-container {
+        margin-left: 70px;
     }
 }
 
@@ -1008,7 +1013,8 @@ hr {
     }
 
     #footer-right li {
-        text-align: center;;
+        text-align: center;
+        ;
     }
 
     #footer-right ul {
@@ -1568,6 +1574,15 @@ div.page-titles-container.breadcrumb-container ul.breadcrumb {
     padding-bottom: 2px;
 }
 
+div.goals-menu.overview {
+    width: 90%;
+}
+
+.goals-menu-container {
+    display: flex;
+    flex-direction: row;
+}
+
 /* lines in closed menu */
 .goals-button {
     background-color: var(--light-grey);
@@ -1636,6 +1651,27 @@ div.page-titles-container.breadcrumb-container ul.breadcrumb {
 
 .dark-mode .active:after {
     color: white;
+}
+
+.questioning-person img {
+    width: 30%;
+    float: right;
+    padding: 0px;
+    margin: 0px;
+    transform: translateY(-50px);
+}
+
+@media (max-width: 900px) {
+    .questioning-person img {
+        width: 50%;
+        float: none;
+        padding: 0px;
+        transform: translateY(-30px);
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
 }
 
 /* ----------------------------------------------------------------------------------------------- */

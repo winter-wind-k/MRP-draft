@@ -129,7 +129,6 @@ if (labelsToggle && boysLabels) {
     labelsToggle.addEventListener("change", syncBoysLabels);
     syncBoysLabels();
     updateLabels();
-    /* updateLabels(); */ //changed 1334
 }
 
 console.log("boys-labels.js loaded");

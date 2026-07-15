@@ -19,6 +19,7 @@ console.log("js file linked")
 // update labels 
 //--------------------------------------------------------------------------------------------------
 
+
 function updateLabels() {
     console.log("updateLabels called");
 
