@@ -610,6 +610,7 @@ body {
     padding-top: 15px;
     padding-left: 15px;
     padding-bottom: 40px;
+    padding-right: 20px;
     transition: height 0.35s ease;
 }
 
@@ -1809,6 +1810,10 @@ tr.category-row {
         width: 352px;
         height: 198px;
     }
+}
+
+li {
+    line-height: 1.5;
 }
 
 /* NOTE change the active and visited link text colors */
