@@ -244,6 +244,7 @@ p.disclaimer-box.prepare-your-mind {
 .comforting-friend-image {
     width: 25vw;
     margin-left: 30px;
+    margin-top: 10px;
 }
 
 @media (max-width:768px) {
@@ -329,7 +330,7 @@ ul.dysphoria-aid-list {
 }
 
 img.working-out-image.affective-image {
-    width: 30vw;
+    width: 25vw;
     float: right;
     transform: translateY(-60px);
 }
@@ -358,7 +359,9 @@ img.working-out-image.affective-image.working-out-desktop {
 @media (max-width: 900px) {
     img.working-out-image.affective-image {
         transform: translateY(0px);
-        width: 100%;
+        width: 80%;
+        float: none;
+        margin: 0 auto;
     }
 }
 
@@ -417,7 +420,7 @@ img.body-icon {
         grid-template-rows: repeat(var(--num-rows), 1fr);
         gap: 5px;
         /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
-        width: min(100%, 760px);
+        width: min(80%, 760px);
         margin: 0;
         text-align: center;
     }
@@ -432,20 +435,18 @@ img.body-icon {
 }
 
 img.body-icon-small {
-    width: 20%;
-    margin-left: 0px;
-    float: left;
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 90px;
+    float: right;
 }
 
-img.body-icon-small.body-icon-bed {
-    margin-right: 25px;
-}
 
 @media (max-width:900px) {
     img.body-icon-small {
         width: 20%;
-        float: left;
-        margin-left: 0px;
+        float: right;
+        margin-left: 10px;
         padding: 0 15px;
     }
 }

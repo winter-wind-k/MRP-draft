@@ -15,82 +15,6 @@ let state = {
 
 console.log("js file linked")
 
-//--------------------------------------------------------------------------------------------------
-// update labels 
-//--------------------------------------------------------------------------------------------------
-
-
-function updateLabels() {
-    console.log("updateLabels called");
-
-    // Get the current image element - adjust selector as needed
-    const currentImage = document.querySelector('.boys-tool-illustration img') ||
-        document.querySelector('.boys-tool-illustration');
-
-    if (!currentImage) {
-        console.log("No image found for label updating");
-        return;
-    }
-
-    // Get filename from image src
-    let fileName = currentImage.src.split('/').pop();
-    if (!fileName) return;
-
-    const baseName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
-
-    console.log("Current filename:", fileName);
-    console.log("Base name:", baseName);
-
-    // Hide all label containers first
-    document.querySelectorAll('.labels-container > div').forEach(div => {
-        div.style.display = 'none';
-    });
-
-    // Show appropriate labels based on filename ending
-    if (baseName.endsWith('13')) {
-        console.log("Showing simple-scroto-labels");
-        const element = document.querySelector('.simple-scroto-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible'; // Ensure visibility
-        }
-    } else if (baseName.endsWith('1')) {
-        console.log("Showing simple-labels");
-        const element = document.querySelector('.simple-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('12')) {
-        console.log("Showing simple-vnect-labels");
-        const element = document.querySelector('.simple-vnect-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('123')) {
-        console.log("Showing simple-vnect-scroto-labels");
-        const element = document.querySelector('.simple-vnect-scroto-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('124')) {
-        console.log("Showing simple-vnect-ul-labels");
-        const element = document.querySelector('.simple-vnect-ul-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    } else if (baseName.endsWith('1234')) {
-        console.log("Showing full-meta-labels");
-        const element = document.querySelector('.full-meta-labels');
-        if (element) {
-            element.style.display = 'block';
-            element.style.visibility = 'visible';
-        }
-    }
-}
 
 //--------------------------------------------------------------------------------------------------
 // procedure checkboxes function
@@ -126,8 +50,37 @@ procedureCheckboxes.forEach(cb => {
         console.log("checkbox changed", cb.value, cb.checked);
     });
 
-    updateLabels();
+    //link vnectomy and ul checkboxes
+    cb.addEventListener('change', function () {
+
+        //automatically check vnectomy if ul is checked
+        if (this.value === '4') {
+            const secondCheckbox = document.querySelector('[value="2"]');
+            if (this.checked && secondCheckbox && !secondCheckbox.checked) {
+                secondCheckbox.checked = true;
+
+                secondCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('Automatically checked checkbox 2 because checkbox 4 was checked');
+            }
+
+        }
+        //automatically uncheck ul if vnectomy is unchecked
+        if (this.value === '2') {
+            const fourthCheckbox = document.querySelector('[value="4"]');
+            if (!this.checked && fourthCheckbox && fourthCheckbox.checked) {
+                fourthCheckbox.checked = false;
+
+                fourthCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('Automatically unchecked checkbox 4 because checkbox 2 was unchecked');
+            }
+        }
+
+
+        updateLabels();
+    });
 });
+
+
 
 
 function updateImage() {
@@ -257,16 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // showing active state of checkboxes
 //--------------------------------------------------------------------------------------------------
 
-// automatically check vaginectomy when UL is checked off -- NOT WORKING
-function autoVaginectomy() {
-    if (document.getElementbyId('#4').checked) {
-        console.log('checked');
-        document.getElementById("#2").checked = true
-
-    } else {
-        console.log('unchecked');
-    }
-}
 
 // event listeners for checkboxes v2 
 function setupCheckboxListeners() {
@@ -322,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("First checkbox element:", firstCheckbox);
         console.log("First checkbox checked state:", firstCheckbox.checked);
 
-        // Add a special debug listener to see all changes
         firstCheckbox.addEventListener('change', function (e) {
             console.log("First checkbox change event - checked:", this.checked, "event:", e);
         });

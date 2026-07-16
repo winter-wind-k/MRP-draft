@@ -283,6 +283,7 @@ div.paragraph-section.boys-intro {
     height: 78px;
     width: fit-content;
     position: relative;
+    flex-shrink: 0;
 }
 
 /* styling for all body size buttons collectively */
