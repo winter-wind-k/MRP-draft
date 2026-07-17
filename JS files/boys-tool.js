@@ -1,6 +1,3 @@
-// changing button from no text to check - changed how this works bc restyled as checkboxes
-// https://stackoverflow.com/questions/10671174/changing-button-text-onclick 
-
 
 // labels toggle function 
 // labels ID and class         id="boys-labels"         class="boys-labels-class"
@@ -12,7 +9,7 @@
 //--------------------------------------------------------------------------------------------------
 
 
-/* old labels toggle */
+// old labels toggle 
 const labelsToggle = document.querySelector("#boys-labels-toggle")
 const boysLabels = document.querySelector("#boys-labels")
 
@@ -29,7 +26,7 @@ if (labelsToggle && boysLabels) {
             boysLabels.style.display = 'none';
             document.querySelectorAll('.boys-labels-class').forEach(div => {
                 div.style.display = 'none';
-                div.style.visibility = 'hidden'; //changed 1334
+                div.style.visibility = 'hidden'; 
             });
         }
     };
@@ -50,7 +47,6 @@ console.log("boys-labels.js loaded");
 function updateLabels() {
     console.log("updateLabels called");
 
-    // Get the current image element - adjust selector as needed
     const currentImage = document.querySelector('.boys-tool-illustration img') ||
         document.querySelector('.boys-tool-illustration');
 
@@ -59,7 +55,7 @@ function updateLabels() {
         return;
     }
 
-    // Get filename from image src
+    // read file name 
     let fileName = currentImage.src.split('/').pop();
     if (!fileName) return;
 
@@ -68,19 +64,18 @@ function updateLabels() {
     console.log("Current filename:", fileName);
     console.log("Base name:", baseName);
 
-    // Hide all label containers first
+    // hide all labels first
     document.querySelectorAll('.labels-container > div').forEach(div => {
         div.style.display = 'none';
     });
 
-    // Get current checkbox states
+    // read current procedures checked
     const checkboxes = document.querySelectorAll('.procedure-checkbox');
     let suffix = '';
 
-    // Build suffix based on checked checkboxes (in order)
+    // build suffix based on checkboxes
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            // Get the value or id to determine which label set to show
             const value = checkbox.value || checkbox.id;
             if (value === '1') suffix += '1';
             else if (value === '2') suffix += '2';
@@ -89,10 +84,8 @@ function updateLabels() {
         }
     });
 
-    // Show appropriate labels based on checkbox selection and filename
     let selectedLabels = null;
 
-    // If checkboxes are checked, use the combined logic
     if (suffix) {
         switch (suffix) {
             case '1':
@@ -116,15 +109,13 @@ function updateLabels() {
                 selectedLabels = '.full-meta-labels';
                 break;
             default:
-                // Fallback to filename-based logic if no specific checkbox combination
                 selectedLabels = getLabelFromFilename(baseName);
         }
     } else {
-        // If no checkboxes checked, use filename-based logic
         selectedLabels = getLabelFromFilename(baseName);
     }
 
-    // Show the selected labels
+    // show the correct label set
     if (selectedLabels) {
         document.querySelectorAll('.boys-labels-class').forEach(div => {
             div.style.display = 'none';
@@ -169,7 +160,6 @@ function setupImageChangeDetection() {
         mutations.forEach(function (mutation) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
                 updateLabels();
-                syncBoysLabels();
             }
         });
     });
@@ -182,21 +172,19 @@ function setupImageChangeDetection() {
     }
 }
 
-// automatically update labels when checkboxes are changed
-// Set up checkbox change detection
+// automatically update labels when checkboxes change
 function setupCheckboxChangeDetection() {
     const checkboxes = document.querySelectorAll('.procedure-checkbox');
 
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
-            // Add a small delay to ensure DOM updates complete
+
             setTimeout(updateLabels, 10);
         });
     });
 }
 
 
-// Initialize the detections
 setupImageChangeDetection();
 setupCheckboxChangeDetection();
 
@@ -292,7 +280,6 @@ document.querySelectorAll('.nav-button').forEach(button => {
 */
 
 
-
 //--------------------------------------------------------------------------------------------------
 // blur button
 //--------------------------------------------------------------------------------------------------
@@ -369,9 +356,6 @@ function toggleCollapsible(header) {
     const content = header.nextElementSibling;
     const arrow = header.querySelector('.arrow');
 
-    // Toggle the active class on content
     content.classList.toggle('active');
-
-    // Toggle the active class on header for arrow rotation
     header.classList.toggle('active');
 }

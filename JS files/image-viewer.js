@@ -81,8 +81,6 @@ procedureCheckboxes.forEach(cb => {
 });
 
 
-
-
 function updateImage() {
     console.log("update image function is working :)")
 
@@ -115,6 +113,7 @@ function updateImage() {
 
     updateLabels();
 }
+
 
 //--------------------------------------------------------------------------------------------------
 // skin tone button functions
@@ -152,6 +151,7 @@ function setTone(dark) {
     updateImage();
 }
 
+
 //--------------------------------------------------------------------------------------------------
 // body size button functions
 //--------------------------------------------------------------------------------------------------
@@ -171,6 +171,7 @@ function setSize(smaller) {
     state.size = smaller;
     updateImage();
 }
+
 
 //--------------------------------------------------------------------------------------------------
 // showing active state of buttons
@@ -206,10 +207,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updateActiveButtons();
 });
 
+
 //--------------------------------------------------------------------------------------------------
 // showing active state of checkboxes
 //--------------------------------------------------------------------------------------------------
-
 
 // event listeners for checkboxes v2 
 function setupCheckboxListeners() {
@@ -309,9 +310,9 @@ function checkRandomCheckboxes() {
     // create array of indices for checkboxes 2-4 (excluding first one)
     const availableIndices = [1, 2, 3];
 
-    // Randomly select 0-3 of the remaining checkboxes 
-    const numberOfAdditionalChecks = Math.floor(Math.random() * 4); // 0-3 additional checks
-    const checkedBoxes = [0]; // Always check simple meta
+    // randomly select 0-3 of remaining checkboxes 
+    const numberOfAdditionalChecks = Math.floor(Math.random() * 4);
+    const checkedBoxes = [0]; // always check simple meta
 
     for (let i = 0; i < numberOfAdditionalChecks; i++) {
         if (availableIndices.length > 0) {
@@ -426,6 +427,7 @@ function handleCheckboxChange(event) {
     updateLabels();
 }
 
+
 // load random permutation on page load
 function loadRandomImage() {
     console.log("Loading random image permutation...");
@@ -455,16 +457,25 @@ document.addEventListener('DOMContentLoaded', function () {
 // user selection restrictions
 //--------------------------------------------------------------------------------------------------
 
+// note - restriction that links vnectomy and ul checkboxes included in checkboxes section
 
-// users can't uncheck simple meta (delete if pre-op images are added)
+// stop image update from occuring if first checkbox is clicked (simple meta always on)
 document.addEventListener('DOMContentLoaded', function () {
     const firstCheckbox = document.getElementById('1');
     if (firstCheckbox) {
-        firstCheckbox.addEventListener('change', function () {
-            if (!this.checked) {
-                this.checked = true;
-                console.log("Simple Meta checkbox was prevented from being unchecked.");
-            }
+        // Prevent any interaction with the first checkbox
+        firstCheckbox.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
+        firstCheckbox.addEventListener('change', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.checked = true; // Force it to stay checked
+            console.log("First checkbox prevented from being unchecked");
+            return false;
         });
     }
 });
@@ -481,8 +492,6 @@ function checkFirstCheckbox() {
 document.addEventListener('DOMContentLoaded', function () {
     checkFirstCheckbox();
 });
-
-
 
 
 
