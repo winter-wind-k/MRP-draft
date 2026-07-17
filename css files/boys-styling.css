@@ -63,6 +63,12 @@ div.paragraph-section.boys-intro {
     margin-bottom: 50px;
 }
 
+@media (max-width: 900px) {
+    .boys-container {
+        display: none;
+    }
+}
+
 /* title styling */
 .boys-container h1 {
     font-weight: 100;
@@ -351,7 +357,7 @@ span.procedure-checkbox.simple {
     vertical-align: middle;
     color: white;
     transition: all 0.3s ease;
-    background-color: var(--active-skin-tone);
+    background-color: #814f34;
 }
 
 
@@ -397,7 +403,7 @@ button.body-size-button.active::after {
 }
 
 .body-size-button.active {
-    background-color: var(--active-skin-tone);
+    background-color: #814f34;
 }
 
 @media (max-width: 900px) {

@@ -1,3 +1,5 @@
+console.log("js file is being loaded :)")
+
 async function loadIncludes() {
   // Find every element that has a data-include attribute
   const targets = document.querySelectorAll("[data-include]");
@@ -31,7 +33,7 @@ function setActiveNav() {
   currentPage = currentPage.split("?")[0].split("#")[0];
 
   // 2) Get all links in the navigation
-  const links = document.querySelectorAll(".nav-links a");
+  const links = document.querySelectorAll(".nav-links");
 
   // 3) Compare each link file name with the current page
   links.forEach((link) => {
@@ -43,6 +45,7 @@ function setActiveNav() {
 
     // Remove query/hash from the link too
     linkPage = linkPage.split("?")[0].split("#")[0];
+    console.log(linkPage);
 
     // Clear old active states first
     link.classList.remove("active");
@@ -50,7 +53,6 @@ function setActiveNav() {
     // If this link matches the current page, highlight it
     if (linkPage === currentPage) {
       link.classList.add("active");
-
     }
   });
 }
@@ -339,41 +341,6 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-function highlightCurrentPage() {
-    // Get the current page URL
-    const currentPage = window.location.pathname;
-    
-    // Get all navigation links
-    const navLinks = document.querySelectorAll('.sidenav a');
-    
-    // Remove current-page class from all links
-    navLinks.forEach(link => {
-        link.classList.remove('current-page', 'current-page-sub');
-    });
-    
-    // Find and highlight the current page link
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        
-        // Handle exact matches and partial matches for subpages
-        if (href && currentPage === href) {
-            link.classList.add('current-page');
-        } else if (href && currentPage.startsWith(href) && href !== '/') {
-            // For subpages, check if current page starts with the link href
-            link.classList.add('current-page-sub');
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    highlightCurrentPage();
-});
-
-// Also call it when the URL changes 
-window.addEventListener('popstate', function() {
-    setTimeout(highlightCurrentPage, 100);
-});
-
 
 //--------------------------------------------------------------------------------------------------
 
@@ -396,7 +363,7 @@ function scrollFunction() {
 }
 
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
 }
 

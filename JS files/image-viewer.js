@@ -179,6 +179,7 @@ function setSize(smaller) {
 
 // update active button states
 function updateActiveButtons() {
+    // remove active class from all skin tone buttons
     document.querySelectorAll('.skin-tone-button').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -187,22 +188,17 @@ function updateActiveButtons() {
     const activeToneButton = document.querySelector(`[onclick="setTone('${state.tone}')"]`);
     if (activeToneButton) {
         activeToneButton.classList.add('active');
-
-        const activeColor = getComputedStyle(activeToneButton).backgroundColor;
-
-        // make active skin tone color a css property
-        document.documentElement.style.setProperty('--active-skin-tone', activeColor);
     }
 
+    // remove active class from all body size buttons
     document.querySelectorAll('.body-size-button').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // add active class and active skin tone to current body size button 
+    // add active class to current body size button
     const activeSizeButton = document.querySelector(`[onclick="setSize('${state.size}')"]`);
     if (activeSizeButton) {
         activeSizeButton.classList.add('active');
-        activeSizeButton.classList.add('--active-skin-tone', activeColor);
     }
 }
 
@@ -212,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //--------------------------------------------------------------------------------------------------
-// body size buttons change to the color of the active skin tone button
+// body size buttons change to the color of the active skin tone
 //--------------------------------------------------------------------------------------------------
 
 
@@ -426,13 +422,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const firstCheckbox = document.getElementById('1');
     if (firstCheckbox) {
-        firstCheckbox.addEventListener('click', function (e) {
+        firstCheckbox.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             return false;
         });
-
-        firstCheckbox.addEventListener('change', function (e) {
+        
+        firstCheckbox.addEventListener('change', function(e) {
             e.preventDefault();
             e.stopPropagation();
             this.checked = true;
