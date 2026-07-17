@@ -53,6 +53,10 @@ p {
     line-height: 1.5;
 }
 
+.dark-mode a:any-link {
+    color: #79d696;
+}
+
 
 div.content-item .ul .li p {
     line-height: 1.5;
@@ -666,6 +670,29 @@ body {
     margin-top: 0;
     font-size: 16px;
     margin-left: -12px;
+}
+
+.sidenav .current-page {
+    background-color: white;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.dark-mode .sidenav .current-page {
+    background-color: var(--dark-highlight-color);
+    color: white !important;
+}
+
+/* Active submenu items */
+.sidenav .current-page-sub {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--dark-green) !important;
+}
+
+.dark-mode .sidenav .current-page-sub {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white !important;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -1528,11 +1555,11 @@ ul.breadcrumb li {
 }
 
 ul.breadcrumb li a {
-    color: green;
+    color: var(--mid-green);
 }
 
 .dark-mode ul.breadcrumb li a {
-    color: var(--light-green);
+    color: #79d696;
 }
 
 ul.breadcrumb li+li:before {

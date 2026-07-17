@@ -72,7 +72,7 @@ div.paragraph-section.boys-intro {
 .selection-options {
     display: inline-flex;
     gap: 2vw;
-    padding-left: 5vh;
+    margin: 0 auto;
     padding-top: 5vh;
     align-self: center;
     align-items: center;
@@ -92,6 +92,12 @@ div.paragraph-section.boys-intro {
     width: fit-content;
     background-color: white;
     filter: drop-shadow(1px 1px 1px grey);
+}
+
+.dark-mode .procedure-options {
+    background-color: var(--dark-green);
+    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    color: white;
 }
 
 /* container around all procedure lines 
@@ -139,12 +145,20 @@ div.paragraph-section.boys-intro {
     flex-shrink: 0;
 }
 
+.dark-mode .boys-titles {
+    color: white;
+}
+
 /* images titles slightly larger */
 .boys-image-titles {
     font-weight: 600;
     font-size: 18px;
     color: #364b47;
     flex-shrink: 0;
+}
+
+.dark-mode .boys-image-titles {
+    color: var(--light-green);
 }
 
 /* each procedure individually styling */
@@ -182,6 +196,11 @@ div.paragraph-section.boys-intro {
     flex-shrink: 0;
 }
 
+/* grey out simple checkbox */
+span.procedure-checkbox.simple {
+    background-color: var(--light-grey);
+}
+
 .procedure-names {
     font-size: 14px;
     align-items: center;
@@ -198,21 +217,25 @@ div.paragraph-section.boys-intro {
     background-color: white;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+.procedure-line input:checked~.procedure-checkbox.simple {
+    background-color: rgb(222, 222, 222);
+}
+
+/* create checkmark (hidden when not checked) */
 .procedure-checkbox:after {
     content: "✔";
     display: none;
-    color: #627773;
+    color: var(--dark-green);
     vertical-align: middle;
     flex-shrink: 0;
 }
 
-/* Show the checkmark when checked */
+/* show checkmark when checked */
 .procedure-line input:checked~.procedure-checkbox:after {
     display: block;
 }
 
-/* Style the checkmark/indicator */
+/* checkmark appearance */
 .procedure-line .procedure-checkbox:after {
     height: 5px;
     width: 5px;
@@ -237,6 +260,12 @@ div.paragraph-section.boys-intro {
     filter: drop-shadow(1px 1px 1px grey);
 }
 
+.dark-mode .skin-tone-container {
+    background-color: var(--dark-green);
+    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    color: white;
+}
+
 /* styling for all skin tone buttons collectively - old buttons, replaced with checkboxes */
 .skin-tone-buttons {
     display: flex;
@@ -244,6 +273,7 @@ div.paragraph-section.boys-intro {
     gap: 5px;
     border: none;
 }
+
 
 /* styling for individual skin tone button */
 .skin-tone-button {
@@ -254,6 +284,10 @@ div.paragraph-section.boys-intro {
     cursor: pointer;
     color: white;
     transition: all 0.3s ease;
+}
+
+.dark-mode .skin-tone-button {
+    border: 1px solid white;
 }
 
 .skin-tone-button:hover {
@@ -292,6 +326,13 @@ div.paragraph-section.boys-intro {
     filter: drop-shadow(1px 1px 1px grey);
 }
 
+.dark-mode .body-size-container {
+    background-color: var(--dark-green);
+    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    color: white;
+}
+
+
 /* styling for all body size buttons collectively */
 .body-size-buttons {
     display: flex;
@@ -308,9 +349,14 @@ div.paragraph-section.boys-intro {
     border: none;
     cursor: pointer;
     vertical-align: middle;
-    background-color: #814f34;
     color: white;
     transition: all 0.3s ease;
+    background-color: var(--active-skin-tone);
+}
+
+
+.dark-mode .body-size-button {
+    border: 1px solid white;
 }
 
 .body-size-button:hover {
@@ -331,6 +377,14 @@ div.paragraph-section.boys-intro {
     margin-left: 10px;
 }
 
+@media (max-width: 900px) {
+    .button-controls {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+}
+
+
 /* active button styling */
 button.skin-tone-button.active::after {
     content: "✔";
@@ -343,7 +397,7 @@ button.body-size-button.active::after {
 }
 
 .body-size-button.active {
-    background-color: #814f34;
+    background-color: var(--active-skin-tone);
 }
 
 @media (max-width: 900px) {
@@ -375,6 +429,12 @@ button.body-size-button.active::after {
     filter: drop-shadow(1px 1px 1px grey);
 }
 
+.dark-mode .blur-button-container {
+    background-color: var(--dark-green);
+    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    color: white;
+}
+
 
 .blur-button-container img {
     width: 20px;
@@ -388,6 +448,10 @@ button.body-size-button.active::after {
     font: var(--body-text);
     font-size: 14px;
     flex-shrink: 0;
+}
+
+.dark-mode .blur-button-container button {
+    color: white;
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -414,19 +478,20 @@ button.body-size-button.active::after {
         position: relative;
         border: none;
         border-radius: 0px;
-        border-bottom: 1.5 px solid var(--light-grey);
+        background-color: white;
     }
 
     .collapsible-menu {
         position: relative;
         width: 100%;
         max-width: 300px;
-        margin: 0 auto;
+        margin: auto;
         border: 2px solid rgb(212, 212, 212);
         border-radius: 10px;
         overflow: hidden;
         z-index: 10;
-        margin-bottom: 0px;
+        background-color: white;
+        filter: drop-shadow(1px 1px 1px grey);
     }
 
     /* button to open menu */
@@ -434,7 +499,7 @@ button.body-size-button.active::after {
         display: flex;
         align-items: right;
         padding: 10px 15px;
-        background-color: #f8f9fa;
+        background-color: #ffffff;
         cursor: pointer;
         user-select: none;
     }
@@ -548,10 +613,15 @@ button.body-size-button.active::after {
     }
 }
 
+.desktop-menu-only {
+    margin: 0 auto;
+}
+
 /* only show correct menu for screen width */
 @media (max-width: 900px) {
     .mobile-menu-only {
         display: block;
+        margin: auto;
     }
 
     .desktop-menu-only {
@@ -579,6 +649,7 @@ button.body-size-button.active::after {
     gap: 15px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     width: fit-content;
     position: relative;
     z-index: 1;
@@ -759,7 +830,7 @@ button.body-size-button.active::after {
     height: 23px;
 }
 
-/* Hide default HTML checkbox */
+/* Hide default checkbox */
 .labels-toggle input {
     opacity: 0;
     width: 0;
@@ -774,7 +845,7 @@ button.body-size-button.active::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--mid-green);
     -webkit-transition: .5s;
     transition: .5s;
 }

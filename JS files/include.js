@@ -142,11 +142,11 @@ function switchTheme() {
   }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //for tutorial overlay:
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //for sidebar nav:
 const MOBILE_MENU_BREAKPOINT = 900;
@@ -216,20 +216,20 @@ function myFunction(x) {
   x.classList.toggle("change");
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
-//download button
+//download button for pdfs
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
+
+// to be implemented (as a stretch goal)
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //dropdown menus
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 
 //overview goals menu 
@@ -265,7 +265,7 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 
 // faq menus
@@ -304,7 +304,7 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //sidebar menu
 var acc = document.getElementsByClassName("collapsible-button");
@@ -339,12 +339,47 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
+function highlightCurrentPage() {
+    // Get the current page URL
+    const currentPage = window.location.pathname;
+    
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.sidenav a');
+    
+    // Remove current-page class from all links
+    navLinks.forEach(link => {
+        link.classList.remove('current-page', 'current-page-sub');
+    });
+    
+    // Find and highlight the current page link
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Handle exact matches and partial matches for subpages
+        if (href && currentPage === href) {
+            link.classList.add('current-page');
+        } else if (href && currentPage.startsWith(href) && href !== '/') {
+            // For subpages, check if current page starts with the link href
+            link.classList.add('current-page-sub');
+        }
+    });
+}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+    highlightCurrentPage();
+});
+
+// Also call it when the URL changes 
+window.addEventListener('popstate', function() {
+    setTimeout(highlightCurrentPage, 100);
+});
+
+
+//--------------------------------------------------------------------------------------------------
 
 //scroll to top button
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 
 let scrollTopBtn = document.getElementById("scroll-top");

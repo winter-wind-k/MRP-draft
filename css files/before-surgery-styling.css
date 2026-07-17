@@ -11,7 +11,7 @@ ul.breadcrumb li {
 }
 
 ul.breadcrumb li a {
-    color: green;
+    color: #5ba773;
 }
 
 ul.breadcrumb li+li:before {

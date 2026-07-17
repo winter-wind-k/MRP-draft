@@ -179,7 +179,6 @@ function setSize(smaller) {
 
 // update active button states
 function updateActiveButtons() {
-    // remove active class from all skin tone buttons
     document.querySelectorAll('.skin-tone-button').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -188,17 +187,22 @@ function updateActiveButtons() {
     const activeToneButton = document.querySelector(`[onclick="setTone('${state.tone}')"]`);
     if (activeToneButton) {
         activeToneButton.classList.add('active');
+
+        const activeColor = getComputedStyle(activeToneButton).backgroundColor;
+
+        // make active skin tone color a css property
+        document.documentElement.style.setProperty('--active-skin-tone', activeColor);
     }
 
-    // remove active class from all body size buttons
     document.querySelectorAll('.body-size-button').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // add active class to current body size button
+    // add active class and active skin tone to current body size button 
     const activeSizeButton = document.querySelector(`[onclick="setSize('${state.size}')"]`);
     if (activeSizeButton) {
         activeSizeButton.classList.add('active');
+        activeSizeButton.classList.add('--active-skin-tone', activeColor);
     }
 }
 
@@ -206,6 +210,10 @@ function updateActiveButtons() {
 document.addEventListener('DOMContentLoaded', function () {
     updateActiveButtons();
 });
+
+//--------------------------------------------------------------------------------------------------
+// body size buttons change to the color of the active skin tone button
+//--------------------------------------------------------------------------------------------------
 
 
 //--------------------------------------------------------------------------------------------------
@@ -383,51 +391,6 @@ function checkFirstCheckbox() {
     }
 }
 
-
-// debug automatic vnectomy selection
-function handleCheckboxChange(event) {
-    const checkbox = event.target;
-    console.log(`Checkbox changed: ID=${checkbox.id}, Value=${checkbox.value}, Checked=${checkbox.checked}`);
-
-    // no change to images if simple meta is clicked
-    if (checkbox.id === '1') {
-        console.log("First checkbox changed - skipping image update");
-
-        // Only update active states, not image
-        updateActiveButtons();
-        updateCheckboxActiveStates();
-        updateLabels();
-
-        // prevent simple meta from being unchecked
-        if (!checkbox.checked) {
-            checkbox.checked = true;
-            console.log("Prevented unchecking of first checkbox");
-        }
-        return;
-    }
-
-    // automatically check vaginectomy if ul is selected
-    if (checkbox.id === '4' && checkbox.checked) {
-        const secondCheckbox = document.getElementById('2');
-        if (secondCheckbox) {
-            secondCheckbox.checked = true;
-            console.log('Fourth checkbox selected - automatically checked second checkbox');
-
-            setTimeout(() => {
-                secondCheckbox.dispatchEvent(new Event('change'));
-            }, 10);
-        } else {
-            console.log('Second checkbox not found when fourth was checked');
-        }
-    }
-
-    updateImage();
-    updateActiveButtons();
-    updateCheckboxActiveStates();
-    updateLabels();
-}
-
-
 // load random permutation on page load
 function loadRandomImage() {
     console.log("Loading random image permutation...");
@@ -463,17 +426,16 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const firstCheckbox = document.getElementById('1');
     if (firstCheckbox) {
-        // Prevent any interaction with the first checkbox
-        firstCheckbox.addEventListener('click', function(e) {
+        firstCheckbox.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             return false;
         });
-        
-        firstCheckbox.addEventListener('change', function(e) {
+
+        firstCheckbox.addEventListener('change', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            this.checked = true; // Force it to stay checked
+            this.checked = true;
             console.log("First checkbox prevented from being unchecked");
             return false;
         });
