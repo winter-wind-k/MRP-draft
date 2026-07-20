@@ -81,6 +81,7 @@ procedureCheckboxes.forEach(cb => {
 });
 
 
+
 function updateImage() {
     console.log("update image function is working :)")
 
@@ -113,7 +114,6 @@ function updateImage() {
 
     updateLabels();
 }
-
 
 //--------------------------------------------------------------------------------------------------
 // skin tone button functions
@@ -151,7 +151,6 @@ function setTone(dark) {
     updateImage();
 }
 
-
 //--------------------------------------------------------------------------------------------------
 // body size button functions
 //--------------------------------------------------------------------------------------------------
@@ -171,7 +170,6 @@ function setSize(smaller) {
     state.size = smaller;
     updateImage();
 }
-
 
 //--------------------------------------------------------------------------------------------------
 // showing active state of buttons
@@ -208,13 +206,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //--------------------------------------------------------------------------------------------------
-// body size buttons change to the color of the active skin tone
-//--------------------------------------------------------------------------------------------------
-
-
-//--------------------------------------------------------------------------------------------------
 // showing active state of checkboxes
 //--------------------------------------------------------------------------------------------------
+
 
 // event listeners for checkboxes v2 
 function setupCheckboxListeners() {
@@ -314,9 +308,9 @@ function checkRandomCheckboxes() {
     // create array of indices for checkboxes 2-4 (excluding first one)
     const availableIndices = [1, 2, 3];
 
-    // randomly select 0-3 of remaining checkboxes 
-    const numberOfAdditionalChecks = Math.floor(Math.random() * 4);
-    const checkedBoxes = [0]; // always check simple meta
+    // Randomly select 0-3 of the remaining checkboxes 
+    const numberOfAdditionalChecks = Math.floor(Math.random() * 4); // 0-3 additional checks
+    const checkedBoxes = [0]; // Always check simple meta
 
     for (let i = 0; i < numberOfAdditionalChecks; i++) {
         if (availableIndices.length > 0) {
@@ -387,6 +381,50 @@ function checkFirstCheckbox() {
     }
 }
 
+
+// debug automatic vnectomy selection
+function handleCheckboxChange(event) {
+    const checkbox = event.target;
+    console.log(`Checkbox changed: ID=${checkbox.id}, Value=${checkbox.value}, Checked=${checkbox.checked}`);
+
+    // no change to images if simple meta is clicked
+    if (checkbox.id === '1') {
+        console.log("First checkbox changed - skipping image update");
+
+        // Only update active states, not image
+        updateActiveButtons();
+        updateCheckboxActiveStates();
+        updateLabels();
+
+        // prevent simple meta from being unchecked
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+            console.log("Prevented unchecking of first checkbox");
+        }
+        return;
+    }
+
+    // automatically check vaginectomy if ul is selected
+    if (checkbox.id === '4' && checkbox.checked) {
+        const secondCheckbox = document.getElementById('2');
+        if (secondCheckbox) {
+            secondCheckbox.checked = true;
+            console.log('Fourth checkbox selected - automatically checked second checkbox');
+
+            setTimeout(() => {
+                secondCheckbox.dispatchEvent(new Event('change'));
+            }, 10);
+        } else {
+            console.log('Second checkbox not found when fourth was checked');
+        }
+    }
+
+    updateImage();
+    updateActiveButtons();
+    updateCheckboxActiveStates();
+    updateLabels();
+}
+
 // load random permutation on page load
 function loadRandomImage() {
     console.log("Loading random image permutation...");
@@ -416,24 +454,16 @@ document.addEventListener('DOMContentLoaded', function () {
 // user selection restrictions
 //--------------------------------------------------------------------------------------------------
 
-// note - restriction that links vnectomy and ul checkboxes included in checkboxes section
 
-// stop image update from occuring if first checkbox is clicked (simple meta always on)
+// users can't uncheck simple meta (delete if pre-op images are added)
 document.addEventListener('DOMContentLoaded', function () {
     const firstCheckbox = document.getElementById('1');
     if (firstCheckbox) {
-        firstCheckbox.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
-        
-        firstCheckbox.addEventListener('change', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            this.checked = true;
-            console.log("First checkbox prevented from being unchecked");
-            return false;
+        firstCheckbox.addEventListener('change', function () {
+            if (!this.checked) {
+                this.checked = true;
+                console.log("Simple Meta checkbox was prevented from being unchecked.");
+            }
         });
     }
 });
@@ -450,6 +480,72 @@ function checkFirstCheckbox() {
 document.addEventListener('DOMContentLoaded', function () {
     checkFirstCheckbox();
 });
+
+
+// stop image update from occuring if first checkbox is clicked (simple meta always on)
+document.addEventListener('DOMContentLoaded', function () {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        
+        firstCheckbox.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
+        firstCheckbox.addEventListener('change', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.checked = true; // Force it to stay checked
+            console.log("First checkbox prevented from being unchecked");
+            return false;
+        });
+    }
+});
+
+
+// debug simple meta lock and automatic vnectomy selection
+function handleCheckboxChange(event) {
+    const checkbox = event.target;
+    console.log(`Checkbox changed: ID=${checkbox.id}, Value=${checkbox.value}, Checked=${checkbox.checked}`);
+
+    // no change to images if simple meta is clicked
+    if (checkbox.id === '1') {
+        console.log("First checkbox changed - skipping image update");
+
+        // Only update active states, not image
+        updateActiveButtons();
+        updateCheckboxActiveStates();
+        updateLabels();
+
+        // prevent simple meta from being unchecked
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+            console.log("Prevented unchecking of first checkbox");
+        }
+        return;
+    }
+
+    // automatically check vaginectomy if ul is selected
+    if (checkbox.id === '4' && checkbox.checked) {
+        const secondCheckbox = document.getElementById('2');
+        if (secondCheckbox) {
+            secondCheckbox.checked = true;
+            console.log('Fourth checkbox selected - automatically checked second checkbox');
+
+            setTimeout(() => {
+                secondCheckbox.dispatchEvent(new Event('change'));
+            }, 10);
+        } else {
+            console.log('Second checkbox not found when fourth was checked');
+        }
+    }
+
+    updateImage();
+    updateActiveButtons();
+    updateCheckboxActiveStates();
+    updateLabels();
+}
 
 
 

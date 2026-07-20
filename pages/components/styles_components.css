@@ -53,10 +53,6 @@ p {
     line-height: 1.5;
 }
 
-.dark-mode a:any-link {
-    color: #79d696;
-}
-
 
 div.content-item .ul .li p {
     line-height: 1.5;
@@ -72,6 +68,10 @@ div.content-item .ul .li p {
     margin-top: 0px;
     margin-bottom: 20px;
     line-height: 1.5;
+}
+
+.goals-text p {
+    margin-top: 10px;
 }
 
 .content-item.ul p {
@@ -120,70 +120,14 @@ header {
     filter: drop-shadow(2px 2px 3px rgb(27, 27, 27));
 }
 
-/* .title-column {
-    width: 70%;
-    overflow: auto;
-}
-
-.summary-column {
-    width: 30%;
-}
-
-.page-titles-container {
-    margin-top: 10px;
-    margin-left: 90px;
-    margin-right: 0px;
-    width: 70%;
-}
-
-div.page-titles-container.breadcrumb-container {
-    margin-top: 30px;
-    margin-left: 90px;
-    padding-left: 0px;
-}
-
-.page-titles-container h1 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    line-height: 1.1;
-}
-
 .page-top-container {
     display: flex;
-    columns: 2;
-}
-
-@media (max-width: 900px) {
-    .page-top-container {
-        display: block;
-        height: fit-content;
-    }
-
-    .page-titles-container {
-        width: 100%;
-        height: fit-content;
-    }
-
-    .summary-column {
-        width: 100%;
-    }
-
-    .summary-box-test {
-        width: 100%;
-        height: fit-content;
-        float: none;
-    }
-} */
-
-.page-top-container {
-    display: flex;
-    width: 100%;
     gap: 20px;
-    padding: 0px 0px 20px 0px;
+    padding: 0px 0px 0px 0px;
     box-sizing: border-box;
     max-width: 1200px;
-    padding-left: 0;
-    padding-right: 12vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
 }
 
 .page-titles-container {
@@ -240,16 +184,11 @@ div.title-column.boys-page-title {
 }
 
 .summary-box-test {
-        padding: 15px;
-    border-radius: 5px;
-    width: 100%;
     background-color: var(--light-grey);
     border-radius: 15px;
     padding-top: 20px;
-    padding-right: 30px;
     padding-left: 25px;
     padding-bottom: 5px;
-    margin-right: 0px;
     margin-left: 0px;
     margin-top: 11px;
     margin-bottom: 0px;
@@ -303,8 +242,7 @@ div.page-titles-container.breadcrumb-container {
 @media (max-width: 1200px) {
     .page-top-container {
         flex-direction: column;
-        padding: 20px;
-        padding-top: 0px;
+        padding: 0px 0px 20px 0px;
     }
 
     .page-titles-container {
@@ -331,17 +269,14 @@ div.page-titles-container.breadcrumb-container {
     }
 
     div.page-titles-container.breadcrumb-container {
-        margin-left: 20px;
+        margin-left: 5vw;
     }
 }
 
 @media (min-width: 1200px) {
-    .page-top-container {
-        margin-left: 5vw;
-    }
 
     div.page-titles-container.breadcrumb-container {
-        margin-left: 70px;
+        margin-left: 5vw;
     }
 }
 
@@ -426,16 +361,19 @@ nav {
     }
 }
 
+
+
+
 /* REDO with another technique to avoid default popups */
 /* styling text and popups for glossary terms */
-/* text of term */
+/* text of term 
 i {
     font-style: normal;
     cursor: pointer;
     position: relative;
 }
 
-/* styling for popup box */
+/* styling for popup box 
 i::after {
     content: attr(title);
     position: absolute;
@@ -454,7 +392,7 @@ i::after {
 
 i:hover::after {
     opacity: 1;
-}
+} */
 
 
 /* styling for dark mode toggle */
@@ -675,45 +613,18 @@ body {
     margin-left: -12px;
 }
 
-/* ----------------------------------------------------------------------------------------------- */
-
-.nav-links.active {
+a.nav-links.active {
     background-color: white;
     border-radius: 10px;
-    font-weight: bold;
-    margin: 10px 0;
     padding: 10px 15px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: var(--dark-green);
 }
 
-.nav-links.active::after {
+a.nav-links.active::after {
     content: '';
 }
-
-/*
-a.current-page {
-    background-color: white;
-    color: white !important;
-    font-weight: bold;
-    border-radius: 4px;
-}
-
-.dark-mode a.current-page {
-    background-color: var(--dark-highlight-color);
-    color: white !important;
-}
-
-/* Active submenu items 
-a.current-page-sub {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: var(--dark-green) !important;
-}
-
-.dark-mode a.current-page-sub {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white !important;
-} */
-
-/* ----------------------------------------------------------------------------------------------- */
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
@@ -1244,6 +1155,7 @@ hr.summary-line {
     display: flex;
     width: 100%;
     padding: 0;
+    gap: 15px;
 }
 
 .captioned-image {
@@ -1259,8 +1171,14 @@ hr.summary-line {
     align-self: center;
 }
 
+.option-item .content-image img {
+    margin-top: 0px;
+}
+
 div.content-section.meta-options img {
     width: 50%;
+    border-radius: 15px;
+    gap: 10px;
 }
 
 .option-item img {
@@ -1274,7 +1192,12 @@ div.content-section.meta-options img {
 }
 
 div.content-section.meta-options {
-    margin-bottom: 30px;
+    margin: 0px 5vw 30px 0px;
+    background-color: var(--light-green);
+    padding: 15px 30px;
+    border-radius: 15px;
+    filter: drop-shadow(1px 1px 2px grey);
+    width: 94%;
 }
 
 
@@ -1575,11 +1498,11 @@ ul.breadcrumb li {
 }
 
 ul.breadcrumb li a {
-    color: var(--mid-green);
+    color: green;
 }
 
 .dark-mode ul.breadcrumb li a {
-    color: #79d696;
+    color: var(--light-green);
 }
 
 ul.breadcrumb li+li:before {
@@ -1729,6 +1652,10 @@ div.goals-menu.overview {
 
 /* styling table for meta and phallo comparison
 /* tables https://www.w3schools.com/html/html_tables.asp search "HTML table tags" in dev view for a table code example */
+div.paragraph-section.meta-v-phallo {
+    margin-bottom: 0px;
+}
+
 .table-section {
     margin-right: 90px;
     margin-left: 90px;
@@ -1747,7 +1674,7 @@ div.goals-menu.overview {
 
 .meta-phallo-table {
     display: table;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 30px;
     border: solid 2px var(--light-grey);
     padding: 10px;
@@ -1766,7 +1693,11 @@ tr.thead {
     position: sticky;
     top: 0px;
     background: var(--light-green);
-    border: solid 2px var(--dark-green);
+    border-bottom: solid 2px var(--dark-green);
+}
+
+.meta-phallo-table th.column-1 {
+    width: 200px;
 }
 
 
@@ -1788,10 +1719,12 @@ tr.thead {
 
 td.title-column {
     text-align: left;
+    width: 200px;
 }
 
 th.title-column {
     text-align: left;
+    width: 200px;
 }
 
 .meta-phallo-table tr {

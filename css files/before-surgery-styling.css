@@ -705,9 +705,6 @@ div.paragraph-section.consults-intro {
     margin-bottom: 20px;
 }
 
-div.paragraph-section.before-after {
-    display: flex;
-}
 
 div.captioned-image.non-ideal-anatomy {
     margin: 20px;
@@ -744,8 +741,9 @@ div.captioned-image.related-surgeries p {
 }
 
 div.paragraph-section.before-after {
-    margin-bottom: 0px;
     display: flex;
+    width: 80%;
+    margin: 0 auto 30px auto;
 }
 
 div.paragraph-section.before-after-intro {

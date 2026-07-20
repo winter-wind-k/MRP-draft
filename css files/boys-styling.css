@@ -102,7 +102,8 @@ div.paragraph-section.boys-intro {
 
 .dark-mode .procedure-options {
     background-color: var(--dark-green);
-    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+    border: none;
     color: white;
 }
 
@@ -207,6 +208,10 @@ span.procedure-checkbox.simple {
     background-color: var(--light-grey);
 }
 
+.dark-mode span.procedure-checkbox.simple {
+    background-color: #4b4b4b;
+}
+
 .procedure-names {
     font-size: 14px;
     align-items: center;
@@ -218,13 +223,24 @@ span.procedure-checkbox.simple {
     background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+.dark-mode .procedure-line:hover input~.procedure-checkbox {
+    background-color: #4b4b4b;
+}
+
 .procedure-line input:checked~.procedure-checkbox {
     background-color: white;
 }
 
+.dark-mode .procedure-line input:checked~.procedure-checkbox {
+    background-color: var(--dark-green);
+}
+
 .procedure-line input:checked~.procedure-checkbox.simple {
     background-color: rgb(222, 222, 222);
+}
+
+.dark-mode .procedure-line input:checked~.procedure-checkbox.simple {
+    background-color: #777777;
 }
 
 /* create checkmark (hidden when not checked) */
@@ -234,6 +250,10 @@ span.procedure-checkbox.simple {
     color: var(--dark-green);
     vertical-align: middle;
     flex-shrink: 0;
+}
+
+.dark-mode .procedure-checkbox:after {
+    color: white;
 }
 
 /* show checkmark when checked */
@@ -268,7 +288,8 @@ span.procedure-checkbox.simple {
 
 .dark-mode .skin-tone-container {
     background-color: var(--dark-green);
-    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+    border: none;
     color: white;
 }
 
@@ -334,7 +355,8 @@ span.procedure-checkbox.simple {
 
 .dark-mode .body-size-container {
     background-color: var(--dark-green);
-    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+    border: none;
     color: white;
 }
 
@@ -373,7 +395,7 @@ span.procedure-checkbox.simple {
 .button-controls {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     width: fit-content;
     margin-top: 10px;
     ;
@@ -437,10 +459,10 @@ button.body-size-button.active::after {
 
 .dark-mode .blur-button-container {
     background-color: var(--dark-green);
-    filter: drop-shadow(1px 1px 1px rgb(67, 67, 67));
+    filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+    border: none;
     color: white;
 }
-
 
 .blur-button-container img {
     width: 20px;
@@ -736,6 +758,11 @@ button.body-size-button.active::after {
     border: 2px solid rgb(212, 212, 212);
     padding: 5px;
     border-radius: 10px;
+}
+
+.dark-mode .boys-tool-illustration img {
+    border: none;
+    background-color: white;
 }
 
 /* all image elements alignment */
