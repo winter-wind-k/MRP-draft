@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages/components/styles_components.css">
+    <link rel="stylesheet" href="/css files/boys-styling.css">
+    <link rel="stylesheet" href="/css files/before-surgery-styling.css">
+    <link rel="icon" href="images/favicon.png">
+    <title>Build-Out-Your-Surgery</title>
+</head>
+
+<body>
+    <div data-include="/pages/components/header.html"></div>
+    <div class="menu">
+        <div data-include="/pages/components/menu.html"></div>
+    </div>
+
+    <!-- all main content needs to be in this div id=main format instead of just the <main> tag so that it gets pushed to the side by the menu opening -->
+    <div id="main">
+        <main>
+            <div class="page-titles-container">
+                <ul class="breadcrumb">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/2. Before Surgery/1. FAQ-before.html">Before Surgery</a></li>
+                    <li><a>Build Out Your Surgery (BOYS)</a></li>
+                    <h1>Build Out Your Surgery (BOYS)</h1>
+            </div>
+
+            <div>
+                <div class="paragraph-section">
+
+                    <div class="content-section">
+                        <p>This tool can show you what meta might look like on your body. You can choose from different
+                            types of meta, different skin tones, and different body types to see what your post-surgery
+                            body
+                            may look like.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <p>While anyone can explore this tool, we recommend that you know a little bit about meta before
+                            using
+                            it. If you don’t already have some background knowledge, you might find it helpful to read
+                            the
+                            Overview first.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="disclaimer-box">
+                            <p><b>Disclaimer:</b> There are many factors that affect what your results might look like,
+                                including the
+                                size of your penis before surgery and your body’s healing process. While this tool can
+                                show
+                                you
+                                potential results, keep in mind that your actual results may vary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--note to self make a lightbox that can fullscreen and hold the boys tool-->
+
+            <div class="boys-container">
+                <div class="boys-container">
+
+                    <div class="selection-options">
+
+                        <div class="collapsible-menu" id="mobileMenu">
+                            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                                <h3>Selection Options</h3>
+                                <span class="arrow">▼</span>
+                            </div>
+
+                            <div class="collapsible-content active">
+                                <div class="procedure-options">
+                                    <div class="boys-titles">Procedure</div>
+
+                                    <div class="all-procedures-container">
+                                        <form autocomplete="off">
+                                            <div class="procedures-form">
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="1" id="1">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Simple Meta</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="2" id="2"
+                                                            onchange="console.log('inline change triggered')">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Vaginectomy</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="3" id="3">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Scrotoplasty</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input onclick="autoVaginectomy()" type="checkbox"
+                                                            class="procedure-checkbox-input" value="4" id="4">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Urethral Lengthening</div>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
+
+                                </div>
+
+                                <!--original skin tone buttons-->
+                                <div class="skin-tone-container">
+                                    <div class="boys-titles">Skin Tone</div>
+                                    <div class="skin-tone-buttons" id="skinTones" role="radiogroup"
+                                        aria-label="Skin tone">
+
+                                        <button onclick="setTone('light')" id="light-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #ebdbd7;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('olive')" id="olive-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #d3af87;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('medium')" id="medium-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #814f34;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('dark')" id="dark-skin-button" class="skin-tone-button"
+                                            style="background-color: #5b340f;">&ZeroWidthSpace;</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="body-size-container">
+                                    <div class="boys-titles">Body Size</div>
+                                    <div class="body-size-buttons">
+                                        <button onclick="setSize('smaller')" id="smaller-size-button"
+                                            class="body-size-button"
+                                            style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
+                                        <button onclick="setSize('larger')" id="larger-size-button"
+                                            class="body-size-button">&ZeroWidthSpace;</button>
+                                    </div>
+                                </div>
+
+                                <div class="button-controls">
+                                    <div class="blur-button-container">
+                                        <button class="blur-button-class" id="blur-button">
+                                            <!--fix this so that icon switches with button press 
+                            <img id="blur-button-icon" src="/images/image-unblurred-placeholder.svg" /> -->
+                                            <div>Unblur Images</div>
+                                        </button>
+                                    </div>
+
+                                    <div class="boys-toggle-container">
+                                        <div class="boys-toggle-items">
+                                            <label class="labels-toggle">
+                                                <input onclick="toggleLabelsFromImage()" type="checkbox"
+                                                    id="boys-labels-toggle">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="desktop-layout" id="desktopLayout">
+                            <div class="selection-options">
+
+                                <div class="procedure-options">
+                                    <div class="boys-titles">Procedure</div>
+
+                                    <div class="all-procedures-container">
+                                        <form autocomplete="off">
+                                            <div class="procedures-form">
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="1" id="1">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Simple Meta</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="2" id="2"
+                                                            onchange="console.log('inline change triggered')">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Vaginectomy</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input type="checkbox" class="procedure-checkbox-input"
+                                                            value="3" id="3">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Scrotoplasty</div>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label class="procedure-line">
+                                                        <input onclick="autoVaginectomy()" type="checkbox"
+                                                            class="procedure-checkbox-input" value="4" id="4">
+                                                        <span class="procedure-checkbox"></span>
+                                                        <div class="procedure-names" p>Urethral Lengthening</div>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!--add hover box over UL that indicates vnect has to be performed with it? or build into image?-->
+
+                                </div>
+
+                                <!--original skin tone buttons-->
+                                <div class="skin-tone-container">
+                                    <div class="boys-titles">Skin Tone</div>
+                                    <div class="skin-tone-buttons" id="skinTones" role="radiogroup"
+                                        aria-label="Skin tone">
+
+                                        <button onclick="setTone('light')" id="light-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #ebdbd7;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('olive')" id="olive-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #d3af87;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('medium')" id="medium-skin-button"
+                                            class="skin-tone-button"
+                                            style="background-color: #814f34;">&ZeroWidthSpace;</button>
+
+                                        <button onclick="setTone('dark')" id="dark-skin-button" class="skin-tone-button"
+                                            style="background-color: #5b340f;">&ZeroWidthSpace;</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="body-size-container">
+                                    <div class="boys-titles">Body Size</div>
+                                    <div class="body-size-buttons">
+                                        <button onclick="setSize('smaller')" id="smaller-size-button"
+                                            class="body-size-button"
+                                            style="width: 25px; height: 25px">&ZeroWidthSpace;</button>
+                                        <button onclick="setSize('larger')" id="larger-size-button"
+                                            class="body-size-button">&ZeroWidthSpace;</button>
+                                    </div>
+                                </div>
+
+                                <div class="button-controls">
+                                    <div class="blur-button-container">
+                                        <button class="blur-button-class" id="blur-button">
+                                            <!--fix this so that icon switches with button press 
+                            <img id="blur-button-icon" src="/images/image-unblurred-placeholder.svg" /> -->
+                                            <div>Unblur Images</div>
+                                        </button>
+                                    </div>
+
+                                    <div class="boys-toggle-container">
+                                        <div class="boys-toggle-items">
+                                            <label class="labels-toggle">
+                                                <input onclick="toggleLabelsFromImage()" type="checkbox"
+                                                    id="boys-labels-toggle">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <script>
+                    function toggleCollapsible(header) {
+                        const content = header.nextElementSibling;
+                        const arrow = header.querySelector('.arrow');
+
+                        // Toggle the active class on content
+                        content.classList.toggle('active');
+
+                        // Toggle the active class on header for arrow rotation
+                        header.classList.toggle('active');
+                    }
+                </script>
+
+                    <style>
+                        .desktop-layout {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 20px;
+                            justify-content: center;
+                        }
+
+                        .selection-items,
+                        .skin-tone-container,
+                        .body-size-container,
+                        .button-controls {
+                            flex: 1 1 200px;
+                            min-width: 200px;
+                        }
+
+                        /* Collapsible menu for smaller screens */
+                        @media (max-width: 900px) {
+                            .selection-options {
+                                --gap: 16px;
+                                --num-cols: 2;
+                                --num-rows: 2;
+                                --row-width: 300px;
+                                box-sizing: border-box;
+                                padding: var(--gap);
+                                display: grid;
+                                grid-template-columns: repeat(var(--num-cols), 1fr);
+                                grid-template-rows: repeat(var(--num-rows), 1fr);
+                                gap: 10px;
+                                width: min(100%, 760px);
+                                margin: 0 auto;
+                                align-items: center;
+                                text-align: center;
+                                align-content: center;
+                                align-self: center;
+                            }
+
+                            /* Add collapsible menu styles */
+                            .collapsible-menu {
+                                position: relative;
+                                width: 100%;
+                                max-width: 300px;
+                                margin: 0 auto;
+                                align-items: center;
+                                align-self: center;
+                            }
+
+                            .collapsible-header {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 10px 15px;
+                                background-color: #f0f0f0;
+                                border: 1px solid #ddd;
+                                cursor: pointer;
+                                border-radius: 5px;
+                                margin-bottom: 10px;
+                                align-self: center;
+                            }
+
+                            .collapsible-header h3 {
+                                margin: 0;
+                                font-size: 16px;
+                                color: #364b47;
+                            }
+
+                            .collapsible-content {
+                                display: none;
+                                padding: 10px 0;
+                                border: 1px solid #ddd;
+                                border-top: none;
+                                border-radius: 0 0 5px 5px;
+                                background-color: white;
+                            }
+
+                            .collapsible-content.active {
+                                display: block;
+                                z-index: 1000;
+                                overflow: hidden;
+                            }
+
+                            /* Ensure form elements are properly displayed */
+                            .procedures-form {
+                                width: 100%;
+                                columns: 1;
+                                text-align: left;
+                                gap: 5px;
+                                flex-shrink: 0;
+                            }
+
+                            /* Adjust procedure lines for mobile */
+                            .procedure-line {
+                                width: 100%;
+                                padding: 5px 0;
+                            }
+
+                            .procedure-names {
+                                font-size: 14px;
+                                padding-top: 0;
+                            }
+
+                            /* Adjust other containers for mobile */
+                            .procedure-options {
+                                width: 100%;
+                                max-width: 300px;
+                                margin: 0 auto;
+                                align-self: center
+                            }
+
+                            .skin-tone-container,
+                            .body-size-container,
+                            .blur-button-container {
+                                width: 100%;
+                                max-width: 300px;
+                                margin: 0 auto;
+                            }
+                        }
+
+                        @media (max-width: 900px) {
+                            .collapsible-content:not(.active) {
+                                display: none !important;
+                            }
+                        }
+
+                        @media (max-width: 900px) {
+                            .collapsible-menu {
+                                display: block;
+                            }
+
+                            .desktop-layout {
+                                display: none;
+                            }
+                        }
+                    </style>
+
+                    <script>
+                        function toggleCollapsible(header) {
+                            const content = header.nextElementSibling;
+                            const arrow = header.querySelector('.arrow');
+
+                            content.classList.toggle('active');
+
+                            if (content.classList.contains('active')) {
+                                arrow.textContent = '▲';
+                            } else {
+                                arrow.textContent = '▼';
+                            }
+                        }
+
+                        function toggleCollapsible(header) {
+                            const content = header.nextElementSibling;
+                            const arrow = header.querySelector('.arrow');
+
+                            // Toggle the active class on content
+                            content.classList.toggle('active');
+
+                            // Toggle the active class on header for arrow rotation
+                            header.classList.toggle('active');
+                        }
+
+                        function toggleCollapsible(element) {
+                            const content = element.nextElementSibling;
+                            const arrow = element.querySelector('.arrow');
+
+                            if (content.style.display === 'block') {
+                                content.style.display = 'none';
+                                arrow.innerHTML = '▼';
+                            } else {
+                                content.style.display = 'block';
+                                arrow.innerHTML = '▲';
+                            }
+                        }
+
+                        // Hide desktop layout on mobile and show mobile menu
+                        function adjustLayout() {
+                            const desktopLayout = document.getElementById('desktopLayout');
+                            const mobileMenu = document.getElementById('mobileMenu');
+
+                            if (window.innerWidth <= 900) {
+                                desktopLayout.style.display = 'none';
+                                mobileMenu.style.display = 'block';
+                            } else {
+                                desktopLayout.style.display = 'flex';
+                                mobileMenu.style.display = 'none';
+                            }
+                        }
+
+                        // Initial check
+                        adjustLayout();
+                        window.addEventListener('resize', adjustLayout);
+                    </script>
+
+                    <div class="boys-images-container">
+
+                        <div class="front-view-container">
+
+                            <div class="front-view-text">
+                                <div class="boys-image-titles">Front View</div>
+                                <a href="/images/boys-tool-illustrations/front/front-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
+                                    download="front_view">
+                                    <button id="front-view-download">
+                                        <img src="/images/download-button-placeholder.svg" />
+                                        <!--https://www.w3schools.com/howto/howto_html_download_link.asp-->
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="boys-tool-illustration blurred-image">
+                                <img src="/images/boys-tool-illustrations/medium_larger_13.jpg"
+                                    id="boys-tool-image"></img>
+                            </div>
+
+                        </div>
+
+                        <div class="inner-view-container">
+
+                            <div class="inner-view-text-toggle">
+                                <div class="inner-view-text">
+                                    <div class="boys-image-titles">Inner View</div>
+                                    <!--figure out how to switch download function to any displayed image, not just one set image-->
+                                    <a href="/images/boys-tool-illustrations/inner/inner-simpleScrotoplastyVaginectomyUL-medium-large.jpg"
+                                        download="inner_view">
+                                        <button id="inner-view-download">
+                                            <img src="/images/download-button-placeholder.svg" />
+                                        </button>
+                                    </a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="labeled-image-container">
+                                <div style="font-size:1vw">
+                                    <div id="boys-labels" class="boys-labels-class">
+                                        <div class="phallus-text">Phallus</div>
+                                        <div class="urethra-text">Urethra</div>
+                                        <div class="implant-text">Testicular implant</div>
+                                        <div class="vagina-text">Vagina (closed)</div>
+                                        <div class="bladder-text">Bladder</div>
+                                    </div>
+                                </div>
+                                <div class="boys-tool-illustration blurred-image">
+                                    <img
+                                        src="/images/boys-tool-illustrations/inner/inner-simpleScrotoplastyVaginectomyUL-medium-large.jpg"></img>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+        </main>
+    </div>
+
+
+    <div data-include="/pages/components/footer.html"></div>
+    <script src="/JS files/include.js"></script>
+    <script src="/JS files/boys-tool.js"></script>
+    <script src="/JS files/image-viewer.js"></script>
+</body>
+
+</html>

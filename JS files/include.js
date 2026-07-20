@@ -1,3 +1,5 @@
+console.log("js file is being loaded :)")
+
 async function loadIncludes() {
   // Find every element that has a data-include attribute
   const targets = document.querySelectorAll("[data-include]");
@@ -31,7 +33,7 @@ function setActiveNav() {
   currentPage = currentPage.split("?")[0].split("#")[0];
 
   // 2) Get all links in the navigation
-  const links = document.querySelectorAll(".nav-links a");
+  const links = document.querySelectorAll(".nav-links");
 
   // 3) Compare each link file name with the current page
   links.forEach((link) => {
@@ -43,6 +45,7 @@ function setActiveNav() {
 
     // Remove query/hash from the link too
     linkPage = linkPage.split("?")[0].split("#")[0];
+    console.log(linkPage);
 
     // Clear old active states first
     link.classList.remove("active");
@@ -50,7 +53,6 @@ function setActiveNav() {
     // If this link matches the current page, highlight it
     if (linkPage === currentPage) {
       link.classList.add("active");
-
     }
   });
 }
@@ -142,11 +144,11 @@ function switchTheme() {
   }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //for tutorial overlay:
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
 //for sidebar nav:
 const MOBILE_MENU_BREAKPOINT = 900;
@@ -216,12 +218,21 @@ function myFunction(x) {
   x.classList.toggle("change");
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
-//download button
+//download button for pdfs
+
+//--------------------------------------------------------------------------------------------------
+
+// to be implemented (as a stretch goal)
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
+
+//dropdown menus
+
+//--------------------------------------------------------------------------------------------------
+
 
 //overview goals menu 
 var acc = document.getElementsByClassName("goals-button");
@@ -229,11 +240,8 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
       panel.style.display = "none";
@@ -248,7 +256,8 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
+    var current = document.getElementsByClassName("active");
+
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -258,19 +267,17 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------
 
-// before surgery faq menu
+
+// faq menus
 var acc = document.getElementsByClassName("question-button");
 var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
       panel.style.display = "none";
@@ -285,7 +292,46 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+    // https://www.w3schools.com/howto/howto_js_active_element.asp
+
+    console.log("active class applied")
+
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+//--------------------------------------------------------------------------------------------------
+
+//sidebar menu
+var acc = document.getElementsByClassName("collapsible-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
+
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+var acc = document.getElementsByClassName("collapsible-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -296,9 +342,13 @@ for (i = 0; i < acc.length; i++) {
 }
 
 
+//--------------------------------------------------------------------------------------------------
+
 //scroll to top button
 
-// Get the button:
+//--------------------------------------------------------------------------------------------------
+
+
 let scrollTopBtn = document.getElementById("scroll-top");
 
 // show button after scrolling (hidden when at top of page)
@@ -312,9 +362,8 @@ function scrollFunction() {
   }
 }
 
-// scroll to top function
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
 }
 

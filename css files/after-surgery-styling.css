@@ -1,0 +1,522 @@
+div.paragraph-section.recovery-intro {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.paragraph-section.complications-intro-section {
+    margin-top: 20px;
+}
+
+div.paragraph-section.lower-btm-margin {
+    margin-bottom: 15px;
+}
+
+@media (max-width:768px) {
+    .affective-image {
+        width: 100vw;
+        text-align: center;
+        align-items: center;
+        float: left;
+        padding: 15px;
+    }
+
+    .affective-image img {
+        padding: 15px;
+    }
+}
+
+.recovery-intro-image {
+    width: 30vw;
+    float: left;
+    margin-right: 30px;
+    transform: translateY(-30px);
+}
+
+.recovery-intro-section {
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+.recovery-intro-section .content-item {
+    margin-bottom: 0px;
+}
+
+/* recovery timeline https://codepen.io/iqbaltaher/pen/abbXRxb */
+
+.recovery-timeline {
+    counter-reset: none;
+    position: relative;
+    color: black;
+    width: 150%;
+    padding-left: 0px;
+
+}
+
+.dark-mode .recovery-timeline {
+    color: white;
+}
+
+.recovery-timeline li {
+    list-style: none;
+    float: left;
+    width: 11%;
+    position: relative;
+    text-align: center;
+    color: black;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.recovery-timeline li #text {
+    margin-top: 5px;
+}
+
+.dark-mode .recovery-timeline li {
+    color: white;
+}
+
+ul:nth-child(1) {
+    color: black;
+}
+
+.dark-mode ul:nth-child(1) {
+    color: white;
+}
+
+.recovery-timeline li:before {
+    counter-increment: test;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 3px solid #4d407c;
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    margin: 0 auto 0px auto;
+    background: #4d407c;
+    color: #000;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.dark-mode .recovery-timeline li:before {
+    color: white;
+    border: 3px solid #c9c2d5;
+    background: #c9c2d5;
+}
+
+.recovery-timeline li::before {
+    margin-bottom: 15px;
+}
+
+.recovery-timeline li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #4d407c;
+    top: 10px;
+    left: -50%;
+    z-index: -999;
+    transition: all ease-in-out .3s;
+}
+
+.dark-mode .recovery-timeline li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #c9c2d5;
+    top: 10px;
+    left: -50%;
+    z-index: -999;
+    transition: all ease-in-out .3s;
+}
+
+.recovery-timeline li:first-child:after {
+    content: none;
+}
+
+.recovery-timeline li.active-tl {
+    color: black;
+}
+
+.dark-mode .recovery-timeline li.active-tl {
+    color: white;
+}
+
+.recovery-timeline li.active-tl:before {
+    background: #4d407c;
+    color: #F1F1F1;
+}
+
+.dark-mode .recovery-timeline li.active-tl:before {
+    background: #c9c2d5;
+}
+
+.recovery-timeline li.active-tl+li:after {
+    background: #4d407c;
+}
+
+.dark-mode .recovery-timeline li.active-tl+li:after {
+    background: #c9c2d5;
+}
+
+.recovery-timeline-container {
+    margin-bottom: 40px;
+}
+
+@media (max-width:900px) {
+    .recovery-timeline {
+        display: none;
+        min-width: 620px;
+    }
+}
+
+.affective-image {
+    float: right;
+}
+
+.showering-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    transform: translateY(-20px);
+}
+
+/* pain management section and icon rows */
+div.paragraph-section.pain-management-intro {
+    margin-bottom: 0px;
+}
+
+.pain-management-container {
+    display: grid;
+    columns: 2;
+    --gap: 16px;
+    --num-cols: 2;
+    --num-rows: 2;
+    --row-width: 100%;
+    --row-height: fit-content;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: var(--gap);
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 65px;
+}
+
+.pain-management-row {
+    gap: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 30px;
+    align-items: center;
+    background-color: var(--light-green);
+    filter: drop-shadow(1px 1px 2px grey);
+}
+
+.pain-management-icon img {
+    width: 150px;
+    text-align: center;
+    float: right;
+}
+
+.pain-management-text {
+    text-align: left;
+    align-items: center;
+}
+
+.pain-management-text p {
+    margin: 0px;
+}
+
+@media (max-width: 1070px) {
+    .pain-management-icon img {
+        float: none;
+        text-align: center;
+        width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .pain-management-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        --row-height: fit-content;
+    }
+
+    .pain-management-row {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .pain-management-icon {
+        margin-left: 30px;
+    }
+
+    .pain-management-text {
+        text-align: left;
+        align-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .pain-management-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px;
+    }
+
+    .pain-management-icon {
+        margin-left: 0px;
+    }
+
+    .pain-management-text {
+        text-align: left;
+        align-self: center;
+    }
+}
+
+.snacks-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+}
+
+
+/* formatting catheter image grid */
+div.paragraph-section.catheter-section {
+    margin-bottom: 10px;
+}
+
+div.content-item.catheter-list ul li {
+    line-height: 1.5;
+}
+
+p.catheter-text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.catheter-images {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+.catheter-sagittal {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+div.content-item.catheter-image-container {
+    display: grid;
+    --num-cols: 2;
+    --num-rows: 2;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 30px;
+        --row-height: fit-content;
+}
+
+@media (max-width: 900px) {
+div.content-item.catheter-image-container {
+    display: grid;
+    --num-cols: 1;
+    --num-rows: 4;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: 25px;
+    width: 100%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+}
+
+div.content-item.catheter-image-container p {
+    font-size: 16px;
+}
+
+.catheter-bag-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.catheter-bag-container {
+    display: grid;
+    --num-cols: 2;
+    --num-rows: 1;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-template-rows: repeat(var(--num-rows), 1fr);
+    gap: 25px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+.catheter-bag-container {
+    display: grid;
+    --num-cols: 2;
+    --num-rows: 1;
+    gap: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+img.catheter-bag-image {
+    border-radius: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+}
+
+.driving-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+}
+
+.scar-massage-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    transform: translateY(-40px);
+}
+
+.complications-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+div.paragraph-section.serious-complications {
+    background: var(--light-grey);
+    border-radius: 15px;
+    padding: 25px 40px;
+}
+
+.dark-mode div.paragraph-section.serious-complications {
+    background: var(--dark-green);
+}
+
+@media (max-width: 900px) {
+    .complications-image {
+        margin-left: 0px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        float: none;
+        border-radius: 30px;
+    }
+}
+
+.checkpoint-image {
+    width: 15vw;
+    float: left;
+    margin: 0px 60px 40px 40px;
+}
+
+
+.checkpoint-text {
+    margin-top: 40px;
+}
+
+.content-section .disclaimer-box {
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+}
+
+p.disclaimer-box.complications-disclaimers {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+p.disclaimer-box.hysto-box {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.fistula-text {
+    margin-bottom: 25px;
+}
+
+div.content-item.fistula-image-container {
+    display: grid;
+    --num-cols: 2;
+    --num-rows: 2;
+    float: right;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    gap: 0px;
+    width: 50%;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+div.content-item.fistula-image-container .fistula-text {
+    height: 40px;
+}
+
+.fistula-images {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    div.content-item.fistula-image-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+div.paragraph-section.fistula-section {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    div.paragraph-section.fistula-section {
+        margin-bottom: 30px;
+    }
+}
+
+ol {
+    margin-left: 5px;
+}
