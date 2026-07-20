@@ -7,6 +7,10 @@
 // toggle switch ID and class  id="boys-labels-toggle"  class="labels-toggle"   
 
 
+//--------------------------------------------------------------------------------------------------
+// labels toggle
+//--------------------------------------------------------------------------------------------------
+
 const labelsToggle = document.querySelector("#boys-labels-toggle")
 const boysLabels = document.querySelector("#boys-labels")
 
@@ -19,8 +23,19 @@ if (labelsToggle && boysLabels) {
     syncBoysLabels();
 }
 
+console.log("boys page file is linked :)")
 
-//blur inner view images
+
+//--------------------------------------------------------------------------------------------------
+// different labels sets based on images
+//--------------------------------------------------------------------------------------------------
+
+
+
+//--------------------------------------------------------------------------------------------------
+// blur button
+//--------------------------------------------------------------------------------------------------
+
 var blurButton = document.getElementById('blur-button');
 var boysImages = document.querySelectorAll('.boys-tool-illustration');
 
@@ -31,7 +46,5 @@ blurButton.addEventListener('click', () => {
 
     const isBlurred = boysImages[0].classList.contains('blurred-image');
     blurButton.textContent = isBlurred ? 'Unblur Images' : 'Blur Images';
+
 });
-
-
-

@@ -57,8 +57,9 @@ header {
     padding-right: 2rem;
     position: sticky;
     top: 0;
-    z-index: 221;
-    margin: 0, 0, 0, 0;
+    z-index: 1000;
+    margin: 0;
+    filter: drop-shadow(2px 2px 3px grey);
 }
 
 .page-titles-container {
@@ -113,6 +114,7 @@ nav {
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
+
 }
 
 /* SS Comment: Keep utility icons in the header aligned with the theme controls. */
@@ -123,8 +125,8 @@ nav {
 }
 
 .header-icon-link img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 /* SS Comment: Increase download button contrast in header so it remains clearly visible. */
@@ -132,11 +134,13 @@ nav {
     background-color: var(--light-grey);
     border-radius: 999px;
     padding: 3px;
+    height: 33px;
+    width: 33px;
 }
 
 .header-download-link img {
-    width: 28px;
-    height: 28px;
+    width: 25px;
+    height: 25px;
     filter: brightness(0) saturate(100%) invert(28%) sepia(7%) saturate(552%) hue-rotate(122deg) brightness(93%) contrast(90%);
 }
 
@@ -178,8 +182,6 @@ i:hover::after {
 }
 
 
-
-
 /* styling for dark mode toggle */
 body {
     font-family: var(--body-text);
@@ -194,9 +196,22 @@ body {
     background-color: var(--dark-grey-text);
 }
 
+.dark-mode p {
+    color: white;
+}
+
+.dark-mode h1 {
+    color: var(--light-green);
+}
+
+.dark-mode h2 {
+    color: var(--light-green);
+}
+
 .dark-mode-text {
     color: #ffffff;
 }
+
 
 .toggle-container {
     display: flex;
@@ -206,7 +221,7 @@ body {
 }
 
 .toggle-button {
-    border: 2px solid var(--dark-grey-text);
+    border: NONE;
     background-color: var(--light-grey);
     border-radius: 30px;
     width: 42px;
@@ -222,19 +237,24 @@ body {
     width: 15px;
     height: 15px;
     position: absolute;
-    top: 1px;
-    left: 1px;
+    top: 3px;
+    left: 3px;
     transition: left 0.5s;
 }
 
 .toggle-button.active {
     background-color: var(--dark-grey-text);
     border-color: #fff;
+    content: "";
 }
 
 .toggle-button.active .toggle-circle {
-    left: 24px;
+    left: 23px;
     background-color: #fff;
+}
+
+.header-buttons button.toggle-button.active::after {
+    content: "";
 }
 
 .theme-info {
@@ -255,7 +275,6 @@ body {
 
 
 .tutorial-button {
-    /*border: 2px solid var(--dark-grey-text); */
     background-color: var(--light-grey);
     border-radius: 30px;
     width: 40px;
@@ -263,6 +282,8 @@ body {
     position: relative;
     cursor: pointer;
     font: var(--header-text);
+    border: none;
+    color: var(--dark-grey-text);
 }
 
 /* Sidebar nav */
@@ -276,22 +297,30 @@ body {
     height: calc(100vh - var(--sticky-header-offset));
     width: var(--desktop-menu-width);
     position: fixed;
-    <<<<<<< HEAD
+    /* HEAD
     /* SS Comment: Keep side menu below the main top menu while scrolling. */
     top: var(--sticky-header-offset);
-    =======
     /* Stay in place */
     z-index: 10;
     /* Stay on top */
     /* top: 0; Stay at the top */
-    >>>>>>>60def21c6b3fc282e0135606328c196263857cff left: 0;
+    left: 0;
     z-index: 90;
     background-color: var(--light-grey);
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: 15px;
     padding-left: 15px;
+    padding-bottom: 40px;
     transition: height 0.35s ease;
+}
+
+.dark-mode .sidenav {
+    background-color: var(--dark-green);
+}
+
+.dark-mode .sidenav a {
+    color: white;
 }
 
 /* The navigation menu links */
@@ -307,6 +336,10 @@ body {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: var(--dark-grey-text);
+}
+
+.dark-mode .sidenav a:hover {
+    color: var(--light-green);
 }
 
 /* Position and style the close button (top right corner) */
@@ -328,6 +361,7 @@ body {
     list-style: none;
     margin-top: 0;
     font-size: 16px;
+    margin-left: -12px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -397,16 +431,34 @@ body {
 /* Quick escape button */
 .quick-esc-button {
     cursor: pointer;
-    border: 2px solid var(--dark-grey-text);
+    border: none;
     background-color: white;
+    color: var(--dark-grey-text);
+    padding: 10px;
+    border-radius: 100px;
+    height: 18px;
+    width: 18px;
 }
 
-.quick-escape-button {
+.quick-esc-button li {
+    font-style: normal;
+    color: var(--dark-grey-text);
+    text-decoration: none;
+}
+
+.quick-esc-button a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+/* .quick-escape-button {
     background-color: white;
     cursor: pointer;
     border: 2px solid black;
     border-radius: 1000px;
-}
+} */
 
 .top-stuff {
     display: none;
@@ -430,6 +482,36 @@ footer {
     max-width: 100%;
     /* SS Comment: Animate footer shift so it moves smoothly with menu open/close. */
     transition: transform .5s;
+}
+
+.dark-mode footer {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+/* FIX THIS BC RN TEXT WONT CHANGE COLOR AND IDK WHY */
+.dark-mode .footer-section h1 {
+    color: var(--light-green);
+}
+
+.dark-mode .footer-section h2 {
+    color: var(--light-green);
+}
+
+.dark-mode .footer-section p {
+    color: white;
+}
+
+.dark-mode .footer-section a {
+    color: var(--light-green);
+}
+
+.dark-mode .footer-section li {
+    color: var(--light-green);
+}
+
+.dark-mode div#footer-right li {
+    color: var(--light-green);
 }
 
 /* SS Comment: Animate shift on footer include wrapper for pages where wrapper receives margin changes. */
@@ -600,6 +682,10 @@ hr {
     margin-top: 15px;
 }
 
+.dark-mode .disclaimer-box {
+    background-color: var(--dark-green);
+}
+
 .content-section .indent {
     padding-left: 15px;
 }
@@ -634,6 +720,10 @@ div.content-section.overview-complications {
     width: 100%;
     height: auto;
     margin-top: 20px;
+}
+
+.home-page img {
+    width: 100%;
 }
 
 
@@ -673,9 +763,43 @@ br.indent {
     margin: 30px 100px 50px 100px;
 }
 
+.summary-box.glossary-box {
+    margin: 30px 100px 30px 100px;
+}
+
+.glossary-box p {
+    margin-top: 0px;
+}
+
+.dark-mode .summary-box {
+    background-color: var(--dark-green);
+}
+
+.dark-mode .summary-box p {
+    color: white;
+}
+
+.dark-mode .summary-box li {
+    color: var(--light-green);
+}
+
+.dark-mode .summary-box li {
+    color: var(--light-green);
+}
+
+.dark-mode ul {
+    color: white;
+}
+
 @media (max-width: 900px) {
     .summary-box {
         margin: 30px 15px 50px 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .summary-box.glossary-box {
+        margin: 30px 10px 50px 10px;
     }
 }
 
@@ -738,16 +862,39 @@ br.indent {
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-template-rows: repeat(var(--num-rows), 1fr);
     gap: var(--gap);
-    /* SS Comment: Constrain the gallery width so the 2x2 cards stay aligned and centered. */
     width: min(100%, 760px);
     margin: 0 auto;
+    z-index: 1;
 }
 
 .lab-gallery img {
-    width: 100%;
-    height: 100%;
+    width: 60%;
     object-fit: cover;
+    padding: 15px;
     border: var(--border-style);
+    margin-top: 25px;
+}
+
+.home-gallery-button {
+    background-color: var(--light-green);
+    border-radius: 15px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px;
+    filter: drop-shadow(0px 6px 4px grey);
+    z-index: 1;
+}
+
+.dark-mode .home-gallery-button {
+    background-color: var(--dark-green);
+    filter: drop-shadow(0px 6px 4px rgb(27, 27, 27));
+}
+
+.home-gallery-button p {
+    font-size: 1.5vw;
+    margin-bottom: 25px;
 }
 
 .gallery-cols-2 {
@@ -766,9 +913,6 @@ br.indent {
     align-items: center;
 }
 
-.home-page img {
-    width: 100%;
-}
 
 /* Responsive ish content styling */
 @media (max-width: 900px) {
@@ -783,6 +927,10 @@ br.indent {
 
     h1 {
         font-size: 36px;
+    }
+
+    .home-gallery-button p {
+        font-size: 12px;
     }
 }
 
@@ -817,9 +965,19 @@ ul.breadcrumb li a {
     color: green;
 }
 
+.dark-mode ul.breadcrumb li a {
+    color: var(--light-green);
+}
+
 ul.breadcrumb li+li:before {
     padding: 8px;
     color: black;
+    content: "->\00a0";
+}
+
+.dark-mode ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: rgb(255, 255, 255);
     content: "->\00a0";
 }
 
@@ -851,7 +1009,7 @@ ul.breadcrumb li+li:before {
     background-color: var(--light-grey);
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 18px 18px 10px 18px;
     width: 99%;
     align-content: center;
     align-self: center;
@@ -867,10 +1025,19 @@ ul.breadcrumb li+li:before {
     margin-left: 4px;
 }
 
+.dark-mode .goals-button {
+    background-color: var(--dark-green);
+    color: white;
+}
+
 /* change color on hover */
 .active,
 .goals-button:hover {
     background-color: #ccc;
+}
+
+.dark-mode .goals-button:hover {
+    background-color: #7d9591;
 }
 
 /* hidden text in dropdowns */
@@ -885,18 +1052,25 @@ ul.breadcrumb li+li:before {
     border-right: solid 2px var(--light-grey);
 }
 
-/* changing +/- - does not change signs yet! :/ */
+/* changing +/- */
 .goals-button:after {
-    content: '\02795';
-    font-size: 13px;
+    content: '+';
+    font-size: 26px;
     color: var(--dark-green);
     float: right;
-    margin-left: 5px;
+    transform: translateY(-5px);
+}
+
+.dark-mode .goals-button:after {
+    color: white;
 }
 
 .active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+    content: "-";
+}
+
+.dark-mode .active:after {
+    color: white;
 }
 
 /* styling table for meta and phallo comparison
@@ -912,13 +1086,13 @@ ul.breadcrumb li+li:before {
 
 
 .meta-phallo-table td {
-    padding: 5px;
+    padding: 10px;
     border: solid 2px var(--light-grey);
     text-align: center;
 }
 
 .meta-phallo-table th {
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     font-style: normal;
 }
@@ -932,7 +1106,7 @@ th.title-column {
 }
 
 .meta-phallo-table tr {
-    padding: 5px;
+    padding: 10px;
     border: solid 2px var(--light-grey);
 }
 
@@ -965,6 +1139,12 @@ tr.category-row {
     font-size: 22px;
     font-style: bold;
     padding-bottom: 5px;
+}
+
+.dark-mode .scroll-top-btn {
+    background-color: var(--light-green);
+    color: var(--dark-grey-text);
+    filter: drop-shadow(1px 1px 2px rgb(20, 20, 20));
 }
 
 /* NOTE change the active and visited link text colors */

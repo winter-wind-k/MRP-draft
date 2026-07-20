@@ -62,6 +62,8 @@ div.paragraph-section.boys-intro {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* title styling */
@@ -303,6 +305,22 @@ div.paragraph-section.boys-intro {
     gap: 10px;
     width: fit-content;
 }
+
+/* active button styling */
+button.skin-tone-button.active::after {
+    content: "✔";
+    color: white;
+}
+
+button.body-size-button.active::after {
+    content: "✔";
+    color: white;
+}
+
+.body-size-button.active {
+    background-color: #814f34;
+}
+
 
 /* blur button */
 .blur-button-container {
@@ -584,13 +602,13 @@ input:checked+.slider:after {
     position: absolute;
     padding-left: 7px;
     margin-top: 3px;
-    right: 41%;
+    right: 46%;
 }
 
 /* Neophallus label */
 div.labels-container.phallus-text {
     bottom: 40%;
-    left: -4%;
+    left: -1%;
 }
 
 /* Urethra label */
@@ -599,14 +617,14 @@ div.labels-container.urethra-text {
     left: 39%;
 }
 
-.simple-vnect-ul-labels .urethra-text {
+div.boys-labels-class.simple-vnect-ul-labels .labels-container.urethra-text {
     top: 49%;
-    left: 24%;
+    left: 26%;
 }
 
-.full-meta-labels .urethra-text {
+div.boys-labels-class.full-meta-labels .labels-container.urethra-text {
     top: 49%;
-    left: 24%;
+    left: 26%;
 }
 
 /* Scrotum label */

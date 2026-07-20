@@ -36,6 +36,13 @@ ul.breadcrumb li+li:before {
     text-align: center;
 }
 
+@media (max-width: 900px) {
+    .faq-menu {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+}
+
 .faq-page-title h1 {
     margin: 0px;
 }
@@ -56,12 +63,24 @@ ul.breadcrumb li+li:before {
     padding-bottom: 2px;
 }
 
+.dark-mode .faq-menu {
+    background-color: var(--dark-grey-text);
+}
+
+div.faq-menu.faq-submenu {
+    margin-bottom: 0px;
+}
+
+div.paragraph-section.faq-submenu {
+    margin-bottom: 10px;
+}
+
 /* lines in closed menu */
 .question-button {
     background-color: var(--light-grey);
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 18px 18px 10px 18px;
     width: 99%;
     text-align: left;
     border: none;
@@ -74,10 +93,19 @@ ul.breadcrumb li+li:before {
     margin-left: 4px;
 }
 
+.dark-mode .question-button {
+    background-color: var(--dark-green);
+    color: white;
+}
+
 /* change color on hover */
 .active,
 .question-button:hover {
     background-color: #ccc;
+} 
+
+.dark-mode .question-button:hover {
+    background-color: #7d9591;
 }
 
 /* hidden text in dropdowns */
@@ -93,20 +121,27 @@ ul.breadcrumb li+li:before {
     border-radius: 0px;
 }
 
-/* changing +/- - does not change signs yet! :/ */
+.dark-mode .answer-text {
+    background-color: var(--dark-grey-text);
+    color: white;
+}
+
+/* changing +/- */
 .question-button:after {
-    content: '\02795';
-    font-size: 13px;
+    content: '+';
+    font-size: 26px;
     color: var(--dark-green);
     float: right;
-    margin-left: 5px;
+    transform: translateY(-5px);
+}
+
+.dark-mode .question-button:after {
+    color: white;
 }
 
 .active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+    content: "-";
 }
-
 
 
 /* Surgery timeline https://codepen.io/iqbaltaher/pen/abbXRxb */
@@ -212,6 +247,7 @@ p.disclaimer-box.prepare-your-mind {
         width: 100vw;
         text-align: center;
         align-items: center;
+        float: none;
     }
 }
 
@@ -637,5 +673,71 @@ div.paragraph-section.recovery-room {
 }
 
 div.paragraph-section.funding-ideas {
+    margin-bottom: 0px;
+}
+
+div.paragraph-section.consults-intro {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.consult-image {
+    width: 25vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.exam-image {
+    width: 30vw;
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+div.paragraph-section.before-after {
+    display: flex;
+}
+
+div.captioned-image.non-ideal-anatomy {
+    padding: 20px;
+}
+
+div.captioned-image.related-surgeries {
+    padding: 20px;
+}
+
+div.captioned-image.non-ideal-anatomy img {
+    width: 100%;
+    margin: 10px;
+}
+
+div.captioned-image.related-surgeries img {
+    width: 100%;
+    margin: 10px;
+}
+
+div.captioned-image.non-ideal-anatomy p {
+    font-size: 22px;
+    text-align: center;
+}
+
+div.captioned-image.related-surgeries p {
+    font-size: 18px;
+    text-align: center;
+}
+
+div.paragraph-section.before-after {
+    margin-bottom: 0px;
+    display: flex;
+}
+
+div.paragraph-section.before-after-intro {
+    margin-bottom: 0px;
+    display: block;
+}
+
+div.paragraph-section.hysto-intro {
     margin-bottom: 0px;
 }

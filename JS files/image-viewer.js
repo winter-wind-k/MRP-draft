@@ -1,7 +1,7 @@
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 // buttons to add skin tone and body size function
 // coding help from Jake (thank you Jake)
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 // state aspects for skin tone and body size
 let state = {
@@ -47,6 +47,21 @@ procedureCheckboxes.forEach(cb => {
 
 
 // update image based on skin tone and body size buttons
+function updateImage() {
+    console.log("update image function is working :)")
+
+    const checkboxPart = getCheckboxPart();
+    console.log("checkboxPart", checkboxPart);
+
+    const fileName = `${state.tone}_${state.size}_${getCheckboxPart()}.jpg`
+    console.log("fileName:", fileName);
+
+    const img = document.getElementById("boys-tool-image");
+    console.log("image element:", img)
+
+    img.src = `/images/boys-tool-illustrations/front/${fileName}`;
+    console.log("new src:", img.src);
+}
 
 function updateImage() {
     console.log("update image function is working :)")
@@ -65,11 +80,24 @@ function updateImage() {
 
     console.log("new inner src:", innerImg.src);
     console.log("new front src:", frontImg.src);
+
+    if (innerImg && frontImg) {
+        innerImg.src = `/images/boys-tool-illustrations/inner/${fileName}`;
+        frontImg.src = `/images/boys-tool-illustrations/front/${fileName}`;
+
+        console.log("New inner src:", innerImg.src);
+        console.log("New front src:", frontImg.src);
+
+        // Update active button states
+        updateActiveButtons();
+    } else {
+        console.error("Image elements not found!");
+    }
 }
 
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 // skin tone button functions
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 // set light skin tone 
 function setTone(light) {
@@ -103,9 +131,9 @@ function setTone(dark) {
     updateImage();
 }
 
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 // body size button functions
-//-------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 // set larger body size
 function setSize(larger) {
@@ -122,3 +150,259 @@ function setSize(smaller) {
     state.size = smaller;
     updateImage();
 }
+
+//--------------------------------------------------------------------------------------------------
+// showing active state of buttons
+//--------------------------------------------------------------------------------------------------
+
+// Function to update active button states
+function updateActiveButtons() {
+    // Remove active class from all skin tone buttons
+    document.querySelectorAll('.skin-tone-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add active class to current skin tone button
+    const activeToneButton = document.querySelector(`[onclick="setTone('${state.tone}')"]`);
+    if (activeToneButton) {
+        activeToneButton.classList.add('active');
+    }
+
+    // Remove active class from all body size buttons
+    document.querySelectorAll('.body-size-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add active class to current body size button
+    const activeSizeButton = document.querySelector(`[onclick="setSize('${state.size}')"]`);
+    if (activeSizeButton) {
+        activeSizeButton.classList.add('active');
+    }
+}
+
+// Initialize active button states on page load
+document.addEventListener('DOMContentLoaded', function () {
+    updateActiveButtons();
+});
+
+//--------------------------------------------------------------------------------------------------
+// showing active state of checkboxes
+//--------------------------------------------------------------------------------------------------
+
+// Automatically check vaginectomy when UL is checked off -- NOT WORKING
+function autoVaginectomy() {
+    if (document.getElementbyId('#4').checked) {
+        console.log('checked');
+        document.getElementById("#2").checked = true
+
+    } else {
+        console.log('unchecked');
+    }
+}
+
+// Add event listeners to checkboxes
+function setupCheckboxListeners() {
+    const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            console.log("Checkbox changed:", this.value, this.checked);
+
+            // Update state with current checkbox values
+            updateCheckboxState();
+
+            // Update image display
+            updateImage();
+        });
+    });
+}
+
+// Update checkbox state from DOM
+function updateCheckboxState() {
+    const selectedCheckboxes = Array.from(document.querySelectorAll('.procedure-checkbox-input'))
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    state.checkboxes = selectedCheckboxes;
+    console.log("Updated checkbox state:", state.checkboxes);
+}
+
+// Update active states of checkboxes
+function updateCheckboxActiveStates() {
+    const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
+
+    checkboxes.forEach(checkbox => {
+        const label = checkbox.closest('.procedure-line');
+        if (label) {
+            if (checkbox.checked) {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateCheckboxActiveStates();
+});
+
+//--------------------------------------------------------------------------------------------------
+// toggle different label sets based on images shown
+//--------------------------------------------------------------------------------------------------
+
+
+
+//--------------------------------------------------------------------------------------------------
+// random permutation of images appears on page load -- ADD IN PART WITH CHECKBOXES TO MAKE FULLY FUNCTIONAL
+//--------------------------------------------------------------------------------------------------
+
+// skin tone and body size random selection
+function getRandomPermutation() {
+    const tones = ["light", "olive", "medium", "dark"];
+    const sizes = ["larger", "smaller"];
+
+    const shuffledTones = [...tones].sort(() => Math.random() - 0.5);
+    const shuffledSizes = [...sizes].sort(() => Math.random() - 0.5);
+
+    return {
+        tone: shuffledTones[0],
+        size: shuffledSizes[0]
+    };
+}
+
+// random procedure selection
+function checkRandomCheckboxes() {
+    const checkboxes = document.querySelectorAll('.procedure-checkbox-input');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // always check simple meta
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.checked = true;
+        console.log('First checkbox (Simple Meta) automatically checked');
+    }
+
+
+    // create array of indices for checkboxes 2-4 (excluding first one)
+    const availableIndices = [1, 2, 3];
+
+    // Randomly select 0-3 of the remaining checkboxes 
+    const numberOfAdditionalChecks = Math.floor(Math.random() * 4); // 0-3 additional checks
+    const checkedBoxes = [0]; // Always check simple meta
+
+    for (let i = 0; i < numberOfAdditionalChecks; i++) {
+        if (availableIndices.length > 0) {
+            const randomIndex = Math.floor(Math.random() * availableIndices.length);
+            const selectedIndex = availableIndices.splice(randomIndex, 1)[0];
+            checkedBoxes.push(selectedIndex);
+        }
+    }
+
+    checkedBoxes.forEach(index => {
+        if (checkboxes[index]) {
+            checkboxes[index].checked = true;
+            console.log(`Checked checkbox ${index + 1}`);
+        }
+    });
+
+
+    // vnect automatically checks off with ul
+    const fourthCheckbox = document.getElementById('4');
+    const secondCheckbox = document.getElementById('2');
+
+    if (fourthCheckbox && secondCheckbox) {
+        console.log(`Fourth checkbox checked: ${fourthCheckbox.checked}`);
+        console.log(`Second checkbox checked: ${secondCheckbox.checked}`);
+
+        if (fourthCheckbox.checked && !secondCheckbox.checked) {
+            secondCheckbox.checked = true;
+            console.log('Automatically checked vnect because ul is checked');
+        }
+    } else {
+        console.log('Fourth or second checkbox not found');
+        if (!fourthCheckbox) console.log('Fourth checkbox (ID: 4) not found');
+        if (!secondCheckbox) console.log('Second checkbox (ID: 2) not found');
+    }
+
+    return checkedBoxes;
+}
+
+
+// random image loads on page load
+function initializePage() {
+    loadRandomImage();
+
+    checkRandomCheckboxes();
+
+    updateImage();
+    updateActiveButtons();
+
+    console.log("Page loaded with random permutation and checkboxes");
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    initializePage();
+});
+
+// always check off simple meta
+function checkFirstCheckbox() {
+    const firstCheckbox = document.getElementById('1');
+    if (firstCheckbox) {
+        firstCheckbox.checked = true;
+        console.log('First checkbox (Simple Meta) automatically checked');
+    }
+}
+
+
+// debug automatic vnectomy selection
+function handleCheckboxChange(event) {
+    const checkbox = event.target;
+    console.log(`Checkbox changed: ID=${checkbox.id}, Value=${checkbox.value}, Checked=${checkbox.checked}`);
+
+    // automatically check vaginectomy if ul is selected
+    if (checkbox.id === '4' && checkbox.checked) {
+        const secondCheckbox = document.getElementById('2');
+        if (secondCheckbox) {
+            secondCheckbox.checked = true;
+            console.log('Fourth checkbox selected - automatically checked second checkbox');
+
+            setTimeout(() => {
+                secondCheckbox.dispatchEvent(new Event('change'));
+            }, 10);
+        } else {
+            console.log('Second checkbox not found when fourth was checked');
+        }
+    }
+
+    updateImage();
+    updateActiveButtons();
+}
+
+// load random permutation on page load
+function loadRandomImage() {
+    console.log("Loading random image permutation...");
+
+    const randomPermutation = getRandomPermutation();
+
+    state.tone = randomPermutation.tone;
+    state.size = randomPermutation.size;
+
+    console.log("Random permutation selected:", state);
+
+    updateActiveButtons();
+    updateImage();
+}
+
+
+// show active button states on page load and load random image
+document.addEventListener('DOMContentLoaded', function () {
+    loadRandomImage();
+
+    console.log("Page loaded with random permutation");
+});
+
+

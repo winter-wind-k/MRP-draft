@@ -272,6 +272,11 @@ p.disclaimer-box.complications-disclaimers {
     margin-top: 20px;
 }
 
+p.disclaimer-box.hysto-box {
+    padding: 20px;
+    margin-top: 20px;
+}
+
 .fistula-text {
     margin-bottom: 25px;
 }
@@ -314,7 +319,10 @@ div.paragraph-section.fistula-section {
 
 @media (max-width: 900px) {
     div.paragraph-section.fistula-section {
-    margin-bottom: 30px;
-}
+        margin-bottom: 30px;
+    }
 }
 
+ol {
+    margin-left: 5px;
+}
